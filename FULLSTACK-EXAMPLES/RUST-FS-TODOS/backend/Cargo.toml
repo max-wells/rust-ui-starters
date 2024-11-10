@@ -1,0 +1,47 @@
+[package]
+name = "rust-deploy"
+version = "0.1.0"
+edition = "2021"
+
+
+# [profile.dev]
+# opt-level = 0
+# [profile.release]
+# opt-level = 3
+# --> https://doc.rust-lang.org/book/ch14-01-release-profiles.html
+
+
+[dependencies]
+actix-cors = "0.7.0"
+actix-web = "4.3"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "macros", "uuid", "chrono"] }
+serde = { version = "1.0", features = ["derive"] }
+anyhow = "1.0"
+dotenvy = "0.15"
+
+# 
+log = "0.4"
+env_logger = "0.10.0"
+rand = "0.8.5"
+
+
+# Auth
+argon2 = "0.5.1"
+async-trait = "0.1.72"
+chrono = { version = "0.4.26", features = ["serde"] }
+dotenv = "0.15.0"
+futures-util = "0.3.28"
+jsonwebtoken = "9.2.0"
+openssl-probe = "0.1.5"
+serde_json = "1.0.104"
+utoipa = { version = "4.1.0", features = ["actix_extras", "chrono"] }
+utoipa-rapidoc = { version = "2.0.0", features = ["actix-web"] }
+utoipa-redoc = { version = "2.0.0", features = ["actix-web"] }
+utoipa-swagger-ui = { version = "5.0.0", features = ["actix-web"] }
+uuid = { version = "1.4.1", features = ["serde", "v4"] }
+validator = { version = "0.16.1", features = ["derive"] }
+lettre = "0.11.7"
+
+# SSL issues
+openssl = { version = "0.10", features = ["vendored"] }

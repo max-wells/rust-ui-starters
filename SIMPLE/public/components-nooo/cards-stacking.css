@@ -1,0 +1,41 @@
+
+.cards{
+  --card-top-offset: 1em;
+  gap: 1rem;
+}
+.cards > article{
+  
+	top: calc(var(--i) * var(--card-top-offset));
+  
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-range: cover) {
+      animation: adjust-cards linear both;
+      /*animation-duration: 1ms;*/
+      animation-timeline: view(block);
+      animation-range: cover calc(65% + var(--i) * 5%) exit calc(35% + var(--i) * 5%);
+    }
+    }
+}
+@keyframes adjust-cards{
+  to{
+    scale: .5;
+  }
+}
+
+
+
+
+
+
+
+
+
+.mainBody::after{
+  content: '';
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+}
