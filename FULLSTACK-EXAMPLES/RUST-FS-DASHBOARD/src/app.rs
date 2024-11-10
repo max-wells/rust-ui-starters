@@ -7,6 +7,7 @@ use leptos_router::{Route, Router, Routes};
 use crate::components::navbar::Navbar;
 use crate::components::tailwind_indicator::TailwindIndicator;
 use crate::error_template::{AppError, ErrorTemplate};
+use crate::routes::page_chart::PageChart;
 use crate::routes::page_home::HomePage;
 use crate::routes::page_persons::PagePersons;
 
@@ -39,6 +40,7 @@ pub fn App() -> impl IntoView {
                     <Routes>
                         <Route path="" view=HomePage />
                         <Route path="/persons" view=PagePersons />
+                        <Route path="/chart" view=PageChart />
                     </Routes>
                 </main>
             </Router>

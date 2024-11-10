@@ -67,6 +67,8 @@ pub fn AllPersons() -> impl IntoView {
         );
     };
 
+ 
+
     view! {
         <div class="flex flex-col gap-4 p-4 rounded-md bg-muted">
 

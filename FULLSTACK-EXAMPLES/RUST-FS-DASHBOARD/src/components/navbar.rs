@@ -11,6 +11,7 @@ pub fn Navbar() -> impl IntoView {
                     <div class="flex items-center space-x-4">
                         <a href="/">"Home"</a>
                         <a href="/persons">"Persons"</a>
+                        <a href="/chart">"Chart"</a>
                     </div>
 
                     <div class="flex items-center space-x-2">

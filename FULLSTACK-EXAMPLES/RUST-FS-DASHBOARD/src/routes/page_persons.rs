@@ -11,8 +11,6 @@ pub fn PagePersons() -> impl IntoView {
     view! {
         <Toaster>
             <div class="container flex flex-col gap-10 mx-auto mt-10">
-                <p class="text-orange-500">"TODO 👉 Chopper 1 livre / virer local"</p>
-
                 <div class="flex gap-10">
                     <FormPersonsToast />
                     <FormPersonsValidate />
