@@ -2,12 +2,12 @@ use leptos_query::*;
 use std::time::Duration;
 
 use crate::{
-    api::api_books::{get_all_books, get_book_by_id},
-    models::model_books::{
-        AllBooksTag,
-        MyBook,
-        BookId,
-        BookResponse,
+    api::api_persons::{get_all_persons, get_person_by_id},
+    models::model_persons::{
+        AllPersonsTag,
+        MyPerson,
+        PersonId,
+        PersonResponse,
     },
 };
 
@@ -19,11 +19,11 @@ const STALE_TIME_SECS: u64 = 300;
 /*                      ✨ HELPERS ✨                         */
 /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
-// TODO. this should receive a book_id I guess ? 🤔
+// TODO. this should receive a person_id I guess ? 🤔
 #[allow(non_snake_case)]
-pub fn useBookById() -> QueryScope<BookId, BookResponse> {
+pub fn usePersonById() -> QueryScope<PersonId, PersonResponse> {
     create_query(
-        get_book_by_id,
+        get_person_by_id,
         QueryOptions {
             stale_time: Some(Duration::from_secs(STALE_TIME_SECS)),
             ..Default::default()
@@ -33,9 +33,9 @@ pub fn useBookById() -> QueryScope<BookId, BookResponse> {
 
 
 #[allow(non_snake_case)]
-pub fn useAllBooks() -> QueryScope<AllBooksTag, Vec<MyBook>> {
+pub fn useAllPersons() -> QueryScope<AllPersonsTag, Vec<MyPerson>> {
     create_query(
-        |_| async move { get_all_books().await.unwrap_or_default() },
+        |_| async move { get_all_persons().await.unwrap_or_default() },
         QueryOptions {
             stale_time: Some(Duration::from_secs(STALE_TIME_SECS)),
             ..Default::default()

@@ -86,10 +86,10 @@ pub async fn create_person(
 }
 
 pub async fn delete_person(
-    book_id: web::Path<i32>,
+    person_id: web::Path<i32>,
     app_state: web::Data<AppState>,
 ) -> impl Responder {
-    let result = sqlx::query!("DELETE FROM persons WHERE id = $1", book_id.into_inner())
+    let result = sqlx::query!("DELETE FROM persons WHERE id = $1", person_id.into_inner())
         .execute(&app_state.pool)
         .await;
 
@@ -119,7 +119,7 @@ pub async fn update_person(
     body: web::Json<Person>,
     app_state: web::Data<AppState>,
 ) -> impl Responder {
-    let book_id = path.into_inner();
+    let person_id = path.into_inner();
 
     let result = sqlx::query_as!(
         Person,
@@ -129,13 +129,13 @@ pub async fn update_person(
         body.level,
         body.compensation,
         body.joined_date,
-        book_id
+        person_id
     )
     .fetch_one(&app_state.pool)
     .await;
 
     match result {
-        Ok(updated_book) => HttpResponse::Ok().json(updated_book),
+        Ok(updated_person) => HttpResponse::Ok().json(updated_person),
         Err(sqlx::Error::RowNotFound) => HttpResponse::NotFound().json(MyResponse {
             message: "Person not found".to_string(),
         }),

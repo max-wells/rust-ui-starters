@@ -1,22 +1,23 @@
+use chrono::NaiveDate;
 use leptos::*;
 use ev::SubmitEvent;
 use html::Input;
 use std::rc::Rc;
 use validator::{Validate, ValidationErrors};
 
-use crate::api::api_books::add_book;
+use crate::api::api_persons::add_person;
 use crate::components::toaster_custom::{toast::ToastVariant, types::Toasts};
 use crate::components::ui::{button::Button, headings::H2, input::Input};
-use crate::models::model_books::{ AllBooksTag, NewBook};
+use crate::models::model_persons::{ AllPersonsTag, NewPerson};
 use crate::models::form_validator_example::FormValidatorExample;
-use crate::utils::hooks::queries::queries_books::useAllBooks;
+use crate::utils::hooks::queries::queries_persons::useAllPersons;
 use crate::utils::toast_utils::{handle_error_toast, show_toast};
 
 
 
 #[component]
-pub fn FormBooksValidate() -> impl IntoView {
-    let all_server_books_query = Rc::new(useAllBooks());
+pub fn FormPersonsValidate() -> impl IntoView {
+    let all_server_persons_query = Rc::new(useAllPersons());
     let toast_context = expect_context::<Toasts>();
     
     let (title, set_title) = create_signal("TITLE".to_string());
@@ -29,11 +30,11 @@ pub fn FormBooksValidate() -> impl IntoView {
 
     // TODO. Improve this with a function
     let handle_success = {
-        let all_server_books_query = Rc::clone(&all_server_books_query);
+        let all_server_persons_query = Rc::clone(&all_server_persons_query);
         move || {
-            show_toast(toast_context, ToastVariant::Success, "✅ Book added");
+            show_toast(toast_context, ToastVariant::Success, "✅ Person added");
 
-            let _ = all_server_books_query.invalidate_query(AllBooksTag);
+            let _ = all_server_persons_query.invalidate_query(AllPersonsTag);
         }
     };
 
@@ -56,7 +57,7 @@ pub fn FormBooksValidate() -> impl IntoView {
     };
 
     let on_submit = {
-        // let all_server_books_query = Rc::clone(&all_server_books_query);
+        // let all_server_persons_query = Rc::clone(&all_server_persons_query);
         move |ev: SubmitEvent| {
             ev.prevent_default();
             validate_form();
@@ -71,18 +72,21 @@ pub fn FormBooksValidate() -> impl IntoView {
             set_title(value_input_title.clone());
             set_author(value_input_author.clone());
 
-            let new_server_book = NewBook {
+            let new_server_person = NewPerson {
                 title: value_input_title.clone(),
-                author: value_input_author.clone(),
+                name: value_input_author.clone(),
+                level: "".to_string(),
+                compensation: 0,
+                joined_date: NaiveDate::from_ymd_opt(2024, 1, 1).unwrap(),
             };
 
-            // Call the async function to add the book to the server
+            // Call the async function to add the person to the server
             wasm_bindgen_futures::spawn_local({
                 let handle_success = handle_success.clone();
                 // let toast_context = toast_context;
                 async move {
-                    match add_book(new_server_book).await {
-                        Ok(_server_book) => handle_success(),
+                    match add_person(new_server_person).await {
+                        Ok(_server_person) => handle_success(),
                         Err(_err) => handle_error_toast(toast_context),
                     }
                 }

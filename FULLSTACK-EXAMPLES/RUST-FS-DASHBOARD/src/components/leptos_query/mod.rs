@@ -1,3 +1,3 @@
 //
 //
-pub mod all_books;
+pub mod all_persons;
