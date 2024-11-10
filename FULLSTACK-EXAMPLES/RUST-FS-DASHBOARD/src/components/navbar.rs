@@ -10,7 +10,8 @@ pub fn Navbar() -> impl IntoView {
                 <nav class="flex flex-1 justify-between items-center">
                     <div class="flex items-center space-x-4">
                         <a href="/">"Home"</a>
-                        <a href="/books">"Books"</a>
+                        <a href="/persons">"Persons"</a>
+                        <a href="/chart">"Chart"</a>
                     </div>
 
                     <div class="flex items-center space-x-2">

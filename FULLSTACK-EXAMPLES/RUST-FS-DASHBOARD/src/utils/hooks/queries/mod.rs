@@ -1,1 +1,1 @@
-pub mod queries_books;
+pub mod queries_persons;

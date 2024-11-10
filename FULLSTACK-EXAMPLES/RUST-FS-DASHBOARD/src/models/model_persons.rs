@@ -1,28 +1,35 @@
+use chrono::NaiveDate;
 use leptos::ServerFnError;
 use serde::*;
 use std::fmt;
 
 #[derive(Hash, PartialEq, Eq, Clone, Copy, Debug, Serialize, Deserialize)]
-pub struct BookId(pub u32);
+pub struct PersonId(pub u32);
 
-// * 💁 Check delete_server_book_from_client, it's to avoid having id.0 since it's a tuple
-impl fmt::Display for BookId {
+// * 💁 Check delete_server_person_from_client, it's to avoid having id.0 since it's a tuple
+impl fmt::Display for PersonId {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "{}", self.0)
     }
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
-pub struct MyBook {
-    pub id: BookId,
+pub struct MyPerson {
+    pub id: PersonId,
+    pub name: String,
     pub title: String,
-    pub author: String,
+    pub level: String,
+    pub compensation: i32,
+    pub joined_date: NaiveDate,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
-pub struct NewBook {
+pub struct NewPerson {
+    pub name: String,
     pub title: String,
-    pub author: String,
+    pub level: String,
+    pub compensation: i32,
+    pub joined_date: NaiveDate,
 }
 
 /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
@@ -30,7 +37,7 @@ pub struct NewBook {
 /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
 // Read.
-pub type BookResponse = Result<Option<MyBook>, ServerFnError>;
+pub type PersonResponse = Result<Option<MyPerson>, ServerFnError>;
 
 //
 //
@@ -39,4 +46,4 @@ pub type BookResponse = Result<Option<MyBook>, ServerFnError>;
 /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
 #[derive(Debug, Hash, Eq, PartialEq, Clone)]
-pub struct AllBooksTag;
+pub struct AllPersonsTag;

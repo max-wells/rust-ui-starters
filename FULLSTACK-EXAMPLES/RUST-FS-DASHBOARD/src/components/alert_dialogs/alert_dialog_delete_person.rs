@@ -8,22 +8,22 @@ use crate::{
             AlertDialogSubmit, AlertDialogTitle, AlertDialogTrigger, AlertDialogVariant,
         },
     },
-    models::model_books::BookId,
+    models::model_persons::PersonId,
 };
 
 #[component]
-pub fn AlertDialogDeleteBook(
-    server_book_id: BookId,
-    handle_delete: impl Fn(BookId) + 'static,
-    set_selected_book_id: impl Fn(Option<BookId>) + 'static,
-    selected_book_id: Signal<Option<BookId>>,
+pub fn AlertDialogDeletePerson(
+    server_person_id: PersonId,
+    handle_delete: impl Fn(PersonId) + 'static,
+    set_selected_person_id: impl Fn(Option<PersonId>) + 'static,
+    selected_person_id: Signal<Option<PersonId>>,
 ) -> impl IntoView {
     view! {
         <>
             <AlertDialogTrigger
                 variant=AlertDialogVariant::Destructive
                 on:click=move |_| {
-                    set_selected_book_id(Some(server_book_id));
+                    set_selected_person_id(Some(server_person_id));
                 }
             >
                 <Trash2 class="size-4" />
@@ -37,7 +37,7 @@ pub fn AlertDialogDeleteBook(
                 <AlertDialogFooter>
                     <AlertDialogCancel>"Cancel"</AlertDialogCancel>
                     <AlertDialogSubmit on:click=move |_| {
-                        if let Some(id) = selected_book_id.get() {
+                        if let Some(id) = selected_person_id.get() {
                             handle_delete(id);
                         }
                     }>"Continue"</AlertDialogSubmit>

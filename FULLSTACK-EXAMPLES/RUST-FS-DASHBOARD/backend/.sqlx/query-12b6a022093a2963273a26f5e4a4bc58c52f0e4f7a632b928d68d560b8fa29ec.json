@@ -1,0 +1,57 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE persons SET title = $1, name = $2, level = $3, compensation = $4, joined_date = $5 WHERE id = $6 RETURNING id, title, name, level, compensation, joined_date",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "title",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "name",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "level",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "compensation",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 5,
+        "name": "joined_date",
+        "type_info": "Date"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Varchar",
+        "Varchar",
+        "Int4",
+        "Date",
+        "Int4"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "12b6a022093a2963273a26f5e4a4bc58c52f0e4f7a632b928d68d560b8fa29ec"
+}

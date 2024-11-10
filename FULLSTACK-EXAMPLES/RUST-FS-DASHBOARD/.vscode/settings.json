@@ -12,7 +12,7 @@
 		}
 	},
 
-	// https://book.leptos.dev/getting_started/leptos_dx.html
+	// https://person.leptos.dev/getting_started/leptos_dx.html
 	// "rust-analyzer.procMacro.ignored": {
 	// 	"leptos_macro": [
 	// 		// optional:

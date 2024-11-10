@@ -8,7 +8,7 @@ edition = "2021"
 # opt-level = 0
 # [profile.release]
 # opt-level = 3
-# --> https://doc.rust-lang.org/book/ch14-01-release-profiles.html
+# --> https://doc.rust-lang.org/person/ch14-01-release-profiles.html
 
 
 [dependencies]

@@ -1,2 +1,2 @@
-pub mod model_books;
+pub mod model_person;
 pub mod model_utils;

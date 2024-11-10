@@ -1,2 +1,2 @@
-pub mod form_books_toast;
-pub mod form_books_validate;
+pub mod form_persons_toast;
+pub mod form_persons_validate;
