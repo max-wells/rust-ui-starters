@@ -1,0 +1,56 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO persons (title, name, level, compensation, joined_date) VALUES ($1, $2, $3, $4, $5) RETURNING id, title, name, level, compensation, joined_date",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "title",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "name",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "level",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "compensation",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 5,
+        "name": "joined_date",
+        "type_info": "Date"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Varchar",
+        "Varchar",
+        "Int4",
+        "Date"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "16a08c80254e7d51dd47779cd1bc5008db06ace94496a174ca8f3313666d80d9"
+}

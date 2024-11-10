@@ -1,1 +1,1 @@
-pub mod service_books;
+pub mod service_persons;

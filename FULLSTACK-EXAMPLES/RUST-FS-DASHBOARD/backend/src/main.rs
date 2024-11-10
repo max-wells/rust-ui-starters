@@ -8,7 +8,7 @@ mod models;
 mod services;
 
 use crate::constants::others::{LOCALHOST_3000, PORT_8000};
-use crate::services::service_books;
+use crate::services::service_persons;
 
 #[derive(Debug, Clone)]
 pub struct AppState {
@@ -62,7 +62,7 @@ async fn main() -> std::io::Result<()> {
             .wrap(cors)
             .app_data(app_state.clone())
             .service(root)
-            .service(service_books::service_books())
+            .service(service_persons::service_persons())
     })
     .bind(("0.0.0.0", PORT_8000))?
     .run()
