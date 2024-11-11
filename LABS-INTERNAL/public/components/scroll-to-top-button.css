@@ -1,0 +1,88 @@
+
+:root {
+	--indent: 3rem;
+}
+
+.mainDiv {
+	margin: 0;
+	overflow: hidden;
+	block-size: 100vh;
+}
+
+.scroll-snap {
+	inline-size: 100vw;
+
+	/* scroll snap */
+	block-size: 100%;
+	overflow-y: scroll;
+	scroll-snap-type: y mandatory;
+	scroll-padding: 0;
+
+	/* for scroll button */
+	scroll-timeline-name: --scrollSnap;
+
+	/* smooth scrolling */
+	scroll-behavior: smooth;
+
+	section {
+		margin-inline: auto;
+		/* 		min-block-size: 100vh; */
+		scroll-snap-align: start;
+	}
+}
+
+.to-top {
+	display: none;
+}
+
+@media (48rem <= width) {
+	.to-top {
+		position: fixed;
+		right: var(--indent);
+		bottom: var(--indent);
+		inline-size: var(--indent);
+		block-size: var(--indent);
+		display: grid;
+		place-items: center;
+		text-decoration: none;
+		border: 0.25rem solid #000;
+		border-radius: 50%;
+		background-color: #ffc107;
+
+		/* animation button */
+		opacity: 0;
+		animation: scroll-page both linear;
+		animation-timeline: --scrollSnap;
+		animation-range: entry 15dvh exit 50dvh;
+	}
+
+	@keyframes scroll-page {
+		to {
+			opacity: 1;
+		}
+	}
+}
+
+@layer demo {
+	.mainDiv {
+		display: grid;
+		place-content: center;
+	
+		background-attachment: fixed;
+
+		h1,
+		section {
+			margin-inline: auto;
+			inline-size: 70vw;
+		}
+
+		.scroll-snap {
+			section {
+
+				&:not(:last-of-type) {
+					margin-block-end: 2rem;
+				}
+			}
+		}
+	}
+}

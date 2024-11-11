@@ -1,0 +1,129 @@
+
+:root{
+  --clr-bg: #222;
+  --clr-primary: #F5F5F5;
+  --clr-secondary: #38BDF8;
+  --clr-button: #0369A1;
+}
+html{
+  background-color: #222;
+  font-family: system-ui;
+   scroll-behavior: smooth;
+
+  scroll-timeline: --page-scroll block;
+  scroll-timeline: --page-scroll vertical; /* Firefox supports the older "vertical" syntax */
+}
+
+
+h1{
+  font-size: clamp(1rem,2.5vw,1.6rem);
+  font-weight: 500;
+  margin-block-end: 1rem;
+}
+code{
+  color: var(--clr-secondary);
+  border: 1px solid rgba(from var(--clr-secondary) r g b / .25);
+  padding-inline: .25rem;
+  border-radius: 5px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--clr-bg);
+  color: var(--clr-primary);
+}
+
+.wrapper {
+  margin-left: 200px; /* quick hack for the demo */
+}
+aside {
+  width: 200px;
+  height: 100svh;
+  background: #111;
+  position: fixed;
+  top: 0;
+}
+
+aside > ul {
+  --_height: 3rem;
+  --_clr-highlight: var(--clr-secondary);
+  position: relative;
+
+  display: grid;
+  gap: var(--gap);
+  list-style: none;
+  color: white;
+  text-transform: capitalize;
+  font-weight: 200;
+}
+aside > ul::before,
+aside > ul::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  width: 4px;
+  border-radius: 5px;
+  z-index: -2;
+  background: rgba(from var(--clr-secondary) r g b / .25);
+  height: 100%;
+}
+aside > ul::after {
+  height: var(--_height); /* same height as the list items */
+  background: var(--_clr-highlight);
+  animation-name: progress-bar;
+  animation-duration: 1ms;
+  animation-timing-function: linear;
+  animation-timeline: --page-scroll;
+}
+
+aside > ul > li {
+  line-height: var(--_height); /* */
+}
+/*
+aside a{
+  color: white;
+  text-decoration: none;
+  transition: color 300ms ease-in-out;
+  margin: 0;
+  padding: 0;
+  display: block;
+  outline: 1px dashed red;
+}
+aside a:hover{
+  color: hotpink;
+}
+*/
+@keyframes progress-bar {
+  from {
+    top: 0;
+  }
+  to {
+    top: calc(100% - var(--_height));
+  }
+}
+
+main{
+  padding: 0 2rem 2rem 2rem;
+}
+main > h1{
+  position: sticky;
+  top: 0;
+  padding-block: 1rem;
+  background-color: var(--clr-bg);
+}
+section {
+  border: 1px solid rgba(from var(--clr-primary) r g b / .15);
+  background: rgba(from var(--clr-secondary) r g b / .1);
+  border-radius: 5px;
+  height: 50vh;
+  display: grid;
+  place-content: center;
+  font-size: 1.4rem;
+  font-weight: 200;
+  text-transform: capitalize;
+}
+section + section{
+  margin-block-start: 2rem;
+}

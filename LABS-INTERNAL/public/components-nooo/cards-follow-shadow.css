@@ -1,0 +1,82 @@
+
+
+
+:root {
+  --bg: hsl(0 0% 2%);
+}
+
+
+
+
+
+ul::after {
+  inset:
+    calc(var(--top) * 1px)
+    calc(100% - (var(--right) * 1px))
+    calc(100% - (var(--bottom) * 1px))
+    calc(var(--left) * 1px);
+}
+
+ul[data-enhanced]:hover {
+  --active: 1;
+}
+ul[data-enhanced]::after {
+  opacity: var(--active, 0);
+  transition: opacity 0.2s, inset 0.2s 0.2s;
+}
+ul[data-enhanced]:hover::after {
+  transition: opacity 0.2s 0.2s, inset 0.2s;
+}
+
+@supports(anchor-name: --anchor) {
+  li:nth-of-type(1) article { anchor-name: --develop; }
+  li:nth-of-type(2) article { anchor-name: --preview; }
+  li:nth-of-type(3) article { anchor-name: --ship; }
+  li:nth-of-type(4) article { anchor-name: --profit; }
+
+  :root { --anchor: --develop; }
+  :root:has(li:nth-of-type(1):hover) { --anchor: --develop; }
+  :root:has(li:nth-of-type(2):hover) { --anchor: --preview; }
+  :root:has(li:nth-of-type(3):hover) { --anchor: --ship; }
+  :root:has(li:nth-of-type(4):hover) { --anchor: --profit; }  
+
+  ul::after {
+  	position-anchor: var(--anchor);
+    inset:
+      anchor(top)
+      anchor(right)
+      anchor(bottom)
+      anchor(left);
+  }
+
+  ul:has(li:hover) {
+    --active: 1;
+  }
+  ul::after {
+    opacity: var(--active, 0);
+    transition: opacity 0.2s, inset 0.2s 0.2s;
+  }
+  ul:hover::after {
+    transition: opacity 0.2s 0.2s, inset 0.2s;
+  }
+  
+  article::after {
+    content: unset;
+    display: none;
+  }
+}
+
+
+li:hover {
+  --li-active: 1;
+}
+
+
+
+
+
+
+li:nth-of-type(1) { --hue: 30; }
+li:nth-of-type(2) { --hue: 280; }
+li:nth-of-type(3) { --hue: 210; }
+li:nth-of-type(4) { --hue: 120; }
