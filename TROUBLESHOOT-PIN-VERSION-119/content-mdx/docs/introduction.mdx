@@ -1,0 +1,74 @@
+---
+name: Introduction
+imgDark: ""
+description: "The idea behind Ever UI is to provide developers with a collection of re-usable components that you can copy/paste (or CLI) into your own codebase."
+tags: []
+isNew: false
+isDocs: true
+---
+
+🚧 Still Under construction 🚧
+
+
+## Ever UI
+
+
+Like Shadcn, this is **NOT** a component library.
+
+The difference is crucial here. 
+
+
+_**Why should I not install my components via npm ?**_
+
+
+Npm packages are like a black box where you don't know what's going on. You don't know if they rely on other dependencies, and seeing the code is difficult. You can't verify how it works using console.log for instance.
+
+We believe that regular components librairies will be over in a few years. We are living in a paradigm shift, from installing components via npm to copy/paste them into your codebase.
+
+No more abstraction. The code is all yours.
+
+
+<Separator class="my-4" />
+<Separator class="my-4" />
+<Separator class="my-4" />
+<Separator class="my-4" />
+
+
+_**What are the differences with Shadcn?**_
+
+Except from having more components, there are 3 main differences: 
+
+1️⃣ the use of `clx` instead of `cn/cva`: The cn function was not designed to be Typescript first. It means that you need to manually handle the ref and forwardRef for every components. You also need to pass classNames to children. This creates a lot of boilerplate code. With `clx`, refs are handled automatically, with full type safety.
+
+See how you can <Link href="/docs/using-clx">use Clx</Link> here.
+
+
+2️⃣ Primitives are CLI-installed by default: The best way of really understand and master the components you're using is to have them in your own codebase. This is what Ever UI provides, with a simple CLI. Nothing is abstracted away from you.
+
+
+3️⃣ Motion components: 
+
+
+
+## Aknowledgements
+
+**Tailwind CSS**: Nothing of this would be even possible without Tailwind. It's definitely the best CSS tool... ever!
+
+- **Radix UI**: We took highly inspiration from the pimitives of Radix UI. We are working hard to make it simpler and more efficient.
+
+- **classed**: We took highly inspiration from classed. We are working hard to make it simpler and more efficient.
+
+- **Shadcn**: Shadcn paved the way for creating reusable collection of components. Big up for that.
+
+- **Aceternity**: Manu Arora showed it was possible to include motion in your components easily to create that awe effect.
+
+- **...and many others**: Magic UI, Build UI, Olivier Larose, and many more...
+
+
+## Final Thoughts
+
+Ever UI is simply the fruit of mixing various sources, blending them together to take the best of both worlds.
+
+The main takeaway here is that: **own your components**.
+
+Thanks for reading and happy coding! 😄
