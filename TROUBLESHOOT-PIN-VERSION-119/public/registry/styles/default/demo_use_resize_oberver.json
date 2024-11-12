@@ -1,0 +1,11 @@
+{
+  "name": "demo_use_resize_oberver",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_resize_oberver.rs",
+      "content": "use leptos::html::Textarea;\nuse leptos::*;\nuse leptos_use::use_resize_observer;\n\n// TODO 🪝 TextArea\n\n#[component]\npub fn DemoUseResizeObserver() -> impl IntoView {\n    let el = create_node_ref::<Textarea>();\n    let (text, set_text) = create_signal(\"\".to_string());\n\n    use_resize_observer(el, move |entries, _| {\n        let rect = entries[0].content_rect();\n        set_text.set(format!(\n            \"width: {:.0}\\nheight: {:.0}\",\n            rect.width(),\n            rect.height()\n        ));\n    });\n\n    view! {\n        <p class=\"mb-2\">\"Resize the box to see changes\"</p>\n        <textarea\n            node_ref=el\n            readonly\n            class=\"p-4 text-2xl leading-10 rounded-md resize w-[200px] h-[100px] text-neutral-500\"\n            prop:value=move || text.get()\n        />\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks"
+}

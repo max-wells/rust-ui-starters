@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_mouse_in_element",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_mouse_in_element.rs",
+      "content": "use leptos::html::Div;\nuse leptos::*;\nuse leptos_use::{use_mouse_in_element, UseMouseInElementReturn};\n\n#[component]\npub fn DemoUseMouseInElement() -> impl IntoView {\n    let el = create_node_ref::<Div>();\n\n    let UseMouseInElementReturn {\n        x,\n        y,\n        source_type,\n        element_x,\n        element_y,\n        element_position_x,\n        element_position_y,\n        element_width,\n        element_height,\n        is_outside,\n        ..\n    } = use_mouse_in_element(el);\n\n    view! {\n        <div class=\"flex gap-4\">\n            <div\n                node_ref=el\n                class=\"flex place-content-center select-none size-40 el bg-neutral-400/20 border-rounded\"\n            >\n                <div class=\"m-auto\">Hover me</div>\n            </div>\n\n            <pre lang=\"yaml\">\n                x: {x}y: {y}source_type: {move || format!(\"{:?}\", source_type())}element_x:\n                {element_x}element_y: {element_y}element_position_x: {element_position_x}\n                element_position_y: {element_position_y}element_width: {element_width}\n                element_height: {element_height}is_outside: {is_outside}\n            </pre>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

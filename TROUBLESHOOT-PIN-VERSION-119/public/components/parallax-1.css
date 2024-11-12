@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+.parallax .background {
+  transform: translateZ(-6px) scale(2) rotate(-5deg);
+  opacity: 0.6;
+}
+.parallax .foreground {
+  transform: translateZ(-5px) scale(1.5) rotate(2deg);
+  opacity: 0.8;
+  width: 50%;
+}
+
+/*# sourceMappingURL=style.css.map */

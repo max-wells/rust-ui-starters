@@ -1,0 +1,12 @@
+{
+  "name": "gradient",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "gradient.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n#[derive(TwClass, Clone, Copy)]\n#[tw(\n    class = \"absolute inset-0 w-full h-full bg-gradient-to-r  rounded-full transform blur-3xl scale-[0.80]\"\n)]\npub struct GradientClass {\n    pub variant: GradientVariant,\n}\n\n#[derive(TwVariant)]\npub enum GradientVariant {\n    #[tw(default, class = \"\")]\n    Default,\n    #[tw(class = \"from-blue-500 to-teal-500\")]\n    BlueTeal,\n}\n\n#[component]\npub fn Gradient(\n    #[prop(into, optional)] variant: MaybeSignal<GradientVariant>,\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        let gradient = GradientClass {\n            variant: variant.get(),\n        };\n        gradient.with_class(class.get())\n    });\n\n    view! { <div {..attributes} class=class /> }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

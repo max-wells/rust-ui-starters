@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_hover",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_hover.rs",
+      "content": "use leptos::*;\n\n#[cfg(feature = \"hydrate\")]\nuse leptos::html::Div;\n#[cfg(feature = \"hydrate\")]\nuse leptos_use::{use_element_hover_with_options, UseElementHoverOptions};\n\n#[component]\npub fn DemoUseHover() -> impl IntoView {\n    #[cfg(feature = \"hydrate\")]\n    let demo_component = {\n        let el = create_node_ref::<Div>();\n\n        let is_hovered = use_element_hover_with_options(\n            el,\n            UseElementHoverOptions::default()\n                .delay_enter(200)\n                .delay_leave(600),\n        );\n\n        view! {\n            <div class=\"flex flex-col gap-4\">\n                <div node_ref=el>\n                    {move || if is_hovered.get() { \"✅ Thank you!\" } else { \"Hover me\" }}\n                </div>\n\n                <p>\n                    Delay of enter of <span class=\"font-bold\">200ms</span>and delay of leave of\n                    <span class=\"font-bold\">600 ms</span>\n                </p>\n            </div>\n        }\n    };\n\n    #[cfg(not(feature = \"hydrate\"))]\n    let demo_component = view! { <div>\"Hover functionality is not available on the server.\"</div> };\n\n    view! { <div>{demo_component}</div> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

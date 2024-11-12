@@ -1,0 +1,12 @@
+{
+  "name": "demo_toggle_custom",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_toggle_custom.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::primitives::p_toggle_custom::ToggleRootCustom;\n\n#[component]\npub fn DemoToggleCustom() -> impl IntoView {\n    view! {\n        <ToggleRootCustom attr:aria-label=\"Toggle italic\" class=\"bg-sky-500\">\n            <i class=\"italic\">\"I\"</i>\n        </ToggleRootCustom>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_primitives",
+  "type_short": "components:demos"
+}

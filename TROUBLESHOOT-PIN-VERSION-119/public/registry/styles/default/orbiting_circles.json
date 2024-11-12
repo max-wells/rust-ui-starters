@@ -1,0 +1,12 @@
+{
+  "name": "orbiting_circles",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "orbiting_circles.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn OrbitingCircles(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"flex overflow-hidden relative justify-center items-center p-20 w-full rounded-lg border md:shadow-xl min-h-[300px] bg-background h-[500px]\",\n            class()\n        )\n    });\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n\n#[component]\npub fn CircleItem(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    #[prop(into)] style: MaybeSignal<String>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"flex absolute justify-center items-center bg-transparent rounded-full border border-none transform-gpu animate-orbit [animation-delay:calc(var(--delay)*1000ms)] h-[30px] w-[30px] dark:bg-white/10\",\n            class()\n        )\n    });\n\n    view! {\n        <div {..attributes} class=class style=style>\n            {children()}\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

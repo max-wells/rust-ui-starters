@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_prefers_reduced_motion",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_prefers_reduced_motion.rs",
+      "content": "use leptos::*;\nuse leptos_use::docs::BooleanDisplay;\nuse leptos_use::use_prefers_reduced_motion;\n\n#[component]\npub fn DemoUsePrefersReducedMotion() -> impl IntoView {\n    let is_reduced_motion_preferred = use_prefers_reduced_motion();\n\n    view! {\n        <div>\n            <p>Prefers reduced motions: <BooleanDisplay value=is_reduced_motion_preferred /></p>\n            <p>\n                Update reduce motion preference\n                <a\n                    class=\"text-blue-700\"\n                    href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion#user_preferences\"\n                >\n                    documentation.\n                </a>\n            </p>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

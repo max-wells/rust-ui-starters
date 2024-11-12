@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_user_media",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_user_media.rs",
+      "content": "use leptos::*;\nuse leptos_use::{use_user_media, UseUserMediaReturn};\n\n#[component]\npub fn DemoUseUserMedia() -> impl IntoView {\n    let video_ref = create_node_ref::<leptos::html::Video>();\n\n    let UseUserMediaReturn {\n        stream,\n        enabled,\n        set_enabled,\n        ..\n    } = use_user_media();\n\n    create_effect(move |_| {\n        match stream.get() {\n            Some(Ok(s)) => {\n                if let Some(v) = video_ref.get() {\n                    v.set_src_object(Some(&s));\n                }\n                return;\n            }\n            Some(Err(e)) => logging::error!(\"Failed to get media stream: {:?}\", e),\n            None => logging::log!(\"No stream yet\"),\n        }\n\n        if let Some(v) = video_ref.get() {\n            v.set_src_object(None);\n        }\n    });\n\n    view! {\n        <div class=\"flex flex-col gap-4 text-center\">\n            <div>\n                <button on:click=move |_| set_enabled(\n                    !enabled(),\n                )>{move || if enabled() { \"Stop\" } else { \"Start\" }}video</button>\n            </div>\n\n            <div>\n                <video\n                    node_ref=video_ref\n                    controls=false\n                    autoplay=true\n                    muted=true\n                    class=\"w-auto h-96\"\n                ></video>\n            </div>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

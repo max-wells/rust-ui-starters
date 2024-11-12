@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_watch_pausable",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_watch_pausable.rs",
+      "content": "use leptos::html::Input;\nuse leptos::*;\nuse leptos_use::{watch_pausable, WatchPausableReturn};\n\n// TODO 🪝💪 Improve this later (issue with Button props)\n// TODO later: Remove #[allow(unused_variables)]\n\n#[allow(unused_variables)]\n#[component]\npub fn DemoUseWatchPausable() -> impl IntoView {\n    let input = create_node_ref::<Input>();\n    let (log, set_log) = create_signal(\"\".to_string());\n    let (source, set_source) = create_signal(\"\".to_string());\n\n    let WatchPausableReturn {\n        pause,\n        resume,\n        is_active,\n        ..\n    } = watch_pausable(\n        move || source.get(),\n        move |v, _, _| {\n            set_log.update(|log| *log = format!(\"{log}Changed to \\\"{v}\\\"\\n\"));\n        },\n    );\n\n    let clear = move |_| set_log.set(\"\".to_string());\n\n    let pause = move |_| {\n        set_log.update(|log| *log = format!(\"{log}Paused\\n\"));\n        pause();\n    };\n\n    let resume = move |_| {\n        set_log.update(|log| *log = format!(\"{log}Resumed\\n\"));\n        resume();\n    };\n\n    view! {\n        <div class=\"flex flex-col gap-4\">\n            <p class=\"mb-2\">\"Type something below to trigger the watch\"</p>\n            <input\n                node_ref=input\n                class=\"block\"\n                prop:value=move || source.get()\n                on:input=move |e| set_source.set(event_target_value(&e))\n                type=\"text\"\n            />\n            <p>\"Value: \" {source}</p>\n            <button prop:disabled=move || !is_active.get() class=\"orange\" on:click=pause>\n                \"Pause\"\n            </button>\n            <button prop:disabled=move || is_active.get() on:click=resume>\n                \"Resume\"\n            </button>\n            <button on:click=clear>\"Clear Log\"</button>\n            <br />\n            <br />\n            <p>\"Log\"</p>\n            <pre>{log}</pre>\n\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

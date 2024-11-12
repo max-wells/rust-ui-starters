@@ -1,0 +1,12 @@
+{
+  "name": "demo_cards_direction_aware",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_cards_direction_aware.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::button::Button;\n\n#[component]\npub fn DemoCardsDirectionAware() -> impl IntoView {\n    view! {\n        <section class=\"flex justify-center content-center\">\n            <div class=\"max-w-5xl\">\n                <div class=\"services\">\n                    <ul class=\"grid grid-cols-3 p-0 m-0 list-none\">\n                        <li class=\"relative p-4 cursor-pointer card card-active\">\n                            <a href=\"\" class=\"flex flex-col gap-4 items-start no-underline\">\n                                <h2>Service 1</h2>\n                                <p>\n                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n                                </p>\n                                <Button>Lorem Ipsum</Button>\n                            </a>\n                        </li>\n                        <li class=\"relative p-4 cursor-pointer card\">\n                            <a href=\"\" class=\"flex flex-col gap-4 items-start no-underline\">\n                                <h2>Service 2</h2>\n                                <p>\n                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n                                </p>\n                                <Button>Lorem Ipsum</Button>\n                            </a>\n                        </li>\n                        <li class=\"relative p-4 cursor-pointer card\">\n                            <a href=\"\" class=\"flex flex-col gap-4 items-start no-underline\">\n                                <h2>Service 3</h2>\n                                <p>\n                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n                                </p>\n                                <Button>Lorem Ipsum</Button>\n                            </a>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </section>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

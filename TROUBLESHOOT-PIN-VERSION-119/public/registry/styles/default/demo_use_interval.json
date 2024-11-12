@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_interval",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_interval.rs",
+      "content": "use leptos::*;\nuse leptos_use::{use_interval, UseIntervalReturn};\n\n#[component]\npub fn DemoUseInterval() -> impl IntoView {\n    let UseIntervalReturn {\n        counter, ..\n    } = use_interval(1000);\n\n    view! {\n        <div>\n            <p>\"Interval fired: \" {counter}</p>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "demo_progress",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_progress.rs",
+      "content": "use leptos::*;\nuse leptos_use::{use_interval_fn, utils::Pausable};\n\nuse crate::registry::primitives::p_progress::{PrimitiveProgressIndicator, PrimitiveProgressRoot};\n\n#[component]\npub fn DemoProgress() -> impl IntoView {\n    let progress = RwSignal::new(25.0f64);\n    let (indicator_style, set_indicator_style) = create_signal(format!(\n        \"transform: translateX(-{}%)\",\n        100.0 - progress.get_untracked()\n    ));\n\n    Effect::new(move |_| {\n        let Pausable {\n            pause, ..\n        } = use_interval_fn(\n            move || {\n                progress.update(|progress| {\n                    if *progress < 100.0 {\n                        *progress += 25.0;\n                    } else {\n                        *progress = 0.0;\n                    }\n                });\n\n                set_indicator_style.set(format!(\n                    \"transform: translateX(-{}%)\",\n                    100.0 - (progress.get_untracked() % 101.0)\n                ));\n            },\n            1000,\n        );\n\n        on_cleanup(move || {\n            pause();\n        });\n    });\n\n    view! {\n        <PrimitiveProgressRoot\n            attr:class=\"relative overflow-hidden bg-black/25 rounded-full w-[300px] h-[25px] drop-shadow-md\"\n            attr:style=\"transform: translateZ(0)\"\n            value=progress\n        >\n            <PrimitiveProgressIndicator\n                attr:class=\"bg-white w-full h-full transition-transform duration-[660ms] ease-[cubic-bezier(0.65, 0, 0.35, 1)]\"\n                attr:style=move || indicator_style.get()\n            />\n        </PrimitiveProgressRoot>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_primitives",
+  "type_short": "components:demos"
+}

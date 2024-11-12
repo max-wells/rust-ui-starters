@@ -1,0 +1,12 @@
+{
+  "name": "demo_card",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_card.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::card::{Card, CardContent, CardFooter, CardHeader, CardTitle};\n\n#[component]\npub fn DemoCard() -> impl IntoView {\n    view! {\n        <Card class=\"w-full max-w-lg lg:max-w-2xl overflow-none\">\n            <CardHeader>\n                <CardTitle>Card Title</CardTitle>\n            </CardHeader>\n            <CardContent>Hello</CardContent>\n            <CardFooter class=\"bg-neutral-200\">\n                <div>footer</div>\n            </CardFooter>\n        </Card>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

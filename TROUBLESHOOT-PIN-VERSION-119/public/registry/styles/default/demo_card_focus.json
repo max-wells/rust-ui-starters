@@ -1,0 +1,12 @@
+{
+  "name": "demo_card_focus",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_card_focus.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\n#[component]\npub fn DemoCardFocus() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"card-focus\" href=\"/components/card-focus.css\" />\n\n        <div class=\"cards\">\n            <div class=\"card red\">\n                <p class=\"tip\">Hover Me</p>\n            </div>\n            <div class=\"card blue\">\n                <p class=\"tip\">Hover Me</p>\n            </div>\n            <div class=\"card green\">\n                <p class=\"tip\">Hover Me</p>\n            </div>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

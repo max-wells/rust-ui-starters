@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_sorted",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_sorted.rs",
+      "content": "use leptos::*;\nuse leptos_use::use_sorted;\n\n// TODO. Input\n\nconst DEMO_VEC: [i32; 10] = [4, 2, 67, 34, 76, 22, 2, 4, 65, 23];\n\n#[component]\npub fn DemoUseSorted() -> impl IntoView {\n    let (list, set_list) = create_signal::<Vec<i32>>(DEMO_VEC.to_vec());\n\n    let sorted: Signal<Vec<i32>> = use_sorted(list);\n\n    let on_input = move |evt| {\n        set_list.update(|list| {\n            *list = event_target_value(&evt)\n                .split(\",\")\n                .map(|n| n.parse::<i32>().unwrap_or(0))\n                .collect::<Vec<i32>>()\n        });\n    };\n\n    let input_text = move || string_list(&list());\n    let sorted_text = move || string_list(&sorted());\n\n    view! {\n        <div class=\"flex flex-col gap-4\">\n            <p>Input:</p>\n            <input prop:value=input_text on:input=on_input type=\"text\" />\n            <p>Output: {sorted_text}</p>\n        </div>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\nfn string_list(list: &[i32]) -> String {\n    list.iter()\n        .map(i32::to_string)\n        .collect::<Vec<_>>()\n        .join(\", \") // Added join to convert Vec<String> to a single String\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

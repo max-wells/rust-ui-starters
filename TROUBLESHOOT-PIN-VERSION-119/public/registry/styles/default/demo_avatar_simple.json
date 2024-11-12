@@ -1,0 +1,12 @@
+{
+  "name": "demo_avatar_simple",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_avatar_simple.rs",
+      "content": "use crate::registry::ui::avatar_simple::{AvatarImageSimple, AvatarRootSimple};\nuse leptos::*;\n\n#[component]\npub fn DemoAvatarSimple() -> impl IntoView {\n    view! {\n        <div class=\"flex gap-5\">\n            <AvatarRootSimple class=\"rounded-md\">\n                <AvatarImageSimple\n                    src=\"https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80\"\n                    alt=\"Pedro Duarte\"\n                />\n            </AvatarRootSimple>\n\n            <AvatarRootSimple>\n                <AvatarImageSimple\n                    src=\"https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80\"\n                    alt=\"Pedro Duarte\"\n                />\n            </AvatarRootSimple>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

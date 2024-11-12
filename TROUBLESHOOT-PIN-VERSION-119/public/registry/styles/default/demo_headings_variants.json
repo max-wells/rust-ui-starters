@@ -1,0 +1,12 @@
+{
+  "name": "demo_headings_variants",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_headings_variants.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::headings::{HeadingVariant, H3};\n\n#[component]\npub fn DemoHeadingsVariants() -> impl IntoView {\n    view! {\n        <div class=\"flex flex-col gap-2\">\n            <H3 variant=HeadingVariant::Modern>\"Modern\"</H3>\n            <H3 variant=HeadingVariant::Underline>\"Underline\"</H3>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "announcement",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "announcement.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n#[component]\npub fn Announcement(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"flex relative flex-row justify-center items-center py-1.5 px-4 mx-auto text-sm font-medium rounded-2xl transition-shadow duration-500 ease-out group max-w-fit bg-white/40 shadow-[inset_0_-8px_10px_#8fdfff1f] backdrop-blur-sm [--bg-size:300%] dark:bg-black/40 hover:shadow-[inset_0_-5px_10px_#8fdfff3f]\",\n            class()\n        )\n    });\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n\n#[component]\npub fn AnnouncementLineEffect(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"block absolute inset-0 w-full h-full bg-gradient-to-r animate-gradient from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:var(--bg-size)_100%] p-[1px] [border-radius:inherit] ![mask-composite:subtract] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)]\",\n            class()\n        )\n    });\n\n    view! { <div {..attributes} class=class /> }\n}\n\n#[component]\npub fn AnnouncementDescription(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"inline text-transparent bg-clip-text bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] animate-gradient bg-[length:var(--bg-size)_100%]\",\n            class()\n        )\n    });\n\n    view! {\n        <span {..attributes} class=class>\n            {children()}\n        </span>\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

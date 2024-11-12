@@ -1,0 +1,12 @@
+{
+  "name": "demo_carousel_snap_scroll",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_carousel_snap_scroll.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\n#[component]\npub fn DemoCarouselSnapScroll() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"carousel-snap-scroll\" href=\"/components/carousel-snap-scroll.css\" />\n\n        <div class=\"mainDiv\">\n            <div class=\"scrollsnap-carousel\">\n                <div class=\"slide\">\n                    <div class=\"content\">\n                        <div class=\"content-wrapper\">slide one</div>\n                    </div>\n                </div>\n                <div class=\"slide\">\n                    <div class=\"content\">\n                        <div class=\"content-wrapper\">slide two</div>\n                    </div>\n                </div>\n                <div class=\"slide\">\n                    <div class=\"content\">\n                        <div class=\"content-wrapper\">slide three</div>\n                    </div>\n                </div>\n                <div class=\"slide\">\n                    <div class=\"content\">\n                        <div class=\"content-wrapper\">slide four</div>\n                    </div>\n                </div>\n                <div class=\"slide\">\n                    <div class=\"content\">\n                        <div class=\"content-wrapper\">slide five</div>\n                    </div>\n                </div>\n                <div class=\"slide\">\n                    <div class=\"content\">\n                        <div class=\"content-wrapper\">slide six</div>\n                    </div>\n                </div>\n                <div class=\"slide\">\n                    <div class=\"content\">\n                        <div class=\"content-wrapper\">slide seven</div>\n                    </div>\n                </div>\n                <div class=\"slide\">\n                    <div class=\"content\">\n                        <div class=\"content-wrapper\">slide eight</div>\n                    </div>\n                </div>\n            </div>\n\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

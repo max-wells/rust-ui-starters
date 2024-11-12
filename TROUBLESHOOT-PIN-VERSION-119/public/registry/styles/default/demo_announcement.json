@@ -1,0 +1,12 @@
+{
+  "name": "demo_announcement",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_announcement.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::{\n    icons::chevrons::chevron_right::ChevronRight,\n    ui::announcement::{Announcement, AnnouncementDescription, AnnouncementLineEffect},\n};\n\n#[component]\npub fn DemoAnnouncement() -> impl IntoView {\n    view! {\n        <Announcement>\n            <AnnouncementLineEffect />\n            \"🎉\"\n            <hr class=\"mx-2 h-4 bg-gray-300 w-[1px] shrink-0\" />\n            <AnnouncementDescription>\"Introducing new feature\"</AnnouncementDescription>\n            <ChevronRight class=\"ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5 size-3\" />\n        </Announcement>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

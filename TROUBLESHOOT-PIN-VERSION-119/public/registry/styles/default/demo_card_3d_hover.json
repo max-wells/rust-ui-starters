@@ -1,0 +1,11 @@
+{
+  "name": "demo_card_3d_hover",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_card_3d_hover.rs",
+      "content": "use leptos::*;\n\n#[component]\npub fn DemoCard3dHover() -> impl IntoView {\n    view! {\n        <div class=\"mainDivCardHover\">\n\n            <a href=\"https://www.mythrillfiction.com/the-dark-rider\" alt=\"Mythrill\" target=\"_blank\">\n                <div class=\"card\">\n                    <div class=\"wrapper\">\n                        <img\n                            src=\"https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg\"\n                            class=\"cover-image\"\n                        />\n                    </div>\n                    <img\n                        src=\"https://ggayane.github.io/css-experiments/cards/dark_rider-title.png\"\n                        class=\"title\"\n                    />\n                    <img\n                        src=\"https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp\"\n                        class=\"character\"\n                    />\n                </div>\n            </a>\n\n            <a href=\"https://www.mythrillfiction.com/force-mage\" alt=\"Mythrill\" target=\"_blank\">\n                <div class=\"card\">\n                    <div class=\"wrapper\">\n                        <img\n                            src=\"https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg\"\n                            class=\"cover-image\"\n                        />\n                    </div>\n                    <img\n                        src=\"https://ggayane.github.io/css-experiments/cards/force_mage-title.png\"\n                        class=\"title\"\n                    />\n                    <img\n                        src=\"https://ggayane.github.io/css-experiments/cards/force_mage-character.webp\"\n                        class=\"character\"\n                    />\n                </div>\n            </a>\n\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_ui"
+}

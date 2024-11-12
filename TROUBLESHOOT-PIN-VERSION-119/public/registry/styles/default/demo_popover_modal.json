@@ -1,0 +1,12 @@
+{
+  "name": "demo_popover_modal",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_popover_modal.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::button::Button;\n\n#[component]\npub fn DemoPopoverModal() -> impl IntoView {\n    view! {\n        <Button popovertarget=\"mypopover\">Open Popover</Button>\n\n        <dialog\n            id=\"mypopover\"\n            // * 💁 💡 Manual mode means can't close the popover by clicking outside of it.\n            // * ---> It needs the popovertargetaction=\"hide\" to be clicked.\n            popover=\"manual\"\n            class=\"p-6 max-w-xs rounded-lg border-none\"\n            style=\"backdrop-filter: brightness(0.5);\"\n        >\n            <button\n                popovertarget=\"mypopover\"\n                popovertargetaction=\"hide\"\n                class=\"absolute top-4 right-4 bg-none border-none cursor-pointer outline-none filter-grayscale\"\n            >\n                \"❌\"\n            </button>\n            <h3 class=\"mt-0\">This is a headline</h3>\n            <p class=\"text-gray-600\">\n                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.\n            </p>\n\n            <Button popovertarget=\"mypopover\" popovertargetaction=\"hide\">\n                Continue\n            </Button>\n        </dialog>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

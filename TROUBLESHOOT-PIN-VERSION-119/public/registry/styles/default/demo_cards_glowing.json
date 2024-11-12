@@ -1,0 +1,12 @@
+{
+  "name": "demo_cards_glowing",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_cards_glowing.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\nuse crate::registry::ui::cards_glowing::{CardGlowingContent, CardGlowingItem, CardsGlowing};\n\n#[component]\npub fn DemoCardsGlowing() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"cards-glowing\" href=\"/components/cards-glowing.css\" />\n\n        <div class=\"flex overflow-hidden justify-center items-center p-0 m-0\">\n            <CardsGlowing>\n                {GLOWING_CARDS_TITLES\n                    .iter()\n                    .map(|title| {\n                        view! {\n                            <CardGlowingItem>\n                                <CardGlowingContent class=\"card-content\">\n                                    <h3 class=\"text-neutral-300\">{*title}</h3>\n                                </CardGlowingContent>\n                            </CardGlowingItem>\n                        }\n                    })\n                    .collect::<Vec<_>>()}\n            </CardsGlowing>\n        </div>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                      ✨ CONSTANTS ✨                       */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\nconst GLOWING_CARDS_TITLES: &[&str] = &[\n    \"Fake Title 1\",\n    \"Fake Title 2\",\n    \"Fake Title 3\",\n    \"Fake Title 4\",\n    \"Fake Title 5\",\n    \"Fake Title 6\",\n];\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

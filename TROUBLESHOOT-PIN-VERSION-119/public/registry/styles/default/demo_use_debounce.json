@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_debounce",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_debounce.rs",
+      "content": "use leptos::*;\nuse leptos_use::signal_debounced;\n\nuse crate::registry::ui::input::Input;\n\n#[component]\npub fn DemoUseDebounce() -> impl IntoView {\n    let (input, set_input) = create_signal(\"\".to_string());\n    let debounced: Signal<String> = signal_debounced(input, 1000.0);\n\n    view! {\n        <div>\n            <Input\n                r#type=\"text\"\n                value=Some(input)\n                on:input=move |event| set_input(event_target_value(&event))\n                placeholder=\"Try to type quickly, then stop...\"\n            />\n            <p>\"Delay is set to 1000ms for this demo\"</p>\n            <p>Input signal: {input}</p>\n            <p>Debounced signal: {debounced}</p>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

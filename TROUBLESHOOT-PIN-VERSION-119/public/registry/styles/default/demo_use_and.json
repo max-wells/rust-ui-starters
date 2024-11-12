@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_and",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_and.rs",
+      "content": "use leptos::*;\nuse leptos_use::docs::BooleanDisplay;\nuse leptos_use::math::use_and;\n\n#[component]\npub fn DemoUseAnd() -> impl IntoView {\n    let (a, set_a) = create_signal(false);\n    let (b, set_b) = create_signal(false);\n\n    let a_and_b = use_and(a, b);\n\n    view! {\n        <div class=\"grid gap-4 py-4 px-6 rounded grid-cols-[100px_auto]\">\n            <label for_=\"smooth-scrolling-option\" class=\"text-right opacity-75\">\n                Input\n                <code>A</code>\n            </label>\n            <span>\n                <input\n                    id=\"smooth-scrolling-option\"\n                    prop:checked=a\n                    on:input=move |e| set_a.set(event_target_checked(&e))\n                    type=\"checkbox\"\n                />\n            </span>\n            <label for_=\"smooth-scrolling-option\" class=\"text-right opacity-75\">\n                Input\n                <code>B</code>\n            </label>\n            <span>\n                <input\n                    id=\"smooth-scrolling-option\"\n                    prop:checked=b\n                    on:input=move |e| set_b.set(event_target_checked(&e))\n                    type=\"checkbox\"\n                />\n            </span>\n            <span class=\"text-right opacity-75\">Output <code>\"A && B\"</code></span>\n            <BooleanDisplay value=a_and_b />\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

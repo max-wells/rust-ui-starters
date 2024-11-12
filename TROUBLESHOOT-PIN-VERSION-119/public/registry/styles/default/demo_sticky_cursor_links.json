@@ -1,0 +1,12 @@
+{
+  "name": "demo_sticky_cursor_links",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_sticky_cursor_links.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\nuse crate::registry::ui::sticky_cursor_links::{StickyLink, StickyLinksNav};\n\n#[component]\npub fn DemoStickyCursorLinks() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"sticky-cursor-links\" href=\"/components/sticky-cursor-links.css\" />\n\n        <div class=\"flex justify-center items-center w-full h-[500px] bg-zinc-950\">\n            <StickyLinksNav class=\"py-10 px-4 border border-input\">\n                <StickyLink text=\"Home\" />\n                <StickyLink text=\"Our Story\" />\n                <StickyLink text=\"Studio\" />\n                <StickyLink text=\"Contact\" />\n            </StickyLinksNav>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

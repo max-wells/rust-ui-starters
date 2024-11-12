@@ -1,0 +1,12 @@
+{
+  "name": "demo_tabs_custom",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_tabs_custom.rs",
+      "content": "use leptos::*;\nuse serde_json::Value;\n\n// TODO. tabs_custom.rs\nuse crate::{\n    constants::shortfix_json_content_primitives::SHORTFIX_JSON_CONTENT_TABS,\n    registry::{\n        demos::demo_core::demo_button_reactive::DemoButtonReactive,\n        primitives::p_tabs_custom::{\n            TabsContent, TabsCustom, TabsList, TabsTrigger, SHORTFIX_TABS_TRIGGER_CLASS,\n        },\n    },\n};\n\n#[component]\npub fn DemoTabsCustom() -> impl IntoView {\n    let json_content_tabs = SHORTFIX_JSON_CONTENT_TABS;\n\n    let parsed: Value = serde_json::from_str(json_content_tabs).unwrap();\n    let file_content = parsed[\"files\"][0][\"content\"]\n        .as_str()\n        .unwrap_or(\"\")\n        .to_string();\n\n    let (file_content_signal, _set_file_content_signal) = create_signal(file_content);\n\n    view! {\n        <TabsCustom default_value=\"tab1\" class=\"w-[500px]\">\n            <TabsList attr:aria-label=\"Rust UI - Preview and Code\" class=\"border border-sky-500\">\n                <TabsTrigger value=\"tab1\" attr:class=SHORTFIX_TABS_TRIGGER_CLASS>\n                    \"Preview\"\n                </TabsTrigger>\n                <TabsTrigger value=\"tab2\" attr:class=SHORTFIX_TABS_TRIGGER_CLASS>\n                    \"Code\"\n                </TabsTrigger>\n            </TabsList>\n\n            <TabsContent\n                value=\"tab1\"\n                class=\"flex justify-center items-center bg-green-500 min-h-[200px]\"\n            >\n                <DemoButtonReactive />\n            </TabsContent>\n            <TabsContent value=\"tab2\">\n                <pre class=\"overflow-x-auto p-4 text-xs rounded-md border bg-card border-input\">\n                    {move || file_content_signal.get().clone()}\n                </pre>\n            </TabsContent>\n        </TabsCustom>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_primitives",
+  "type_short": "components:demos"
+}

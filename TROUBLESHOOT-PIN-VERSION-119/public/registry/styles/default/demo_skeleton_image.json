@@ -1,0 +1,12 @@
+{
+  "name": "demo_skeleton_image",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_skeleton_image.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::{icons::others::image::ImageIcon, ui::skeleton::Skeleton};\n\n// TODO UI.\n\n#[component]\npub fn DemoSkeletonImage() -> impl IntoView {\n    view! {\n        <div class=\"m-4 space-y-8 w-full md:flex md:items-center md:space-y-0 md:space-x-8 rtl:space-x-reverse\">\n\n            // TODO UI. Skeleton should be able to receive children (or not).\n            <div class=\"flex justify-center items-center w-full h-48 rounded-lg animate-pulse sm:w-96 bg-muted\">\n                <ImageIcon class=\"text-muted-foreground size-10\" />\n            </div>\n\n            <div class=\"space-y-2 w-full\">\n                <Skeleton class=\"h-4\" />\n                <Skeleton class=\"h-4 w-[80%]\" />\n                <Skeleton class=\"h-4 w-[80%]\" />\n                <Skeleton class=\"h-4 w-[80%]\" />\n            </div>\n            <span class=\"sr-only\">Loading...</span>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "demo_input",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_input.rs",
+      "content": "use crate::registry::ui::input::Input;\nuse leptos::*;\n\n// TODO Fix 🐛 Input type=\"number\" can take \"e\" as a valid input\n\n#[component]\npub fn DemoInput() -> impl IntoView {\n    view! {\n        <div class=\"space-y-4 w-full max-w-lg\">\n            <h2 class=\"text-2xl font-bold\">Input Demo</h2>\n\n            <Input placeholder=\"Default input\" />\n            <Input r#type=\"email\" placeholder=\"Email input\" />\n            <Input r#type=\"password\" placeholder=\"Password input\" />\n            <Input\n                class=\"border-2 border-purple-500 focus:border-purple-700\"\n                placeholder=\"Custom styled input\"\n            />\n            <Input r#type=\"number\" placeholder=\"Number input\" />\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

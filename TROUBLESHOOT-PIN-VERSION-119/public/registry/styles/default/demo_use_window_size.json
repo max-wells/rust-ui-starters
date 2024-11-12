@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_window_size",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_window_size.rs",
+      "content": "use leptos::*;\nuse leptos_use::{use_window_size, UseWindowSizeReturn};\n\n#[component]\npub fn DemoUseWindowSize() -> impl IntoView {\n    let UseWindowSizeReturn {\n        width,\n        height,\n    } = use_window_size();\n\n    view! { <p>{width}x {height}</p> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

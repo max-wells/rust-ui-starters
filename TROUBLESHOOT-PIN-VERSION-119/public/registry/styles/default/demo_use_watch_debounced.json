@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_watch_debounced",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_watch_debounced.rs",
+      "content": "use leptos::*;\nuse leptos_use::{watch_debounced_with_options, WatchDebouncedOptions};\n\n#[component]\npub fn DemoUseWatchDebounced() -> impl IntoView {\n    let (input, set_input) = create_signal(\"\".to_string());\n    let (updated, set_updated) = create_signal(0);\n\n    let _ = watch_debounced_with_options(\n        move || input.get(),\n        move |_, _, _| {\n            set_updated.update(|x| *x += 1);\n        },\n        1000.0,\n        WatchDebouncedOptions::default().max_wait(Some(5000.0)),\n    );\n\n    view! {\n        <input\n            class=\"block\"\n            prop:value=move || input.get()\n            on:input=move |e| set_input.set(event_target_value(&e))\n            placeholder=\"Try to type anything...\"\n            type=\"text\"\n        />\n        <div>\n            <code>\"ms\"</code>\n            \" is set to \"\n            <span style=\"font-weight: bold;\">1000ms</span>\n            \" and \"\n            <code>\"max_wait\"</code>\n            \" is set to \"\n            <span style=\"font-weight: bold;\">5000ms</span>\n            \" for this demo.\"\n        </div>\n        <p>\"Input: \" {input}</p>\n        <p>\"Times Updated: \" {updated}</p>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

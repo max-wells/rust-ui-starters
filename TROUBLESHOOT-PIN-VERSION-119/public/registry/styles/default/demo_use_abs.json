@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_abs",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_abs.rs",
+      "content": "use leptos::*;\nuse leptos_use::math::use_abs;\n\nuse crate::registry::ui::slider::Slider;\n\n// TODO: 🪝🐛 Little bug I think\n\n#[component]\npub fn DemoUseAbs() -> impl IntoView {\n    let (value, set_value) = create_signal(-32.25);\n\n    let result: Signal<f64> = use_abs(value);\n\n    view! {\n        <Slider class=\"max-w-[300px]\" min=-30.0 max=10.0 step=0.1 value=value on_input=set_value />\n        <p>\"Value: \" {move || value.get()}</p>\n        <p>\"Absolute: \" {move || result.get()}</p>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

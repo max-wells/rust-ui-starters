@@ -1,0 +1,12 @@
+{
+  "name": "demo_cursor_multi_color",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_cursor_multi_color.rs",
+      "content": "use leptos::*;\n\n#[component]\npub fn DemoCursorMultiColor() -> impl IntoView {\n    view! {\n        <script src=\"/components/cursor-multi-color.js\" />\n\n        <div class=\"border border-sky-500 h-[500px]\">\n            <pointer-particles></pointer-particles>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

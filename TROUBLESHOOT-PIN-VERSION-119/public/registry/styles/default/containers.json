@@ -1,0 +1,12 @@
+{
+  "name": "containers",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "containers.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\nuse crate::registry::ui::_shared::STYLES;\n\n#[component]\npub fn Grid3(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            STYLES.GRID_START,\n            \"gap-6 sm:grid-cols-2 lg:grid-cols-3\",\n            class()\n        )\n    });\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

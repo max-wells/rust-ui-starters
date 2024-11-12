@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_timestamp",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_timestamp.rs",
+      "content": "use leptos::*;\nuse leptos_use::use_timestamp;\n\n#[component]\npub fn DemoUseTimestamp() -> impl IntoView {\n    let timestamp = use_timestamp();\n\n    view! { <div>Timestamp: {timestamp}</div> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

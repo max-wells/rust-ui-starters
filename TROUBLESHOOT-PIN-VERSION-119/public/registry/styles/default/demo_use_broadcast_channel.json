@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_broadcast_channel",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_broadcast_channel.rs",
+      "content": "use codee::string::FromToStringCodec;\nuse leptos::*;\nuse leptos_use::{use_broadcast_channel, UseBroadcastChannelReturn};\n\nuse crate::registry::ui::button::Button;\n\n// TODO 🪝 Input\n// TODO 🪝 Button --> Loading state\n\n#[component]\npub fn DemoUseBroadcastChannel() -> impl IntoView {\n    let UseBroadcastChannelReturn {\n        is_supported,\n        message,\n        post,\n        error,\n        ..\n    } = use_broadcast_channel::<String, FromToStringCodec>(\"leptos-use-demo-channel\");\n\n    let (input_value, set_input_value) = create_signal(String::new());\n\n    view! {\n        <p>Please open this page in at least two tabs</p>\n\n        <Show\n            when=move || is_supported()\n            fallback=move || view! { <p>\"BroadcastChannel not supported\"</p> }\n        >\n            <form on:submit={\n                let post = post.clone();\n                move |ev: web_sys::SubmitEvent| {\n                    ev.prevent_default();\n                    let value = input_value();\n                    post(&value);\n                }\n            }>\n                <input\n                    value=input_value\n                    on:input=move |event| {\n                        set_input_value(event_target_value(&event));\n                    }\n                    class=\"text-neutral-500\"\n\n                    type=\"text\"\n                />\n                <Button r#type=\"submit\">Send Message</Button>\n            </form>\n\n            <Show when=move || message().is_some()>\n                <p>\"Received message: \" {move || message().as_ref().unwrap().to_string()}</p>\n            </Show>\n\n            <Show when=move || error.with(|e| e.is_some())>\n                <p>\"Error: \" {move || error.with(|e| format!(\"{:?}\", e.as_ref().unwrap()))}</p>\n            </Show>\n        </Show>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

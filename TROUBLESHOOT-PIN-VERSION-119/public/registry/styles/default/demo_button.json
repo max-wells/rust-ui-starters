@@ -1,0 +1,12 @@
+{
+  "name": "demo_button",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_button.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::button::Button;\n\n#[component]\npub fn DemoButton() -> impl IntoView {\n    view! { <Button>Button</Button> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

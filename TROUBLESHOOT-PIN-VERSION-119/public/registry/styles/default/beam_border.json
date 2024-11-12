@@ -1,0 +1,12 @@
+{
+  "name": "beam_border",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "beam_border.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn BeamBorder(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| tw_merge!(\"relative rounded-xl w-fit\", class()));\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n\n#[component]\npub fn BeamBorderImage(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    #[prop(into)] src: MaybeSignal<String>,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\"object-contain border shadow-lg rounded-[inherit]\", class())\n    });\n\n    view! { <img {..attributes} class=class src=src /> }\n}\n\n//\n//\n#[component]\npub fn BeamBorderLine(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"absolute inset-[0] rounded-[inherit]\", \n            \"[border:calc(var(--border-width)*1px)_solid_transparent] ![mask-clip:padding-box,border-box] ![mask-composite:intersect] [mask:linear-gradient(transparent,transparent),linear-gradient(white,white)]\",\n            \"after:animate-beamBorder after:absolute after:aspect-square after:w-[calc(var(--size)*1px)] after:[animation-delay:var(--delay)] after:[background:linear-gradient(to_left,var(--color-from),var(--color-to),transparent)] after:[offset-anchor:calc(var(--anchor)*1%)_50%] after:[offset-path:rect(0_auto_auto_0_round_calc(var(--size)*1px))]\",\n            class()\n        )\n    });\n\n    view! {\n        <div\n            {..attributes}\n            class=class\n            style=\"--size:250;--duration:12;--anchor:90;--border-width:1.5;--color-from:#ffaa40;--color-to:#9c40ff;--delay:-9s\"\n        />\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

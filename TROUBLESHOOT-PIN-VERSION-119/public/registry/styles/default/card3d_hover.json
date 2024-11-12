@@ -1,0 +1,12 @@
+{
+  "name": "card3d_hover",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "card3d_hover.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn Card3DHover(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"flex relative justify-center items-end px-[36px] mx-[50px] card3dHover\",\n            class()\n        )\n    });\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n\n#[component]\npub fn Card3DHoverImage(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    #[prop(into)] src: String,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"absolute w-full transition-all duration-500 z-[-1] card3dHover-wrapper\",\n            class()\n        )\n    });\n\n    view! {\n        <div {..attributes} class=class>\n            <img src=src class=\"object-cover w-full h-full\" />\n        </div>\n    }\n}\n\n#[component]\npub fn Card3DHoverImageTitle(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    #[prop(into)] src: String,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"w-full transition-transform duration-500 card3dHover-title\",\n            class()\n        )\n    });\n\n    view! { <img {..attributes} class=class src=src /> }\n}\n\n#[component]\npub fn Card3DHoverImageOnHover(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    #[prop(into)] src: String,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"absolute w-full opacity-0 transition-all duration-500  z-[-1] card3dHover-onHover\",\n            class()\n        )\n    });\n\n    view! { <img {..attributes} class=class src=src /> }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

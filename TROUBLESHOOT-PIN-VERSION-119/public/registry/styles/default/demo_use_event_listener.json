@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_event_listener",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_event_listener.rs",
+      "content": "use leptos::ev::{click, keydown};\nuse leptos::html::A;\nuse leptos::logging::log;\nuse leptos::*;\n\nuse leptos_use::{use_event_listener, use_window};\n\n// TODO 🪝 Checkbox (input type=\"checkbox\")\n\n#[component]\npub fn DemoUseEventListener() -> impl IntoView {\n    let _ = use_event_listener(use_window(), keydown, |evt| {\n        log!(\"window keydown: '{}'\", evt.key());\n    });\n\n    let element = create_node_ref::<A>();\n\n    let _ = use_event_listener(element, click, |evt| {\n        log!(\n            \"click from element '{:?}'\",\n            event_target::<web_sys::HtmlElement>(&evt).inner_text()\n        );\n        evt.stop_propagation();\n        evt.prevent_default();\n    });\n\n    let (cond, set_cond) = create_signal(true);\n\n    view! {\n        <p>\"Check in the dev tools console\"</p>\n        <p>\n            <label>\n                <input\n                    type=\"checkbox\"\n                    on:change=move |evt| set_cond.set(event_target_checked(&evt))\n                    prop:checked=move || cond.get()\n                />\n                \"Condition enabled\"\n            </label>\n        </p>\n        <Show\n            when=move || cond.get()\n            fallback=move || {\n                view! {\n                    <a node_ref=element href=\"#\">\n                        \"Condition\"\n                        <b>\" false \"</b>\n                        \"[click me]\"\n                    </a>\n                }\n            }\n        >\n\n            <a node_ref=element href=\"#\">\n                \"Condition \"\n                <b>\"true\"</b>\n                \" [click me]\"\n            </a>\n        </Show>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

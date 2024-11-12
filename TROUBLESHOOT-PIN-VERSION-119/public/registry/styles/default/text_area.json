@@ -1,0 +1,12 @@
+{
+  "name": "text_area",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "text_area.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\nuse crate::registry::ui::_shared::STYLES;\n\n#[component]\npub fn TextArea(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            STYLES.BORDER_INPUT,\n            STYLES.DISABLED_NOT_ALLOWED,\n            STYLES.FOCUS_VISIBLE_RING,\n            STYLES.PLACEHOLDER_MUTED_FOREGROUND,\n            STYLES.RING_OFFSET_BG,\n            STYLES.FLEX_WIDTH_FULL,\n            \"min-h-[80px] rounded-md bg-background px-3 py-2 text-sm\",\n            class()\n        )\n    });\n\n    view! {\n        <textarea {..attributes} class=class>\n            {children()}\n        </textarea>\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

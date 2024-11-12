@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_interval_fn",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_interval_fn.rs",
+      "content": "use leptos::*;\n\n#[cfg(feature = \"hydrate\")]\nuse crate::registry::ui::button::Button;\n#[cfg(feature = \"hydrate\")]\nuse leptos_use::use_interval_fn;\n#[cfg(feature = \"hydrate\")]\nuse leptos_use::utils::Pausable;\n\n// TODO 🪝. Input\n\n#[component]\npub fn DemoUseIntervalFn() -> impl IntoView {\n    #[cfg(feature = \"hydrate\")]\n    let interval_component = {\n        let greetings = [\n            \"Hello\",\n            \"Hi\",\n            \"Yo!\",\n            \"Hey\",\n            \"Hola\",\n            \"こんにちは\",\n            \"Bonjour\",\n            \"Salut!\",\n            \"你好\",\n            \"Привет\",\n        ];\n\n        let (word, set_word) = create_signal(greetings[0]);\n        let (interval, set_interval) = create_signal(500_u64);\n        let (index, set_index) = create_signal(0);\n\n        let Pausable {\n            pause,\n            resume,\n            is_active,\n        } = use_interval_fn(\n            move || {\n                set_index.set((index.get() + 1) % greetings.len());\n                set_word.set(greetings[index.get()]);\n            },\n            interval,\n        );\n\n        view! {\n            <p>{move || word.get()}</p>\n            <p>\n                \"Interval:\"\n                <input\n                    prop:value=move || interval.get()\n                    on:input=move |e| set_interval.set(event_target_value(&e).parse().unwrap())\n                    type=\"number\"\n                    placeholder=\"interval\"\n                />\n            </p>\n\n            <Show\n                when=move || is_active.get()\n                fallback=move || {\n                    let resume = resume.clone();\n                    view! { <Button on:click=move |_| resume()>\"Resume\"</Button> }\n                }\n            >\n                {\n                    let pause = pause.clone();\n                    view! { <Button on:click=move |_| pause()>\"Pause\"</Button> }\n                }\n            </Show>\n        }\n    };\n\n    #[cfg(not(feature = \"hydrate\"))]\n    let interval_component = view! {\n        <p>\n            \"Interval functionality is not available on the server. This component requires client-side hydration.\"\n        </p>\n    };\n\n    view! { <div>{interval_component}</div> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

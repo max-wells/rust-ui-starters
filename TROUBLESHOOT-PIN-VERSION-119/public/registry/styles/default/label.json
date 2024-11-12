@@ -1,0 +1,12 @@
+{
+  "name": "label",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "label.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\nuse crate::registry::ui::_shared::STYLES;\n\n#[component]\npub fn Label(\n    #[prop(optional, into)] class: String,\n    #[prop(optional, into)] r#for: String,\n    children: Children,\n) -> impl IntoView {\n    let class = tw_merge!(\n        STYLES.DISABLED_NOT_ALLOWED_PEER,\n        \"text-sm font-medium leading-none\",\n        class\n    );\n\n    view! {\n        <label class=class r#for=r#for>\n            {children()}\n        </label>\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

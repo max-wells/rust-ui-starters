@@ -1,0 +1,12 @@
+{
+  "name": "demo_breadcrumb",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_breadcrumb.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::breadcrumb::{\n    Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage,\n    BreadcrumbSeparator,\n};\n\n#[component]\npub fn DemoBreadcrumb() -> impl IntoView {\n    view! {\n        <Breadcrumb>\n            <BreadcrumbList>\n                <BreadcrumbItem>\n                    <BreadcrumbLink href=\"/\">Home</BreadcrumbLink>\n                </BreadcrumbItem>\n\n                <BreadcrumbSeparator />\n\n                <BreadcrumbItem>\n                    <BreadcrumbEllipsis class=\"size-4\" />\n                </BreadcrumbItem>\n\n                <BreadcrumbSeparator />\n\n                <BreadcrumbItem>\n                    <BreadcrumbLink href=\"/demo-components/button\">Button</BreadcrumbLink>\n                </BreadcrumbItem>\n\n                <BreadcrumbSeparator />\n\n                <BreadcrumbItem>\n                    <BreadcrumbPage>\"Breadcrumb\"</BreadcrumbPage>\n                </BreadcrumbItem>\n            </BreadcrumbList>\n        </Breadcrumb>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

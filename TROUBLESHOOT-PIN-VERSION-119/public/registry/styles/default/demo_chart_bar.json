@@ -1,0 +1,12 @@
+{
+  "name": "demo_chart_bar",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_chart_bar.rs",
+      "content": "use charts_rs::{BarChart, Color, Series, THEME_DARK};\nuse leptos::*;\nuse serde::{Deserialize, Serialize};\n\n#[derive(Hash, PartialEq, Eq, Clone, Copy, Debug, Serialize, Deserialize)]\npub struct PersonId(pub u32);\n\n#[derive(Clone, Debug, Serialize, Deserialize)]\npub struct MyPerson {\n    pub id: PersonId,\n    pub name: String,\n    pub title: String,\n}\n\nfn generate_fake_persons_data() -> Vec<MyPerson> {\n    vec![\n        MyPerson {\n            id: PersonId(1),\n            name: String::from(\"Alice Smith\"),\n            title: String::from(\"Software Engineer\"),\n        },\n        MyPerson {\n            id: PersonId(2),\n            name: String::from(\"Bob Johnson\"),\n            title: String::from(\"Software Engineer\"),\n        },\n        MyPerson {\n            id: PersonId(3),\n            name: String::from(\"Charlie Brown\"),\n            title: String::from(\"Data Scientist\"),\n        },\n        MyPerson {\n            id: PersonId(4),\n            name: String::from(\"Diana Prince\"),\n            title: String::from(\"UX Designer\"),\n        },\n    ]\n}\n\n#[component]\npub fn DemoChartBar() -> impl IntoView {\n    let persons_data = generate_fake_persons_data();\n\n    let mut title_count_map = std::collections::HashMap::new();\n\n    for person in persons_data {\n        *title_count_map.entry(person.title).or_insert(0.0) += 1.0;\n    }\n\n    let data_vec: Vec<String> = title_count_map.keys().cloned().collect();\n    let count_vec: Vec<f32> = title_count_map.values().cloned().collect();\n\n    let mut bar_series = Series::new(String::new(), count_vec);\n    bar_series.label_show = true;\n\n    let mut bar_chart = BarChart::new_with_theme(vec![bar_series], data_vec, THEME_DARK);\n    bar_chart.font_family = String::from(\"Noto Sans SC\");\n    bar_chart.background_color = Color::transparent();\n    bar_chart.width = 550.0;\n    bar_chart.height = 400.0;\n    bar_chart.y_axis_hidden = true;\n\n    view! { <div class=\"p-10 mx-auto h-[500px]\" inner_html=&bar_chart.svg().unwrap() /> }\n        .into_view()\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_visualizations",
+  "type_short": "components:demos"
+}

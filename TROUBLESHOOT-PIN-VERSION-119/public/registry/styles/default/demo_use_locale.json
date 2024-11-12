@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_locale",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_locale.rs",
+      "content": "use leptos::*;\nuse leptos_use::use_locale;\nuse unic_langid::langid_slice;\n\n#[component]\npub fn DemoUseLocale() -> impl IntoView {\n    let locale = use_locale(langid_slice![\"en\", \"de\", \"fr\"]);\n\n    view! { <p>Locale: <code class=\"font-bold\">{move || locale.get().to_string()}</code></p> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

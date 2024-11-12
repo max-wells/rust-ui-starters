@@ -1,0 +1,12 @@
+{
+  "name": "demo_button_override",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_button_override.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::button::Button;\n\n#[component]\npub fn DemoButtonOverride() -> impl IntoView {\n    view! { <Button class=\"hover:bg-pink-500 bg-sky-500\">Fancy Button</Button> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

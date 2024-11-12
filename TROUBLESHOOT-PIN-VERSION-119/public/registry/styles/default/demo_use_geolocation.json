@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_geolocation",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_geolocation.rs",
+      "content": "use leptos::*;\nuse leptos_use::{use_geolocation, UseGeolocationReturn};\n\n#[component]\npub fn DemoUseGeolocation() -> impl IntoView {\n    let UseGeolocationReturn {\n        coords,\n        located_at,\n        error,\n        resume,\n        pause,\n    } = use_geolocation();\n\n    view! {\n        <pre lang=\"json\">\n            coords:\n            {move || {\n                if let Some(coords) = coords() {\n                    format!(\n                        r#\"{{\n        accuracy: {},\n        latitude: {},\n        longitude: {},\n        altitude: {:?},\n        altitude_accuracy: {:?},\n        heading: {:?},\n        speed: {:?},\n    }}\"#,\n                        coords.accuracy(),\n                        coords.latitude(),\n                        coords.longitude(),\n                        coords.altitude(),\n                        coords.altitude_accuracy(),\n                        coords.heading(),\n                        coords.speed(),\n                    )\n                } else {\n                    \"None\".to_string()\n                }\n            }},\n            located_at: {located_at},\n            error:\n            {move || if let Some(error) = error() { error.message() } else { \"None\".to_string() }},\n        </pre>\n        <button on:click=move |_| pause()>\"Pause watch\"</button>\n        <button on:click=move |_| resume()>\"Resume watch\"</button>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

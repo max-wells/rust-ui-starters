@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_raf_fn",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_raf_fn.rs",
+      "content": "use leptos::*;\nuse leptos_use::{use_raf_fn, utils::Pausable};\n\nuse crate::registry::ui::button::Button;\n\n// TODO. Improve disabled props.\n\n#[component]\npub fn DemoUseRafFn() -> impl IntoView {\n    let (count, set_count) = create_signal(0);\n\n    let Pausable {\n        pause,\n        resume,\n        is_active,\n    } = use_raf_fn(move |_| {\n        set_count.update(|count| *count += 1);\n    });\n\n    view! {\n        <div class=\"flex flex-col gap-4 justify-center items-center\">\n            <div class=\"mx-auto\">Count: {count}</div>\n\n            <div class=\"flex gap-2\">\n                <Button\n                    on:click=move |_| pause()\n                    disabled=MaybeSignal::Dynamic(Signal::derive(move || !is_active()))\n                >\n                    Pause\n                </Button>\n                <Button on:click=move |_| resume() disabled=MaybeSignal::Dynamic(is_active)>\n                    Resume\n                </Button>\n            </div>\n\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

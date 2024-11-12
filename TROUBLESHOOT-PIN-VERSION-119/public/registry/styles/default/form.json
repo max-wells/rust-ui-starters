@@ -1,0 +1,12 @@
+{
+  "name": "form",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "form.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n#[component]\npub fn FormField(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| tw_merge!(\"flex items-center gap-2\", class()));\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

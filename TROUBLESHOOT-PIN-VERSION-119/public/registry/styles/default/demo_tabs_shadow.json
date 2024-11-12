@@ -1,0 +1,12 @@
+{
+  "name": "demo_tabs_shadow",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_tabs_shadow.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\n#[component]\npub fn DemoTabsShadow() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"tabs-shadow\" href=\"/components/tabs-shadow.css\" />\n\n        <div class=\"w-full max-w-2xl tab-container\">\n            <input type=\"radio\" name=\"tab\" id=\"tab1\" class=\"tab tab--1\" />\n            <label class=\"tab_label\" for=\"tab1\" class=\"text-neutral-500\">\n                Profile\n            </label>\n\n            <input type=\"radio\" name=\"tab\" id=\"tab2\" class=\"tab tab--2\" />\n            <label class=\"tab_label\" for=\"tab2\" class=\"text-neutral-500\">\n                Settings\n            </label>\n\n            <input type=\"radio\" name=\"tab\" id=\"tab3\" class=\"tab tab--3\" />\n            <label class=\"tab_label\" for=\"tab3\" class=\"text-neutral-500\">\n                Notifications\n            </label>\n\n            <div class=\"indicator\"></div>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

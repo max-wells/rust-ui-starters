@@ -1,0 +1,12 @@
+{
+  "name": "demo_button_reactive",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_button_reactive.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::button::Button;\n\n#[component]\npub fn DemoButtonReactive() -> impl IntoView {\n    // Creates a reactive value to update the button\n    let (count, set_count) = create_signal(0);\n    let on_click = move |_| set_count.update(|count| *count += 1);\n\n    view! { <Button on:click=on_click>\"Click Me: \" {count}</Button> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

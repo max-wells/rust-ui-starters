@@ -1,0 +1,12 @@
+{
+  "name": "demo_chart_candlesticks",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_chart_candlesticks.rs",
+      "content": "use charts_rs::{CandlestickChart, Color, THEME_DARK};\nuse leptos::*;\n\n#[component]\npub fn DemoChartCandlesticks() -> impl IntoView {\n    let data = vec![\n        20.0, 34.0, 10.0, 38.0, 40.0, 35.0, 30.0, 50.0, 31.0, 38.0, 33.0, 44.0, 38.0, 15.0, 5.0,\n        42.0,\n    ];\n\n    let dates = vec![\n        \"2017-10-24\".to_string(),\n        \"2017-10-25\".to_string(),\n        \"2017-10-26\".to_string(),\n        \"2017-10-27\".to_string(),\n    ];\n\n    let mut candlestick_chart =\n        CandlestickChart::new_with_theme(vec![(\"\", data).into()], dates, THEME_DARK);\n\n    candlestick_chart.font_family = String::from(\"Noto Sans SC\");\n    candlestick_chart.background_color = Color::transparent();\n    candlestick_chart.width = 550.0;\n    candlestick_chart.height = 400.0;\n\n    view! { <div class=\"p-10 mx-auto h-[500px]\" inner_html=&candlestick_chart.svg().unwrap() /> }\n        .into_view()\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_visualizations",
+  "type_short": "components:demos"
+}

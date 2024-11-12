@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_css_var",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_css_var.rs",
+      "content": "use leptos::html::Div;\nuse leptos::*;\nuse leptos_use::{use_css_var_with_options, UseCssVarOptions};\n\n#[component]\npub fn DemoUseCssVar() -> impl IntoView {\n    let el = create_node_ref::<Div>();\n    let (color, set_color) =\n        use_css_var_with_options(\"--color\", UseCssVarOptions::default().target(el));\n    let switch_color = move |_| {\n        if color.get() == \"#df8543\" {\n            set_color.set(\"#7fa998\".to_string());\n        } else {\n            set_color.set(\"#df8543\".to_string());\n        }\n    };\n\n    let elv = create_node_ref::<Div>();\n    let (key, set_key) = create_signal(\"--color\".to_string());\n    let (color_val, _) = use_css_var_with_options(key, UseCssVarOptions::default().target(elv));\n    let change_var = move |_| {\n        if key.get() == \"--color\" {\n            set_key.set(\"--color-one\".to_string());\n        } else {\n            set_key.set(\"--color\".to_string());\n        }\n    };\n    let style = move || {\n        format!(\n            \"--color: #7fa998; --color-one: #df8543; color: {}\",\n            color_val.get()\n        )\n    };\n\n    view! {\n        <div>\n            <div node_ref=el style=\"--color: #7fa998; color: var(--color)\">\n                \"Sample text, \"\n                {color}\n            </div>\n            <button on:click=switch_color>\"Change color value\"</button>\n        </div>\n\n        <div>\n            <div node_ref=elv style=style class=\"mt-4\">\n                \"Sample text, \"\n                {key}\n                \": \"\n                {color_val}\n            </div>\n            <button on:click=change_var>\"Change color variable\"</button>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

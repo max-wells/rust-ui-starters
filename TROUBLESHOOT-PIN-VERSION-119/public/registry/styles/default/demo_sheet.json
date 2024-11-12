@@ -1,0 +1,12 @@
+{
+  "name": "demo_sheet",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_sheet.rs",
+      "content": "use leptos::html::Div;\nuse leptos::*;\nuse leptos_use::on_click_outside;\n\nuse crate::registry::{\n    hooks::use_lock_body_scroll::use_lock_body_scroll,\n    ui::sheet::{\n        SheetCancel, SheetContent, SheetDescription, SheetTitle, SheetTrigger, SheetVariant,\n    },\n};\n\n#[component]\npub fn DemoSheet() -> impl IntoView {\n    let (is_open, set_is_open) = create_signal(false);\n    let (_scroll_locked, set_scroll_locked) = use_lock_body_scroll(false);\n    let _sheet_ref = create_node_ref::<Div>();\n\n    let toggle_sheet = move |_| {\n        let new_state = !is_open.get();\n        set_is_open.set(new_state);\n        set_scroll_locked.set(new_state);\n    };\n\n    create_effect(move |_| {\n        if is_open.get() {\n            let _ = on_click_outside(_sheet_ref, move |_| {\n                set_is_open.set(false);\n                set_scroll_locked.set(false);\n            });\n        }\n    });\n\n    view! {\n        <>\n            <SheetTrigger on:click=toggle_sheet>\"Open Sheet\"</SheetTrigger>\n\n            <div node_ref=_sheet_ref>\n                <SheetContent is_open=is_open class=\"w-[400px]\">\n                    <SheetTitle>{\"Sheet Title\"}</SheetTitle>\n                    <SheetDescription>{\"This is the content inside the sheet.\"}</SheetDescription>\n\n                    <SheetCancel on:click=toggle_sheet variant=SheetVariant::Destructive>\n                        {\"Cancel\"}\n                    </SheetCancel>\n                </SheetContent>\n            </div>\n        </>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

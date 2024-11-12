@@ -1,0 +1,12 @@
+{
+  "name": "separator",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "separator.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n#[component]\npub fn Separator(\n    #[prop(into, optional)] orientation: MaybeSignal<SeparatorOrientation>,\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    // children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        let orientation = orientation.get();\n        let separator = SeparatorClass {\n            orientation,\n        };\n        separator.with_class(class.get())\n    });\n\n    view! { <div {..attributes} class=class role=\"separator\" /> }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                        🧬 STRUCT 🧬                         */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[derive(TwClass, Default)]\n#[tw(class = \"shrink-0 bg-border\")]\npub struct SeparatorClass {\n    orientation: SeparatorOrientation,\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[derive(TwVariant)]\npub enum SeparatorOrientation {\n    #[tw(default, class = \"w-full h-[1px]\")]\n    Default,\n    #[tw(class = \"h-full w-[1px]\")]\n    Vertical,\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

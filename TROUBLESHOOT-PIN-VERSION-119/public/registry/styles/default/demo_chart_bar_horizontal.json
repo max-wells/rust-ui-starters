@@ -1,0 +1,12 @@
+{
+  "name": "demo_chart_bar_horizontal",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_chart_bar_horizontal.rs",
+      "content": "use charts_rs::{HorizontalBarChart, THEME_DARK};\nuse leptos::*;\n\n#[component]\npub fn DemoChartBarHorizontal() -> impl IntoView {\n    let bar_chart_horizontal = HorizontalBarChart::new_with_theme(\n        vec![\n            (\n                \"2011\",\n                vec![18203.0, 23489.0, 29034.0, 104970.0, 131744.0, 630230.0],\n            )\n                .into(),\n            (\n                \"2012\",\n                vec![19325.0, 23438.0, 31000.0, 121594.0, 134141.0, 681807.0],\n            )\n                .into(),\n        ],\n        vec![\n            \"Brazil\".to_string(),\n            \"Indonesia\".to_string(),\n            \"USA\".to_string(),\n            \"India\".to_string(),\n            \"China\".to_string(),\n            \"World\".to_string(),\n        ],\n        THEME_DARK,\n    );\n\n    view! { <div class=\"p-10 mx-auto h-[500px]\" inner_html=&bar_chart_horizontal.svg().unwrap() /> }\n        .into_view()\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_visualizations",
+  "type_short": "components:demos"
+}

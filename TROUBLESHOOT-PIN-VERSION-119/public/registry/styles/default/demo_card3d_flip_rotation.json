@@ -1,0 +1,12 @@
+{
+  "name": "demo_card3d_flip_rotation",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_card3d_flip_rotation.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\n#[component]\npub fn DemoCard3dFlipRotation() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"card-3d-flip-rotation\" href=\"/components/card-3d-flip-rotation.css\" />\n\n        <div class=\"mainContainer\">\n            <div class=\"card\">\n                <div class=\"front\">\n                    <p class=\"front-heading\">Front card</p>\n                    <p>Follow Me For More</p>\n                </div>\n                <div class=\"back\">\n                    <p class=\"back-heading\">Back card</p>\n                    <p>Follow Me For More</p>\n                </div>\n            </div>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

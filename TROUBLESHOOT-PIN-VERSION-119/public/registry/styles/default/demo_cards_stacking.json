@@ -1,0 +1,12 @@
+{
+  "name": "demo_cards_stacking",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_cards_stacking.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\n// TODO. Works better with the HTML version\n\n#[component]\npub fn DemoCardsStacking() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"cards-stacking\" href=\"/components/cards-stacking.css\" />\n\n        <div class=\"flex flex-col gap-4 justify-center items-center p-4 mainBody\">\n\n            <div class=\"grid gap-4 p-2 mx-auto w-full border pt-[200px] border-sky-500 max-w-[600px]\">\n\n                <div class=\"grid relative cards\">\n                    <StickyArticle i=1 />\n                    <StickyArticle i=2 />\n                    <StickyArticle i=3 />\n                    <StickyArticle i=4 />\n                </div>\n\n                <div class=\"h-[500px] bg-neutral-700\">content</div>\n                <div class=\"h-[500px] bg-neutral-700\">content</div>\n                <div class=\"h-[500px] bg-neutral-700\">content</div>\n            </div>\n\n        </div>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•��°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn StickyArticle(i: i32) -> impl IntoView {\n    let formatted_style = format!(\"--i:{}\", i);\n\n    const HARDCODED_TOP_OFFSET: &str = \"top: 60px;\";\n\n    view! {\n        <article\n            class=\"sticky p-4 rounded-lg h-[150px] bg-sky-700\"\n            style=format!(\"{}; {}\", formatted_style, HARDCODED_TOP_OFFSET)\n        >\n            <h2>\"Card {i}\"</h2>\n            <p>\"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"</p>\n        </article>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

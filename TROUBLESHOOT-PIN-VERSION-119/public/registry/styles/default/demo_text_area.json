@@ -1,0 +1,12 @@
+{
+  "name": "demo_text_area",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_text_area.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::text_area::TextArea;\n\n#[component]\npub fn DemoTextArea() -> impl IntoView {\n    view! {\n        <div>\n            <TextArea class=\"w-full\">\"Initial content\"</TextArea>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

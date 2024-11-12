@@ -1,0 +1,12 @@
+{
+  "name": "demo_switch",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_switch.rs",
+      "content": "use leptos::*;\n\n#[cfg(feature = \"hydrate\")]\nuse crate::registry::primitives::p_switch::{PrimitiveSwitchRoot, PrimitiveSwitchThumb};\n\n#[component]\npub fn DemoSwitch() -> impl IntoView {\n    #[cfg(feature = \"hydrate\")]\n    let switch_component = view! {\n        <div class=\"flex gap-4 items-center\">\n            <label for=\"airplane-mode\">\"Airplane mode\"</label>\n\n            <PrimitiveSwitchRoot\n                attr:class=\"focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:outline-none focus-visible:ring-offset-background peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors\"\n                attr:id=\"airplane-mode\"\n            >\n                // attr:style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0)\"\n                <PrimitiveSwitchThumb attr:class=\"size-5 data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0 pointer-events-none block rounded-full bg-background shadow-lg ring-0 transition-transform\" />\n            </PrimitiveSwitchRoot>\n        </div>\n    };\n\n    #[cfg(not(feature = \"hydrate\"))]\n    let switch_component = view! {\n        <p>\n            \"Switch functionality is not available on the server. This component requires client-side hydration.\"\n        </p>\n    };\n\n    view! { <div>{switch_component}</div> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_primitives",
+  "type_short": "components:demos"
+}

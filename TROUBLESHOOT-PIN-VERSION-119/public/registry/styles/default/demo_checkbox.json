@@ -1,0 +1,12 @@
+{
+  "name": "demo_checkbox",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_checkbox.rs",
+      "content": "use crate::registry::ui::checkbox::Checkbox;\nuse leptos::*;\n\n#[component]\npub fn DemoCheckbox() -> impl IntoView {\n    view! {\n        <div class=\"space-y-4\">\n            <Checkbox checked=false />\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

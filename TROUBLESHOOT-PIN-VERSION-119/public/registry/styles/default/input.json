@@ -1,0 +1,12 @@
+{
+  "name": "input",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "input.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\nuse crate::registry::ui::_shared::STYLES;\n\n#[allow(unused_variables)]\n#[component]\npub fn Input(\n    #[prop(optional, into)] class: String,\n    #[prop(optional, into, default = \"text\")] r#type: &'static str,\n    #[prop(optional_no_strip)] value: Option<ReadSignal<String>>,\n    #[prop(optional)] placeholder: Option<&'static str>,\n    #[prop(optional)] name: Option<&'static str>,\n    #[prop(optional)] id: Option<&'static str>,\n    #[prop(optional)] min: Option<String>,\n    #[prop(optional)] step: Option<String>,\n    #[prop(optional)] max: Option<String>,\n    #[prop(optional)] autofocus: bool,\n    #[prop(optional)] node_ref: NodeRef<html::Input>,\n) -> impl IntoView {\n    let class = tw_merge!(\n        STYLES.PLACEHOLDER_MUTED_FOREGROUND,\n        STYLES.FILE_STYLES,\n        STYLES.DISABLED_NOT_ALLOWED,\n        STYLES.FOCUS_VISIBLE_RING,\n        STYLES.RING_OFFSET_BG,\n        STYLES.BORDER_INPUT,\n        STYLES.FLEX_WIDTH_FULL,\n        \"h-10 rounded-md bg-background px-3 py-2 text-sm\",\n        class\n    );\n\n    view! {\n        <input\n            type=r#type\n            class=class\n            name=name\n            id=id\n            placeholder=placeholder\n            value=value\n            min=min\n            step=step\n            max=max\n            node_ref=node_ref\n            autofocus=autofocus\n        />\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

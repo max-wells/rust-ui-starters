@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_intl_number_format",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_intl_number_format.rs",
+      "content": "use leptos::*;\nuse leptos_use::{use_intl_number_format, NumberStyle, UseIntlNumberFormatOptions};\n\nuse crate::registry::ui::slider::Slider;\n\n#[component]\npub fn DemoUseIntlNumberFormat() -> impl IntoView {\n    let (number, set_number) = create_signal(123456.78);\n\n    let de_nf = use_intl_number_format(\n        UseIntlNumberFormatOptions::default()\n            .locale(\"de-DE\")\n            .style(NumberStyle::Currency)\n            .currency(\"EUR\"),\n    );\n    let de_num = de_nf.format::<f64>(number);\n\n    let ja_nf = use_intl_number_format(\n        UseIntlNumberFormatOptions::default()\n            .locale(\"ja-JP\")\n            .style(NumberStyle::Currency)\n            .currency(\"JPY\"),\n    );\n    let ja_num = ja_nf.format::<f64>(number);\n\n    let in_nf = use_intl_number_format(\n        UseIntlNumberFormatOptions::default()\n            .locale(\"en-IN\")\n            .maximum_significant_digits(3),\n    );\n    let in_num = in_nf.format::<f64>(number);\n\n    view! {\n        <Slider\n            class=\"max-w-[270px]\"\n            value=number\n            on_input=set_number\n            min=-1000000.0\n            max=1000000.0\n            step=0.01\n        />\n        <p>\"Number: \" {number}</p>\n        <p>\"German currency (EUR): \" {de_num}</p>\n        <p>\"Japanese currency (JPY): \" {ja_num}</p>\n        <p>\"Indian 3 max significant digits: \" {in_num}</p>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

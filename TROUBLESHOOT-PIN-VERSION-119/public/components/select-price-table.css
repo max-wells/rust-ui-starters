@@ -1,0 +1,15 @@
+input[type="radio"]:checked + label {
+	background-color: #7C3AED;
+}
+
+input[type="radio"]:checked + label p,
+input[type="radio"]:checked + label span,
+input[type="radio"]:checked + label h3,
+input[type="radio"]:checked + label svg {
+	color: #F5F3FF;
+}
+
+input[type="radio"]:checked + label .button {
+	border-color: #F5F3FF;
+	color: #F5F3FF;
+}

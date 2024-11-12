@@ -1,0 +1,12 @@
+{
+  "name": "demo_badge",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_badge.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::badge::Badge;\n\n#[component]\npub fn DemoBadge() -> impl IntoView {\n    view! { <Badge>\"Default\"</Badge> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

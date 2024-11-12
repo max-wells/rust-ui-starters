@@ -1,0 +1,12 @@
+{
+  "name": "demo_chart_bar_json",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_chart_bar_json.rs",
+      "content": "use charts_rs::BarChart;\nuse leptos::*;\n\n#[component]\npub fn DemoChartBarJson() -> impl IntoView {\n    let json_data = r###\"{\n        \"width\": 630,\n        \"height\": 410,\n        \"margin\": {\n            \"left\": 10,\n            \"top\": 5,\n            \"right\": 10\n        },\n        \"title_text\": \"Bar Chart\",\n        \"title_font_color\": \"#345\",\n        \"title_align\": \"right\",\n        \"sub_title_text\": \"demo\",\n        \"legend_align\": \"left\",\n        \"series_list\": [\n            {\n                \"name\": \"Email\",\n                \"label_show\": true,\n                \"data\": [120.0, 132.0, 101.0, 134.0, 90.0, 230.0, 210.0]\n            },\n            {\n                \"name\": \"Union Ads\",\n                \"data\": [220.0, 182.0, 191.0, 234.0, 290.0, 330.0, 310.0]\n            }\n        ],\n        \"x_axis_data\": [\n            \"Mon\",\n            \"Tue\",\n            \"Wed\",\n            \"Thu\",\n            \"Fri\",\n            \"Sat\",\n            \"Sun\"\n        ]\n    }\"###;\n\n    let bar_chart = BarChart::from_json(json_data).unwrap();\n\n    view! { <div class=\"p-10 mx-auto h-[500px]\" inner_html=&bar_chart.svg().unwrap() /> }\n        .into_view()\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_visualizations",
+  "type_short": "components:demos"
+}

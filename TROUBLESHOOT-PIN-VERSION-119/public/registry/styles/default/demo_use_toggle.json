@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_toggle",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_toggle.rs",
+      "content": "use ev::MouseEvent;\nuse leptos::*;\n\n#[component]\npub fn DemoUseToggle() -> impl IntoView {\n    let (toggled, set_toggled) = create_signal(false);\n\n    view! {\n        <p>\"Toggled? \" {toggled}</p>\n        <ButtonB on_click=move |_| set_toggled.update(|value| *value = !*value) />\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn ButtonB(#[prop(into)] on_click: Callback<MouseEvent>) -> impl IntoView {\n    // Ensure the button structure is consistent\n    view! { <button on:click=on_click>\"Toggle\"</button> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_intersection_observer",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_intersection_observer.rs",
+      "content": "use leptos::html::Div;\nuse leptos::*;\nuse leptos_use::docs::BooleanDisplay;\nuse leptos_use::{\n    use_intersection_observer_with_options, UseIntersectionObserverOptions,\n    UseIntersectionObserverReturn,\n};\n\n// TODO 🪝 Improve this 💪\n// TODO 🪝 Checkbox, Label\n\n#[component]\npub fn DemoUseIntersectionObserver() -> impl IntoView {\n    let root = create_node_ref::<Div>();\n    let target = create_node_ref::<Div>();\n    let (is_visible, set_visible) = create_signal(false);\n\n    let UseIntersectionObserverReturn {\n        is_active,\n        pause,\n        resume,\n        ..\n    } = use_intersection_observer_with_options(\n        target,\n        move |entries, _| {\n            set_visible.set(entries[0].is_intersecting());\n        },\n        UseIntersectionObserverOptions::default().root(Some(root)),\n    );\n\n    view! {\n        <div class=\"text-center\">\n            <label class=\"checkbox\">\n                <input\n                    type=\"checkbox\"\n                    prop:checked=move || is_active.get()\n                    name=\"enabled\"\n                    on:input=move |e| {\n                        if event_target_checked(&e) {\n                            resume();\n                        } else {\n                            pause();\n                        }\n                    }\n                />\n\n                <span>\"Enabled\"</span>\n            </label>\n        </div>\n\n        <div\n            node_ref=root\n            class=\"overflow-y-scroll my-8 mx-4 h-52 border-2 border-gray-300 border-dashed\"\n        >\n            <p class=\"py-12 mb-72 text-2xl italic text-center opacity-80\">\"Scroll me down! 👇\"</p>\n            <div\n                node_ref=target\n                class=\"p-2 my-0 mx-8 mb-96 max-h-36 border-2 border-dashed border-brand-color\"\n            >\n                <p>\"Hello world!\"</p>\n            </div>\n        </div>\n\n        <div class=\"text-center\">\n            \"Element \"\n            <BooleanDisplay\n                value=is_visible\n                true_str=\"inside\"\n                false_str=\"outside\"\n                class=\"font-bold underline\"\n            /> \" the viewport\"\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

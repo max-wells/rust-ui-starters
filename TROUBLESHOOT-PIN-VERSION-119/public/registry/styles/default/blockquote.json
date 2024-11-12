@@ -1,0 +1,12 @@
+{
+  "name": "blockquote",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "blockquote.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n#[component]\npub fn Blockquote(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"bg-gray-100 text-gray-500\",\n            \"relative rounded-lg font-sans text-lg italic leading-relaxed\",\n            \"border-l-8 border-l-gray-700\",\n            \"py-5 pl-16 pr-5\",\n            \"before:absolute before:left-3 before:top-3 before:font-serif before:text-6xl before:text-gray-700 before:content-['“']\",\n            class()\n        )\n    });\n\n    view! {\n        <q {..attributes} class=class>\n            {children()}\n        </q>\n    }\n}\n\n#[component]\npub fn BlockquoteAuthor(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"mt-5 pr-4 text-right font-bold not-italic text-gray-700\",\n            class()\n        )\n    });\n\n    view! {\n        <p {..attributes} class=class>\n            {children()}\n        </p>\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "demo_beam_border",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_beam_border.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::beam_border::{BeamBorder, BeamBorderImage, BeamBorderLine};\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn DemoBeamBorder() -> impl IntoView {\n    const IMG_DARK: &str = \"/images/dashboard-dark.webp\";\n    const IMG_LIGHT: &str = \"/images/dashboard-light.webp\";\n\n    view! {\n        <BeamBorder>\n            <BeamBorderImage src=IMG_DARK class=\"hidden dark:block w-[700px]\" />\n            <BeamBorderImage src=IMG_LIGHT class=\"block dark:hidden w-[700px]\" />\n\n            <BeamBorderLine />\n        </BeamBorder>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

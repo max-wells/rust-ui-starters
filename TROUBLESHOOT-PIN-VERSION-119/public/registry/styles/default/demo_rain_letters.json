@@ -1,0 +1,12 @@
+{
+  "name": "demo_rain_letters",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_rain_letters.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\n#[component]\npub fn DemoRainLetters() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"rain-letters\" href=\"/components/rain-letters.css\" />\n        <script src=\"/components/rain-letters.js\" />\n\n        <div class=\"mainDivRainLetters\">\n\n            <div class=\"containerRainLetters\">\n                <div class=\"cloud\">\n                    <h2>Matrix Rain</h2>\n                </div>\n            </div>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

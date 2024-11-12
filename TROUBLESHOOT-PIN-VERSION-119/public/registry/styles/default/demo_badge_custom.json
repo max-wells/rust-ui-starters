@@ -1,0 +1,12 @@
+{
+  "name": "demo_badge_custom",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_badge_custom.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::badge::Badge;\n\n#[component]\npub fn DemoBadgeCustom() -> impl IntoView {\n    view! {\n        <div class=\"flex gap-2 items-center\">\n            <Badge class=\"bg-sky-500\">Cutstom</Badge>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

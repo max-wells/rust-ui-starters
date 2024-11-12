@@ -1,0 +1,12 @@
+{
+  "name": "mod",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "mod.rs",
+      "content": "pub mod p_accordion;\npub mod p_aspect_ratio;\npub mod p_avatar;\npub mod p_checkbox;\npub mod p_collapsible;\npub mod p_label;\npub mod p_primitive;\npub mod p_progress;\npub(crate) mod p_radio;\npub mod p_radio_group;\npub mod p_scroll_area;\npub mod p_separator;\npub mod p_slider;\npub mod p_slot;\npub mod p_switch;\npub mod p_tabs;\npub mod p_toggle;\npub mod p_toggle_group;\npub mod p_toolbar;\n\n// UTILS\npub mod p_utils_create_controllable_signal;\npub mod p_utils_create_id;\npub mod p_utils_create_previous;\npub mod p_utils_create_state_machine;\n\n// TODO. CUSTOM\npub mod p_primitive_custom;\npub mod p_tabs_custom;\npub mod p_toggle_custom;\n\npub(crate) mod p_collection;\npub(crate) mod p_presence;\npub(crate) mod p_roving_focus;\n\n#[derive(Default, Clone, PartialEq, Copy, strum_macros::Display)]\npub enum Direction {\n    #[default]\n    #[strum(to_string = \"ltr\")]\n    LeftToRight,\n    #[strum(to_string = \"rtl\")]\n    RightToLeft,\n}\n\n#[derive(Default, Clone, PartialEq, Copy, strum_macros::Display)]\npub enum Orientation {\n    #[default]\n    #[strum(to_string = \"horizontal\")]\n    Horizontal,\n    #[strum(to_string = \"vertical\")]\n    Vertical,\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                       ✨ UTILS ✨                          */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\npub(crate) fn linear_scale(\n    (input_start, input_end): (f64, f64),\n    (output_start, output_end): (f64, f64),\n) -> impl Fn(f64) -> f64 {\n    move |value| {\n        if input_start == input_end || output_start == output_end {\n            return output_start;\n        }\n\n        let ratio = (output_end - output_start) / (input_end - input_start);\n        output_start + ratio * (value - input_start)\n    }\n}\n\npub(crate) type AttributePair = (&'static str, leptos::Attribute);\npub(crate) type Attributes = Vec<AttributePair>;\n"
+    }
+  ],
+  "type": "components:primitives/",
+  "type_short": "components:primitives"
+}

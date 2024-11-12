@@ -1,0 +1,12 @@
+{
+  "name": "slider",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "slider.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\nuse crate::registry::ui::_shared::STYLES;\n\n#[component]\npub fn Slider(\n    #[prop(optional, into)] class: String,\n    #[prop(optional, into)] min: f64,\n    #[prop(optional, into)] max: f64,\n    #[prop(optional, into)] step: f64,\n    value: ReadSignal<f64>,\n    on_input: WriteSignal<f64>,\n) -> impl IntoView {\n    let class = tw_merge!(STYLES.BLOCK_WIDTH_FULL, \"\", class);\n\n    view! {\n        <input\n            type=\"range\"\n            class=class\n            min=min.to_string()\n            max=max.to_string()\n            step=step.to_string()\n            prop:value=move || value.get().to_string()\n            on:input=move |e| on_input.set(event_target_value(&e).parse().unwrap())\n        />\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

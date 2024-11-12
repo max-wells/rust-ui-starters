@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_media_query",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_media_query.rs",
+      "content": "use leptos::*;\nuse leptos_use::docs::BooleanDisplay;\nuse leptos_use::use_media_query;\n\n#[component]\npub fn DemoUseMediaQuery() -> impl IntoView {\n    let is_large_screen = use_media_query(\"(min-width: 1024px)\");\n    let is_dark_preferred = use_media_query(\"(prefers-color-scheme: dark)\");\n\n    view! {\n        <p>\"Is large screen: \" <BooleanDisplay value=is_large_screen /></p>\n        <p>\"Is dark preferred: \" <BooleanDisplay value=is_dark_preferred /></p>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

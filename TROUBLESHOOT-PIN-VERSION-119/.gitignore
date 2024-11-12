@@ -11,3 +11,80 @@ node_modules/
 test-results/
 end2end/playwright-report/
 playwright/.cache/
+
+
+
+
+
+
+
+
+# * ADDED AFTER *
+# * ADDED AFTER *
+# * ADDED AFTER *
+# * ADDED AFTER *
+# * ADDED AFTER *
+
+# Rust-specific ignores
+/target
+**/*.rs.bk
+Cargo.lock
+**/target/
+
+
+# Git-related files
+.git
+.gitignore
+
+# Editor-specific files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build artifacts and logs
+*.log
+*.o
+*.a
+*.so
+
+# Project-specific ignores (adjust as needed)
+/docs
+/tests
+/examples
+README.md
+
+
+
+
+
+# Ignore all contents inside build_registry at the root level
+/build_registry/
+/build_registry/**
+build_registry/
+build_registry/**
+
+
+# Ignore all contents inside rustui_cli at the root level
+/rustui_cli/
+/rustui_cli/**
+rustui_cli/
+rustui_cli/**
+
+
+# Ignore all contents inside 📦 CRATES at the root level
+/📦 CRATES/
+/📦 CRATES/**
+📦 CRATES/
+📦 CRATES/**
+
+# Ignore all X-others
+/X-others/
+/X-others/**
+X-others/
+X-others/**
+

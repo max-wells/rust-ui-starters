@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_round",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_round.rs",
+      "content": "use leptos::*;\nuse leptos_use::math::use_round;\n\nuse crate::registry::ui::slider::Slider;\n\n#[component]\npub fn DemoUseRound() -> impl IntoView {\n    let (value, set_value) = create_signal(5.95);\n\n    let result: Signal<f64> = use_round(value);\n\n    view! {\n        <Slider class=\"max-w-[300px]\" min=0.0 max=10.0 step=0.01 value=value on_input=set_value />\n        <p>\"Value: \" {move || value.get()}</p>\n        <p>\"Rounded: \" {move || result.get()}</p>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

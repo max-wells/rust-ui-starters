@@ -1,0 +1,12 @@
+{
+  "name": "carousel_parallax",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "carousel_parallax.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn CarouselParallax(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| tw_merge!(\"w-full min-h-[150px]\", class()));\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n\n#[component]\npub fn Slides(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\"flex overflow-scroll w-full whitespace-nowrap slides touch-pan-x snap-x snap-mandatory before:w-[36vw] before:shrink-0 after:w-[36vw] after:shrink-0 smooth-scroll\", class())\n    });\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n\n#[component]\npub fn SlideItem(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\"relative flex-shrink-0 mx-2 rounded-3xl slide h-[calc(70vw*1.5)] w-[70vw] snap-center overflow-clip sm:h-[calc(40vw*1.5)] sm:w-[40vw] md:h-[calc(25vw*1.5)] md:w-[25vw]\", class())\n    });\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n\n#[component]\npub fn SlideImage(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    #[prop(into)] src: &'static str,\n    #[prop(into)] alt: &'static str,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\"block object-cover object-center absolute right-0 w-full h-full animate-parallax [animation-timeline:view(x)]\", class())\n    });\n\n    view! { <img {..attributes} class=class src=src alt=alt /> }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

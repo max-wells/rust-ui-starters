@@ -1,0 +1,12 @@
+{
+  "name": "demo_toggle_group",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_toggle_group.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::icons::others::text_align_center::TextAlignCenter;\nuse crate::registry::icons::others::text_align_left::TextAlignLeft;\nuse crate::registry::icons::others::text_align_right::TextAlignRight;\nuse crate::registry::primitives::p_toggle_group::{\n    ToggleGroupItem, ToggleGroupKind, ToggleGroupRoot, ToggleGroupSingle,\n};\n\n#[component]\npub fn DemoToggleGroup() -> impl IntoView {\n    let toggle_group_item_classes = \"inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground bg-transparent h-10 px-3\";\n\n    view! {\n        <ToggleGroupRoot\n            attr:class=\"flex items-center justify-center gap-1 w-fit\"\n            kind=ToggleGroupKind::Single {\n                value: ToggleGroupSingle::none().into(),\n                default_value: \"center\".into(),\n                on_value_change: None,\n            }\n            // kind=AccordionKind::Multiple {\n            // value: ToggleGroupMultiple::none(),\n            // default_value: ToggleGroupMultiple::none(),\n            // on_value_change: None\n            // }\n            attr:aria-label=\"Text alignment\"\n        >\n            <ToggleGroupItem\n                value=\"left\"\n                attr:class=toggle_group_item_classes\n                attr:aria-label=\"Left aligned\"\n            >\n                <TextAlignLeft />\n            </ToggleGroupItem>\n            <ToggleGroupItem\n                value=\"center\"\n                attr:class=toggle_group_item_classes\n                attr:aria-label=\"Center aligned\"\n            >\n                <TextAlignCenter />\n            </ToggleGroupItem>\n            <ToggleGroupItem\n                value=\"right\"\n                attr:class=toggle_group_item_classes\n                attr:aria-label=\"Right aligned\"\n            >\n                <TextAlignRight />\n            </ToggleGroupItem>\n        </ToggleGroupRoot>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_primitives",
+  "type_short": "components:demos"
+}

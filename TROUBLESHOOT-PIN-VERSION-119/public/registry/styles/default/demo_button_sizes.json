@@ -1,0 +1,12 @@
+{
+  "name": "demo_button_sizes",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_button_sizes.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::button::{Button, ButtonSize};\n\n#[component]\npub fn DemoButtonSizes() -> impl IntoView {\n    view! {\n        <div class=\"flex gap-4\">\n            <Button size=ButtonSize::Sm>Small</Button>\n            <Button>Default</Button>\n            <Button size=ButtonSize::Lg>Large</Button>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

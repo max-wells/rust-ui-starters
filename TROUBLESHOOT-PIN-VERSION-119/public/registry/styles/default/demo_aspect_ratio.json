@@ -1,0 +1,12 @@
+{
+  "name": "demo_aspect_ratio",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_aspect_ratio.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::primitives::p_aspect_ratio::PrimitiveAspectRatioRoot;\n\n#[component]\npub fn DemoAspectRatio() -> impl IntoView {\n    view! {\n        <div class=\"overflow-hidden rounded-md w-[300px]\">\n            <PrimitiveAspectRatioRoot ratio=RATIO>\n                <img\n                    attr:class=CLASS_IMG\n                    src=\"https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80\"\n                    alt=\"Landscape photograph by Tobias Tullius\"\n                />\n            </PrimitiveAspectRatioRoot>\n        </div>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                      ✨ CONSTANTS ✨                       */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\nconst CLASS_IMG: &str = \"object-cover w-full h-full\";\n\nconst RATIO: f64 = 16.0 / 9.0;\n"
+    }
+  ],
+  "type": "components:demos/demo_primitives",
+  "type_short": "components:demos"
+}

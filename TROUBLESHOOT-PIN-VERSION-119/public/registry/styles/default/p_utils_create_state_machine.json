@@ -1,0 +1,12 @@
+{
+  "name": "p_utils_create_state_machine",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "p_utils_create_state_machine.rs",
+      "content": "use std::fmt::Debug;\n\nuse leptos::*;\n\n#[derive(Debug)]\npub struct InvalidState;\npub trait MachineState<T, Event> {\n  fn send(&self, event: Event) -> Result<T, InvalidState>;\n}\n\npub fn create_state_machine<T, Event: std::fmt::Debug + Copy>(\n  initial_state: MaybeSignal<T>,\n) -> (ReadSignal<T>, Callback<Event>)\nwhere\n  T: Clone + Debug + MachineState<T, Event>,\n{\n  let (state, set_state) = create_signal(initial_state.get_untracked());\n\n  let send = move |event: Event| {\n    set_state.update(|state| {\n      if let Ok(result) = state.send(event) {\n        *state = result;\n      }\n    });\n  };\n\n  (state, Callback::new(send))\n}\n"
+    }
+  ],
+  "type": "components:primitives/",
+  "type_short": "components:primitives"
+}

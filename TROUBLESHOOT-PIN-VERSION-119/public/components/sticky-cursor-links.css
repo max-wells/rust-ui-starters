@@ -1,0 +1,24 @@
+
+
+
+/* * 💁 I think trying to use Tailwind causes subtil changes.. Do this later again */
+
+
+.link {
+  transition: all 0.3s ease;
+}
+
+.link span {
+  display: inline-block;
+  letter-spacing: 1px;
+  font-size: 36px;
+  pointer-event: none;
+  transition: transform 0.1s linear;
+}
+
+
+.link:hover ~ .cursor {
+  transform:translate(-50%, -50%) scale(8);
+}
+
+

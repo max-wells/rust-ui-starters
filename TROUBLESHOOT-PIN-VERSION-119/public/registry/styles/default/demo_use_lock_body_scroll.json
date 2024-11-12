@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_lock_body_scroll",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_lock_body_scroll.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::hooks::use_lock_body_scroll::use_lock_body_scroll;\nuse crate::registry::ui::button::Button;\n\n#[component]\npub fn DemoUseLockBodyScroll() -> impl IntoView {\n    let (locked, set_locked) = use_lock_body_scroll(false);\n\n    let toggle_lock = move |_| {\n        set_locked.set(!locked.get());\n    };\n\n    view! {\n        <div class=\"h-[1200px]\">\n            <Button on:click=toggle_lock>\n                {move || if locked.get() { \"Unlock Scroll\" } else { \"Lock Scroll\" }}\n            </Button>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

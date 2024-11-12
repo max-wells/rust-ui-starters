@@ -1,0 +1,12 @@
+{
+  "name": "demo_slider",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_slider.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::primitives::p_slider::{\n    PrimitiveSliderRange, PrimitiveSliderRoot, PrimitiveSliderThumb, SliderTrack,\n};\n\n#[component]\npub fn DemoSlider() -> impl IntoView {\n    view! {\n        <PrimitiveSliderRoot\n            attr:class=\"relative flex items-center select-none touch-none w-[300px]\"\n            default_value=vec![5.0f64]\n            max=20.0\n            step=1.0\n        >\n            <SliderTrack attr:class=\"relative h-1.5 w-full grow overflow-hidden rounded-full bg-primary/20\">\n                <PrimitiveSliderRange attr:class=\"absolute h-full bg-primary\">\n                    {().into_view()}\n                </PrimitiveSliderRange>\n            </SliderTrack>\n            <PrimitiveSliderThumb\n                attr:class=\"block transition-colors border rounded-full shadow disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring size-4 border-primary/50 bg-background \"\n                attr:aria-label=\"Volume\"\n            >\n                {().into_view()}\n            </PrimitiveSliderThumb>\n        </PrimitiveSliderRoot>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_primitives",
+  "type_short": "components:demos"
+}
