@@ -1,5 +1,12 @@
+#/´°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+#/*                   ✨ 1. BUILD STAGE ✨                    */
+#/*.•:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
 # Build stage
 FROM --platform=linux/amd64 debian:bullseye-slim AS builder
+
+# TODO => WARN: FROM --platform flag should not use constant value "linux/amd64" (line 2)
+# TODO => WARN: FROM --platform flag should not use constant value "linux/amd64" (line 50)  
 
 # Install build dependencies
 RUN apt-get update && apt-get install -y \
@@ -10,9 +17,9 @@ RUN apt-get update && apt-get install -y \
     tree \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Node.js and npm
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs
+# * 💁 I've added package.json in .dockerignore since we only need to copy node_modules.
+# RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+#     apt-get install -y nodejs
 
 # Install Rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -45,6 +52,11 @@ RUN find /app/target -name start_axum -type f -executable -print0 | xargs -0 -I 
 
 # Debug: Check if the binary was copied
 RUN ls -l /app/start_axum || echo "Binary not found in /app/"
+
+
+#/´°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+#/*                  ✨ 2. RUNTIME STAGE ✨                   */
+#/*.•:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
 # Runtime stage
 FROM --platform=linux/amd64 debian:bullseye-slim AS runner

@@ -4,6 +4,17 @@
 Cargo.lock
 **/target/
 
+# 💁 We just need node_modules to be copied in the docker image 🐳
+package.json
+pnpm-lock.yaml
+
+# 💁 We do not need the end2end tests in the docker image either
+/end2end/
+/end2end/**
+end2end/
+end2end/**
+
+
 
 # Git-related files
 .git
