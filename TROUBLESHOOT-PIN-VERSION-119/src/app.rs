@@ -9,27 +9,17 @@ pub fn App() -> impl IntoView {
     provide_meta_context();
 
     view! {
+        <Stylesheet id="leptos" href="/pkg/start_axum.css" />
+        <Title text="Rust UI" />
 
-
-        // injects a stylesheet into the document <head>
-        // id=leptos means cargo-leptos will hot-reload this stylesheet
-        <Stylesheet id="leptos" href="/pkg/start_axum.css"/>
-
-        // sets the document title
-        <Title text="Welcome to Leptos"/>
-
-        // content for this welcome page
         <Router fallback=|| {
             let mut outside_errors = Errors::default();
             outside_errors.insert_with_default_key(AppError::NotFound);
-            view! {
-                <ErrorTemplate outside_errors/>
-            }
-            .into_view()
+            view! { <ErrorTemplate outside_errors /> }.into_view()
         }>
             <main>
                 <Routes>
-                    <Route path="" view=HomePage/>
+                    <Route path="" view=HomePage />
                 </Routes>
             </main>
         </Router>
@@ -45,6 +35,9 @@ fn HomePage() -> impl IntoView {
 
     view! {
         <h1 class="text-2xl font-bold">"Welcome to Leptos!"</h1>
-        <button class="p-2 text-white bg-blue-500 rounded-md" on:click=on_click>"Click Me: " {count}</button>
+        <button class="p-2 text-white bg-blue-500 rounded-md" on:click=on_click>
+            "Click Me: "
+            {count}
+        </button>
     }
 }
