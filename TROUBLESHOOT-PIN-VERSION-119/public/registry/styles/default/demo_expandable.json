@@ -1,0 +1,12 @@
+{
+  "name": "demo_expandable",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_expandable.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::expandable::{ExpandableContent, ExpandableTransition, ExpandableTrigger};\n\n#[component]\npub fn DemoExpandable() -> impl IntoView {\n    view! {\n        <ExpandableTrigger class=\"mx-auto\">\n            <ExpandableTransition>\n                <p>Mikael Ainalem</p>\n            </ExpandableTransition>\n\n            <ExpandableContent class=\"bg-pink-200\">\n                <p>\"This is a dummy content\"</p>\n            </ExpandableContent>\n        </ExpandableTrigger>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

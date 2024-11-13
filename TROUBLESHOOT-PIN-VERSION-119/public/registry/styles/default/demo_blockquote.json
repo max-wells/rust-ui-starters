@@ -1,0 +1,12 @@
+{
+  "name": "demo_blockquote",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_blockquote.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::blockquote::{Blockquote, BlockquoteAuthor};\n\n#[component]\npub fn DemoBlockquote() -> impl IntoView {\n    view! {\n        <Blockquote>\n            Happiness lies not in the mere possession of money; it lies in the joy of\n            achievement, in the thrill of creative effort.\n            <BlockquoteAuthor>Franklin Roosevelt</BlockquoteAuthor>\n        </Blockquote>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

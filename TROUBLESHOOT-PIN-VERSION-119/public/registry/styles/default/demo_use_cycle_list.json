@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_cycle_list",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_cycle_list.rs",
+      "content": "use leptos::*;\nuse leptos_use::{use_cycle_list, UseCycleListReturn};\n\nuse crate::registry::ui::button::Button;\n\nconst DEMO_VEC: &[&str] = &[\"Dog\", \"Cat\", \"Lizard\", \"Fox\", \"Whale\"];\n\n#[component]\npub fn DemoUseCycleList() -> impl IntoView {\n    let UseCycleListReturn {\n        state,\n        next,\n        prev,\n        ..\n    } = use_cycle_list(DEMO_VEC.to_vec());\n\n    view! {\n        <div class=\"flex flex-col gap-4 items-center\">\n            <div class=\"flex flex-wrap gap-2 p-2 rounded-md border\">\n                <For each=move || DEMO_VEC.to_vec() key=|item| *item let:data>\n                    <div class=\"mx-2\">{data}</div>\n                </For>\n            </div>\n\n            <div class=\"text-lg font-bold text-primary\">{state}</div>\n            <div class=\"flex gap-2\">\n                <Button on:click=move |_| { prev() }>\"Prev\"</Button>\n                <Button on:click=move |_| { next() }>\"Next\"</Button>\n            </div>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

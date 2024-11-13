@@ -1,0 +1,12 @@
+{
+  "name": "badge",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "badge.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n#[derive(TwClass, Clone, Copy)]\n#[tw(\n    class = \"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2  w-fit\"\n)]\npub struct BadgeClass {\n    pub variant: BadgeVariant,\n}\n\n#[derive(TwVariant)]\npub enum BadgeVariant {\n    #[tw(\n        default,\n        class = \"border-transparent shadow bg-primary text-primary-foreground hover:bg-primary/80\"\n    )]\n    Default,\n    #[tw(\n        class = \"border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80\"\n    )]\n    Secondary,\n    #[tw(\n        class = \"border-transparent shadow bg-destructive text-destructive-foreground hover:bg-destructive/80\"\n    )]\n    Destructive,\n    #[tw(class = \"text-foreground\")]\n    Outline,\n}\n\n#[component]\npub fn Badge(\n    #[prop(into, optional)] variant: MaybeSignal<BadgeVariant>,\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    /// Arbitrary additional attributes.\n    #[prop(attrs)]\n    attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        let variant = variant.get();\n\n        let badge = BadgeClass {\n            variant,\n        };\n        badge.with_class(class.get())\n    });\n\n    view! {\n        <span {..attributes} class=class>\n            {children()}\n        </span>\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

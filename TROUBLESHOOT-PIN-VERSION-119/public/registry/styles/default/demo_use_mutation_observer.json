@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_mutation_observer",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_mutation_observer.rs",
+      "content": "use leptos::html::Div;\nuse leptos::*;\nuse leptos_use::{use_mutation_observer_with_options, UseMutationObserverOptions};\nuse std::time::Duration;\n\n#[component]\npub fn DemoUseMutationObserver() -> impl IntoView {\n    let el = create_node_ref::<Div>();\n    let (messages, set_messages) = create_signal(vec![]);\n    let (class_name, set_class_name) = create_signal(String::new());\n    let (style, set_style) = create_signal(String::new());\n\n    use_mutation_observer_with_options(\n        el,\n        move |mutations, _| {\n            if let Some(mutation) = mutations.first() {\n                set_messages.update(move |messages| {\n                    messages.push(format!(\"{:?}\", mutation.attribute_name()));\n                });\n            }\n        },\n        UseMutationObserverOptions::default().attributes(true),\n    );\n\n    let _ = set_timeout_with_handle(\n        move || {\n            set_class_name.set(\"test test2\".to_string());\n        },\n        Duration::from_millis(1000),\n    );\n\n    let _ = set_timeout_with_handle(\n        move || {\n            set_style.set(\"color: red;\".to_string());\n        },\n        Duration::from_millis(1550),\n    );\n\n    let enum_msgs =\n        Signal::derive(move || messages.get().into_iter().enumerate().collect::<Vec<_>>());\n\n    view! {\n        <div node_ref=el class=move || class_name.get() style=move || style.get()>\n            <For\n                each=move || enum_msgs.get()\n                // list only grows so this is fine here\n                key=|message| message.0\n                let:message\n            >\n                <div>\"Mutation Attribute: \" <code>{message.1}</code></div>\n            </For>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

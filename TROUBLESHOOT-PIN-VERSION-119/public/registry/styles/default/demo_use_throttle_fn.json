@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_throttle_fn",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_throttle_fn.rs",
+      "content": "use leptos::*;\nuse leptos_use::use_throttle_fn;\n\nuse crate::registry::ui::button::Button;\n\n#[component]\npub fn DemoUseThrottleFn() -> impl IntoView {\n    let (click_count, set_click_count) = create_signal(0);\n    let (throttled_count, set_throttled_count) = create_signal(0);\n\n    let throttled_fn = use_throttle_fn(\n        move || set_throttled_count.set(throttled_count.get_untracked() + 1),\n        1000.0,\n    );\n\n    view! {\n        <Button on:click=move |_| {\n            set_click_count.set(click_count.get_untracked() + 1);\n            throttled_fn();\n        }>\n\n            \"Smash me!\"\n        </Button>\n\n        <p>Delay is set to <span class=\"font-mono\">1000</span>ms for this demo.</p>\n        <p>\"Button clicked: \" {click_count}</p>\n        <p>\"Event handler called: \" {throttled_count}</p>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

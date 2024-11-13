@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_timeout_fn",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_timeout_fn.rs",
+      "content": "use leptos::*;\nuse leptos_use::{use_timeout_fn, UseTimeoutFnReturn};\n\nuse crate::registry::ui::button::Button;\n\n#[component]\npub fn DemoUseTimeoutFn() -> impl IntoView {\n    const DEFAULT_TEXT: &str = \"Please wait for 2 seconds\";\n\n    let (text, set_text) = create_signal(DEFAULT_TEXT.to_string());\n    let UseTimeoutFnReturn {\n        start,\n        is_pending,\n        ..\n    } = use_timeout_fn(\n        move |_| {\n            set_text(\"Fired!\".to_string());\n        },\n        2000.0,\n    );\n\n    let restart = move |_| {\n        set_text(DEFAULT_TEXT.to_string());\n        start(());\n    };\n\n    view! {\n        <p>{text}</p>\n\n        <Button on:click=restart disabled=is_pending>\n            \"Restart\"\n        </Button>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

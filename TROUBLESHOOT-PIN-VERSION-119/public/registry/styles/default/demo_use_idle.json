@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_idle",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_idle.rs",
+      "content": "use leptos::*;\nuse leptos_use::docs::{BooleanDisplay, Note};\nuse leptos_use::{use_idle, use_timestamp_with_options, UseIdleReturn, UseTimestampOptions};\n\n#[component]\npub fn DemoUseIdle() -> impl IntoView {\n    let UseIdleReturn {\n        idle,\n        last_active,\n        ..\n    } = use_idle(5000);\n\n    let now = use_timestamp_with_options(UseTimestampOptions::default().interval(1000));\n\n    let idled_for = move || ((now() - last_active()) / 1000.0).ceil() as u64;\n\n    view! {\n        <Note class=\"mb-2\">\n            For demonstration purpose, the idle timeout is set to <b>5s</b>\n            in this demo (default 1min).\n        </Note>\n        <div class=\"mb-2\">Idle: <BooleanDisplay value=idle /></div>\n        <div>Inactive: <b>{idled_for}s</b></div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

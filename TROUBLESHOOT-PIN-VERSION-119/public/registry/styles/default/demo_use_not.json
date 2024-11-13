@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_not",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_not.rs",
+      "content": "use leptos::*;\nuse leptos_use::docs::BooleanDisplay;\nuse leptos_use::math::use_not;\n\n#[component]\npub fn DemoUseNot() -> impl IntoView {\n    let (a, set_a) = create_signal(false);\n    let not_a = use_not(a);\n\n    view! {\n        <div class=\"grid gap-4 py-4 px-6 rounded grid-cols-[100px_auto]\">\n            <label for_=\"smooth-scrolling-option\" class=\"text-right opacity-75\">\n                Input\n                <code>A</code>\n            </label>\n            <span>\n                <input\n                    id=\"smooth-scrolling-option\"\n                    prop:checked=a\n                    on:input=move |e| set_a.set(event_target_checked(&e))\n                    type=\"checkbox\"\n                />\n            </span>\n            <span class=\"text-right opacity-75\">Output <code>\"!A\"</code></span>\n            <BooleanDisplay value=not_a />\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

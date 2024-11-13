@@ -1,0 +1,12 @@
+{
+  "name": "demo_status",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_status.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::status::Status;\n\n#[component]\npub fn DemoStatus() -> impl IntoView {\n    view! {\n        <Status>\n            <div class=\"rounded-md size-16 bg-neutral-500\" />\n        </Status>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

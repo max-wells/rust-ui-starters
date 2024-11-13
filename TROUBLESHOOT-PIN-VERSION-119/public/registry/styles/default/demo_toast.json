@@ -1,0 +1,12 @@
+{
+  "name": "demo_toast",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_toast.rs",
+      "content": "use leptos::*;\n\nuse crate::{\n    components::toaster_custom::{\n        toast::{Toast, ToastVariant},\n        toast_id::ToastId,\n        toaster::Toaster,\n        types::Toasts,\n    },\n    registry::ui::button::Button,\n};\n\n#[component]\npub fn DemoToast() -> impl IntoView {\n    view! {\n        <Toaster>\n            <Demo />\n        </Toaster>\n    }\n}\n\n#[component]\nfn Demo() -> impl IntoView {\n    let toast_context = expect_context::<Toasts>();\n\n    let create_default_toast = move |_| {\n        let toast_id = ToastId::new();\n        toast_context.toast(\n            view! {\n                <Toast\n                    toast_id\n                    variant=ToastVariant::Default\n                    title=view! { \"Title\" }.into_view()\n                    description=Some(view! { \"Description\" }.into_view())\n                />\n            },\n            Some(toast_id),\n            None,\n        );\n    };\n\n    view! { <Button on:click=create_default_toast>\"Default Toast\"</Button> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

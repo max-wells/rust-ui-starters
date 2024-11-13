@@ -1,0 +1,9 @@
+pub mod demo_chart_bar;
+pub mod demo_chart_bar_horizontal;
+pub mod demo_chart_bar_json;
+pub mod demo_chart_candlesticks;
+pub mod demo_chart_line;
+pub mod demo_chart_pie;
+pub mod demo_chart_radar;
+pub mod demo_chart_scatter;
+pub mod demo_chart_table;

@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_color_mode",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_color_mode.rs",
+      "content": "use leptos::html::html;\nuse leptos::*;\nuse leptos_use::docs::Note;\nuse leptos_use::{\n    use_color_mode_with_options, use_cycle_list_with_options, ColorMode, UseColorModeOptions,\n    UseColorModeReturn, UseCycleListOptions, UseCycleListReturn,\n};\n\n#[component]\npub fn DemoUseColorMode() -> impl IntoView {\n    let UseColorModeReturn {\n        mode,\n        set_mode,\n        ..\n    } = use_color_mode_with_options(\n        UseColorModeOptions::default()\n            .custom_modes(vec![\n                \"rust\".into(),\n                \"coal\".into(),\n                \"navy\".into(),\n                \"ayu\".into(),\n            ])\n            .initial_value(ColorMode::from(html().class_name())),\n    );\n\n    let UseCycleListReturn {\n        state,\n        next,\n        ..\n    } = use_cycle_list_with_options(\n        vec![\n            ColorMode::Light,\n            ColorMode::Custom(\"rust\".into()),\n            ColorMode::Custom(\"coal\".into()),\n            ColorMode::Custom(\"navy\".into()),\n            ColorMode::Custom(\"ayu\".into()),\n        ],\n        UseCycleListOptions::default().initial_value(Some((mode, set_mode).into())),\n    );\n\n    view! {\n        <button on:click=move |_| next()>{move || format!(\"{}\", state.get())}</button>\n        <Note>\"Click to change the color mode\"</Note>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

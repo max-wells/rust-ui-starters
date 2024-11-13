@@ -1,0 +1,12 @@
+{
+  "name": "demo_css_pill_lighthouse",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_css_pill_lighthouse.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\n#[component]\npub fn DemoCssPillLighthouse() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"css-pill-lighthouse\" href=\"/components/css-pill-lighthouse.css\" />\n\n        <div class=\"flex justify-center items-center mx-auto w-full max-w-2xl\">\n            <div class=\"container-pill\">\n                <div class=\"shooting\">\n                    <div class=\"star\"></div>\n                    <div class=\"star0\"></div>\n                </div>\n                <div class=\"lens\"></div>\n                <div class=\"flash\"></div>\n                <div class=\"pPos\">\n                    <div class=\"pyramid one\"></div>\n                    <div class=\"pyramid two\"></div>\n                    <div class=\"pyramid three\"></div>\n                    <div class=\"lPos\">\n                        <div class=\"lightTop\"></div>\n                        <div class=\"lightMid\"></div>\n                        <div class=\"lightBot\">\n                            <div class=\"window1\"></div>\n                            <div class=\"window2\"></div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"cPos\">\n                    <div class=\"cc\">\n                        <div class=\"circle one\"></div>\n                        <div class=\"circle two\"></div>\n                        <div class=\"circle three\"></div>\n                        <div class=\"circle four\"></div>\n                        <div class=\"circle five\"></div>\n                    </div>\n                </div>\n            </div>\n\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

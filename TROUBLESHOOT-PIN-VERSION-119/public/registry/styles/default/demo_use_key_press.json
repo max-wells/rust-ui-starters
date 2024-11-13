@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_key_press",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_key_press.rs",
+      "content": "use leptos::ev::{keypress, KeyboardEvent};\nuse leptos::*;\nuse leptos_use::{use_event_listener, use_window};\n\n// TODO 🪝 Create a specific hook for that\n\n#[component]\npub fn DemoUseKeyPress() -> impl IntoView {\n    let (key, set_key) = create_signal(\"\".to_string());\n\n    // window() doesn't work on the server so we provide use_window()\n    let _ = use_event_listener(use_window(), keypress, move |evt: KeyboardEvent| {\n        set_key(evt.key())\n    });\n\n    view! { <p>Press any key: {key}</p> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

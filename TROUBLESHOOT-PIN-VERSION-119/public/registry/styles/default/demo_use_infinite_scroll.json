@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_infinite_scroll",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_infinite_scroll.rs",
+      "content": "use leptos::html::Div;\nuse leptos::*;\nuse leptos_use::{use_infinite_scroll_with_options, UseInfiniteScrollOptions};\n\n// TODO. Improve scrollbar\n\n#[component]\npub fn DemoUseInfiniteScroll() -> impl IntoView {\n    let el = create_node_ref::<Div>();\n\n    let (data, set_data) = create_signal(vec![1, 2, 3, 4, 5, 6]);\n\n    let _ = use_infinite_scroll_with_options(\n        el,\n        move |_| async move {\n            let len = data.with_untracked(|d| d.len());\n            set_data.update(|data| *data = (1..len + 6).collect());\n        },\n        UseInfiniteScrollOptions::default().distance(10.0),\n    );\n\n    view! {\n        <div\n            node_ref=el\n            class=\"flex overflow-y-scroll flex-col gap-2 p-4 m-auto rounded w-[300px] h-[300px] bg-gray-500/5\"\n        >\n            <For each=move || data.get() key=|i| *i let:item>\n                <div class=\"p-3 rounded h-15 bg-gray-500/5\">{item}</div>\n            </For>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

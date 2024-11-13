@@ -1,0 +1,12 @@
+{
+  "name": "p_toggle",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "p_toggle.rs",
+      "content": "use leptos::{html::AnyElement, Callable, *};\nuse web_sys::MouseEvent;\n\nuse crate::registry::primitives::{\n    p_primitive::Primitive,\n    p_utils_create_controllable_signal::{\n        create_controllable_signal, CreateControllableSignalProps,\n    },\n    Attributes,\n};\n\n#[component]\npub fn PrimitiveToggleRoot(\n    #[prop(optional, into)] pressed: MaybeProp<bool>,\n    #[prop(optional, into)] default_pressed: MaybeProp<bool>,\n    #[prop(optional, into)] disabled: MaybeSignal<bool>,\n    #[prop(default=(|_|{}).into(), into)] on_pressed_changed: Callback<bool>,\n    #[prop(default=(|_|{}).into(), into)] on_click: Callback<MouseEvent>,\n    #[prop(optional)] node_ref: NodeRef<AnyElement>,\n    #[prop(attrs)] attrs: Attributes,\n    children: ChildrenFn,\n    #[prop(optional, into)] as_child: MaybeProp<bool>,\n) -> impl IntoView {\n    let (pressed, set_pressed) = create_controllable_signal(CreateControllableSignalProps {\n        value: Signal::derive(move || pressed.get()),\n        default_value: Signal::derive(move || default_pressed.get()),\n        on_change: on_pressed_changed,\n    });\n\n    view! {\n        <Primitive\n            {..attrs}\n            attr:type=\"button\"\n            attr:aria-pressed=move || pressed.get().unwrap_or_default().to_string()\n            attr:data-state=move || { if pressed.get().unwrap_or_default() { \"on\" } else { \"off\" } }\n            attr:data-disabled=disabled\n            element=html::button\n            on:click=move |ev: MouseEvent| {\n                Callable::call(&on_click, ev.clone());\n                if !disabled.get() {\n                    set_pressed.update(|pressed| *pressed = Some(!pressed.unwrap_or(false)));\n                }\n            }\n            node_ref=node_ref\n            as_child=as_child\n        >\n            {children()}\n        </Primitive>\n    }\n}\n"
+    }
+  ],
+  "type": "components:primitives/",
+  "type_short": "components:primitives"
+}

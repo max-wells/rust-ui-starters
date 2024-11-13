@@ -1,0 +1,12 @@
+{
+  "name": "p_aspect_ratio",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "p_aspect_ratio.rs",
+      "content": "use leptos::{html::AnyElement, *};\n\nuse crate::registry::primitives::{p_primitive::Primitive, Attributes};\n\n#[component]\npub fn PrimitiveAspectRatioRoot(\n    #[prop(default=1.0f64.into(), into)] ratio: MaybeSignal<f64>,\n\n    #[prop(optional)] node_ref: NodeRef<AnyElement>,\n    #[prop(attrs)] attrs: Attributes,\n    children: ChildrenFn,\n\n    #[prop(optional, into)] as_child: MaybeProp<bool>,\n) -> impl IntoView {\n    view! {\n        <div\n            style=\"position: relative; width: 100%;\"\n            style:padding-bottom=Signal::derive(move || format!(\"{}%\", 100.0 / ratio.get()))\n        >\n            <Primitive\n                {..attrs}\n                attr:style=\"position: absolute; top: 0; right: 0; bottom: 0; left: 0\"\n                element=html::div\n                node_ref=node_ref\n                as_child=as_child\n            >\n                {children()}\n            </Primitive>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:primitives/",
+  "type_short": "components:primitives"
+}

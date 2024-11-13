@@ -1,0 +1,12 @@
+{
+  "name": "p_utils_create_previous",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "p_utils_create_previous.rs",
+      "content": "use leptos::*;\n\n#[derive(Clone)]\npub(crate) struct Previous<T> {\n  value: T,\n  previous: T,\n}\n\npub(crate) fn create_previous<T: Clone + PartialEq + 'static>(initial: Signal<T>) -> Signal<T> {\n  let prev = StoredValue::new(Previous {\n    value: initial.get_untracked(),\n    previous: initial.get_untracked(),\n  });\n\n  create_memo(move |_| {\n    if prev.get_value().value != initial.get() {\n      prev.set_value(Previous {\n        previous: prev.get_value().value,\n        value: initial.get(),\n      });\n    }\n\n    prev.get_value().value\n  })\n  .into()\n}\n"
+    }
+  ],
+  "type": "components:primitives/",
+  "type_short": "components:primitives"
+}

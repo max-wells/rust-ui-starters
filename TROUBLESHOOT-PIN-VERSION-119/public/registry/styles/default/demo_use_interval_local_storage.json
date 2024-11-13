@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_interval_local_storage",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_interval_local_storage.rs",
+      "content": "use codee::string::FromToStringCodec;\nuse leptos::*;\nuse leptos_use::storage::use_local_storage;\nuse leptos_use::{use_interval, UseIntervalReturn};\n\n#[component]\npub fn DemoUseIntervalLocalStorage() -> impl IntoView {\n    let UseIntervalReturn {\n        counter, ..\n    } = use_interval(1000);\n    let (state, set_state, ..) = use_local_storage::<String, FromToStringCodec>(\"test-state\");\n\n    view! {\n        <p>{counter}</p>\n        <input\n            class=\"block\"\n            prop:value=move || state.get()\n            on:input=move |e| set_state.update(|s| *s = event_target_value(&e))\n            type=\"text\"\n        />\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

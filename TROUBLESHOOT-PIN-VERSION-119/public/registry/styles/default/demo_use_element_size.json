@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_element_size",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_element_size.rs",
+      "content": "use leptos::*;\n\n#[cfg(feature = \"hydrate\")]\nuse leptos::html::Textarea;\n#[cfg(feature = \"hydrate\")]\nuse leptos_use::{use_element_size, UseElementSizeReturn};\n\n#[component]\npub fn DemoUseElementSize() -> impl IntoView {\n    #[cfg(feature = \"hydrate\")]\n    let demo_component = {\n        let el = create_node_ref::<Textarea>();\n        let UseElementSizeReturn {\n            width,\n            height,\n        } = use_element_size(el);\n        let text = move || format!(\"width: {}\\nheight: {}\", width.get(), height.get());\n\n        view! {\n            <p class=\"mb-2\">\"Resize the box to see changes\"</p>\n            <textarea\n                node_ref=el\n                readonly\n                class=\"p-4 text-2xl leading-10 rounded-md resize w-[200px] h-[100px] text-neutral-500\"\n                prop:value=text\n            />\n        }\n    };\n\n    #[cfg(not(feature = \"hydrate\"))]\n    let demo_component = view! {\n        <p class=\"mb-2\">\"Element size functionality is not available on the server.\"</p>\n        <textarea\n            readonly\n            class=\"p-4 text-2xl leading-10 rounded-md resize w-[200px] h-[100px] text-neutral-500\"\n            prop:value=\"width: N/A\\nheight: N/A\"\n        />\n    };\n\n    view! { <div>{demo_component}</div> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

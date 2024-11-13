@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_window_scroll",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_window_scroll.rs",
+      "content": "use leptos::*;\nuse leptos_use::use_window_scroll;\n\n// TODO 🪝 Improve this 💪 (🐛 when changing to other page with window size)\n\n#[component]\npub fn DemoUseWindowScroll() -> impl IntoView {\n    let (x, y) = use_window_scroll();\n\n    let div = document().create_element(\"div\").unwrap();\n    div.set_attribute(\"class\", \"absolute top-full left-full w-full h-full\")\n        .unwrap();\n\n    document().body().unwrap().append_child(&div).unwrap();\n\n    view! {\n        <div>See scroll values in the lower right corner of the screen.</div>\n        <div class=\"m-5 shadow-lg float area\">\n            <p class=\"mb-2\">Scroll value</p>\n            <div>x: {move || format!(\"{:.1}\", x())} <br />y: {move || format!(\"{:.1}\", y())}</div>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_autosize",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_autosize.rs",
+      "content": "use leptos::*;\nuse leptos_use::{use_textarea_autosize, UseTextareaAutosizeReturn};\n\n#[component]\npub fn DemoUseAutosize() -> impl IntoView {\n    let textarea = create_node_ref::<html::Textarea>();\n\n    let UseTextareaAutosizeReturn {\n        content,\n        set_content,\n        ..\n    } = use_textarea_autosize(textarea);\n\n    view! {\n        <div class=\"flex flex-col gap-4 min-h-[450px]\">\n            <p class=\"mb-4\">\"Type, the textarea will grow:\"</p>\n            <textarea\n                value=content\n                on:input=move |evt| set_content.set(event_target_value(&evt))\n                node_ref=textarea\n                class=\"resize-none box-border\"\n                placeholder=\"What's on your mind?\"\n            />\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

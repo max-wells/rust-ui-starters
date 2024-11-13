@@ -1,0 +1,12 @@
+{
+  "name": "demo_badge_variants",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_badge_variants.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::badge::{Badge, BadgeVariant};\n\n#[component]\npub fn DemoBadgeVariants() -> impl IntoView {\n    view! {\n        <div class=\"flex flex-wrap gap-2 items-center w-full\">\n            <Badge>Default</Badge>\n            <Badge variant=BadgeVariant::Secondary>Secondary</Badge>\n            <Badge variant=BadgeVariant::Destructive>Destructive</Badge>\n            <Badge variant=BadgeVariant::Outline>Outline</Badge>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "demo_chart_pie",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_chart_pie.rs",
+      "content": "use charts_rs::{Color, PieChart, THEME_DARK};\nuse leptos::*;\n\n#[component]\npub fn DemoChartPie() -> impl IntoView {\n    let pie_chart = PieChart::new_with_theme(\n        vec![\n            (\"rose 1\", vec![40.0]).into(),\n            (\"rose 2\", vec![38.0]).into(),\n            (\"rose 3\", vec![32.0]).into(),\n            (\"rose 4\", vec![30.0]).into(),\n            (\"rose 5\", vec![28.0]).into(),\n            (\"rose 6\", vec![26.0]).into(),\n            (\"rose 7\", vec![22.0]).into(),\n            (\"rose 8\", vec![18.0]).into(),\n        ],\n        THEME_DARK,\n    );\n\n    view! { <div class=\"p-10 mx-auto h-[500px]\" inner_html=&pie_chart.svg().unwrap() /> }\n        .into_view()\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_visualizations",
+  "type_short": "components:demos"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_web_notification",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_web_notification.rs",
+      "content": "use leptos::*;\nuse leptos_use::docs::BooleanDisplay;\nuse leptos_use::{\n    use_web_notification_with_options, NotificationDirection, ShowOptions,\n    UseWebNotificationOptions, UseWebNotificationReturn,\n};\n\n#[component]\npub fn DemoUseWebNotification() -> impl IntoView {\n    let UseWebNotificationReturn {\n        is_supported,\n        show,\n        ..\n    } = use_web_notification_with_options(\n        UseWebNotificationOptions::default()\n            .title(\"Hello World from leptos-use\")\n            .direction(NotificationDirection::Auto)\n            .language(\"en\")\n            .renotify(true)\n            .tag(\"test\"),\n    );\n\n    let show = move || {\n        show(ShowOptions::default());\n    };\n\n    view! {\n        <div>\n            <p>Supported: <BooleanDisplay value=is_supported /></p>\n        </div>\n\n        <Show\n            when=is_supported\n            fallback=|| {\n                view! { <div>The Notification Web API is not supported in your browser.</div> }\n            }\n        >\n\n            <button on:click={\n                let show = show.clone();\n                move |_| show()\n            }>Show Notification</button>\n        </Show>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

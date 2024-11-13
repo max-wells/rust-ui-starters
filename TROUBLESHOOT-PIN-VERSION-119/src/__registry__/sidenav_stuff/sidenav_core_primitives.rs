@@ -1,0 +1,111 @@
+use crate::models::demo_shared::DemoCore;
+
+// * This file was generated automatically with build_registry.
+
+pub const SIDENAV_CORE_PRIMITIVES: &[DemoCore] = &[
+    DemoCore {
+        name: "Toolbar",
+        path_url: "toolbar",
+        path_mdx: "content-mdx/core/primitives/toolbar.mdx",
+        description: "Rust UI component that displays a toolbar.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Label",
+        path_url: "label",
+        path_mdx: "content-mdx/core/primitives/label.mdx",
+        description: "Rust UI component that displays an accessible label associated with controls.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Scroll Area",
+        path_url: "scroll-area",
+        path_mdx: "content-mdx/core/primitives/scroll-area.mdx",
+        description: "Rust UI component that displays a scrollable container that allows the user to scroll its content, whether horizontally or vertically.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Accordion",
+        path_url: "accordion",
+        path_mdx: "content-mdx/core/primitives/accordion.mdx",
+        description: "Rust UI component that displays a vertically stacked set of interactive headings that each reveal a section of content.",
+        tags: &["dropdown"],
+    },
+    DemoCore {
+        name: "Aspect Ratio",
+        path_url: "aspect-ratio",
+        path_mdx: "content-mdx/core/primitives/aspect-ratio.mdx",
+        description: "Rust UI component that displays an element with a specific aspect ratio.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Progress",
+        path_url: "progress",
+        path_mdx: "content-mdx/core/primitives/progress.mdx",
+        description: "Rust UI component that displays an indicator showing the completion progress of a task.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Tabs",
+        path_url: "tabs",
+        path_mdx: "content-mdx/core/primitives/tabs.mdx",
+        description: "Rust UI component that displays a set of layered sections of content, known as tab pages, that are displayed one at a time.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Slider",
+        path_url: "slider",
+        path_mdx: "content-mdx/core/primitives/slider.mdx",
+        description: "Rust UI component that displays an input where the user selects a value from within a given range.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Toggle",
+        path_url: "toggle",
+        path_mdx: "content-mdx/core/primitives/toggle.mdx",
+        description: "Rust UI component that displays a control that allows the user to toggle between checked and not checked.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Collapsible",
+        path_url: "collapsible",
+        path_mdx: "content-mdx/core/primitives/collapsible.mdx",
+        description: "Rust UI component that displays a collapsible container.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Checkbox",
+        path_url: "checkbox",
+        path_mdx: "content-mdx/core/primitives/checkbox.mdx",
+        description: "Rust UI component that displays a control that allows the user to toggle between checked and not checked.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Radio Group",
+        path_url: "radio-group",
+        path_mdx: "content-mdx/core/primitives/radio-group.mdx",
+        description: "Rust UI component that displays a set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Toggle Group",
+        path_url: "toggle-group",
+        path_mdx: "content-mdx/core/primitives/toggle-group.mdx",
+        description: "Rust UI component that displays a set of toggle buttons.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Switch",
+        path_url: "switch",
+        path_mdx: "content-mdx/core/primitives/switch.mdx",
+        description: "Rust UI component that displays a control that allows the user to toggle between checked and not checked.",
+        tags: &["utils"],
+    },
+    DemoCore {
+        name: "Avatar",
+        path_url: "avatar",
+        path_mdx: "content-mdx/core/primitives/avatar.mdx",
+        description: "Rust UI component that displays an image element with a fallback for representing the user.",
+        tags: &["image"],
+    },
+];

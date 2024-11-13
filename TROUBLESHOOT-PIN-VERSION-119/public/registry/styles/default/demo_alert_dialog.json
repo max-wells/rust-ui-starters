@@ -1,0 +1,12 @@
+{
+  "name": "demo_alert_dialog",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_alert_dialog.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::{\n    icons::others::trash2::Trash2,\n    ui::alert_dialog::{\n        AlertDialogCancel, AlertDialogComponent, AlertDialogDescription, AlertDialogFooter,\n        AlertDialogSubmit, AlertDialogTitle, AlertDialogTrigger, AlertDialogVariant,\n    },\n};\n\n#[component]\npub fn DemoAlertDialog() -> impl IntoView {\n    view! {\n        <AlertDialogTrigger variant=AlertDialogVariant::Destructive>\n            \"Delete\" <Trash2 class=\"ml-2 size-4\" />\n        </AlertDialogTrigger>\n\n        <AlertDialogComponent>\n\n            <AlertDialogTitle>This is a headline</AlertDialogTitle>\n            <AlertDialogDescription>\n                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.\n            </AlertDialogDescription>\n\n            <AlertDialogFooter>\n                <AlertDialogCancel>\"Cancel\"</AlertDialogCancel>\n                <AlertDialogSubmit>\"Continue\"</AlertDialogSubmit>\n            </AlertDialogFooter>\n        </AlertDialogComponent>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

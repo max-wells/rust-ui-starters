@@ -1,0 +1,12 @@
+{
+  "name": "demo_skeleton",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_skeleton.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::skeleton::Skeleton;\n\n#[component]\npub fn DemoSkeleton() -> impl IntoView {\n    view! {\n        <div class=\"flex flex-col space-y-3\">\n            <Skeleton class=\"rounded-xl h-[125px] w-[250px]\" />\n            <div class=\"space-y-2\">\n                <Skeleton class=\"h-4 w-[250px]\" />\n                <Skeleton class=\"h-4 w-[200px]\" />\n            </div>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

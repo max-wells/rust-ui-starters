@@ -1,0 +1,12 @@
+{
+  "name": "avatar_simple",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "avatar_simple.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\nuse crate::registry::ui::_shared::STYLES;\n\n#[component]\npub fn AvatarRootSimple(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"shadow-[0_2px_10px] inline-flex h-[45px] w-[45px] select-none items-center justify-center overflow-hidden rounded-full align-middle\",\n            class()\n        )\n    });\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n\n#[component]\npub fn AvatarImageSimple(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(into)] src: String,\n    #[prop(into)] alt: String,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\"rounded-[inherit] object-cover\", STYLES.SIZE_FULL, class())\n    });\n\n    view! { <img {..attributes} class=class src=src alt=alt /> }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

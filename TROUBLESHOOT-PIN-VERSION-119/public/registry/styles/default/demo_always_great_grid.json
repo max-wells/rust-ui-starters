@@ -1,0 +1,12 @@
+{
+  "name": "demo_always_great_grid",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_always_great_grid.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\n#[component]\npub fn DemoAlwaysGreatGrid() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"always-great-grid\" href=\"/components/always-great-grid.css\" />\n        <script src=\"/components/always-great-grid.js\" />\n\n        <div class=\"container\">\n            <main class=\"always-great-grid\" id=\"grid\">\n                <div class=\"box\" style=\"view-transition-name: b0\"></div>\n                <div class=\"box\" style=\"view-transition-name: b1\"></div>\n                <div class=\"box\" style=\"view-transition-name: b2\"></div>\n                <div class=\"box\" style=\"view-transition-name: b3\"></div>\n                <div class=\"box\" style=\"view-transition-name: b4\"></div>\n\n            // view transition names are inline so\n            // they stay attached to the element,\n            // as opposed to using :nth-child()\n            // which means each elements name shifts\n            // when a box is added/removed\n            </main>\n        </div>\n\n        <footer>\n            <button onclick=\"addBox()\">Add a box</button>\n            <button onclick=\"removeBox()\" type=\"reset\">\n                Remove a box\n            </button>\n        </footer>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

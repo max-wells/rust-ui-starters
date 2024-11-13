@@ -1,0 +1,12 @@
+{
+  "name": "p_utils_create_id",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "p_utils_create_id.rs",
+      "content": "use leptos::*;\n\npub fn create_id() -> Signal<String> {\n  let (id, _) = create_signal(nanoid::nanoid!());\n\n  id.into()\n}\n"
+    }
+  ],
+  "type": "components:primitives/",
+  "type_short": "components:primitives"
+}

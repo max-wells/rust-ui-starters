@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_element_bounding",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_element_bounding.rs",
+      "content": "use leptos::html::Textarea;\nuse leptos::*;\nuse leptos_use::docs::Note;\nuse leptos_use::{use_element_bounding, UseElementBoundingReturn};\n\n// TODO 🪝 TextArea\n\n#[component]\npub fn DemoUseElementBounding() -> impl IntoView {\n    let el = create_node_ref::<Textarea>();\n\n    let UseElementBoundingReturn {\n        width,\n        height,\n        left,\n        right,\n        top,\n        bottom,\n        x,\n        y,\n        ..\n    } = use_element_bounding(el);\n\n    let text = move || {\n        format!(\n            \"width: {}\\nheight: {}\\nleft: {}\\nright: {}\\ntop: {}\\nbottom: {}\\nx: {}\\ny: {}\",\n            width.get(),\n            height.get(),\n            left.get(),\n            right.get(),\n            top.get(),\n            bottom.get(),\n            x.get(),\n            y.get()\n        )\n    };\n\n    view! {\n        <Note class=\"mb-2\">Resize the box to see changes</Note>\n        <textarea\n            node_ref=el\n            readonly\n            class=\"p-4 text-2xl leading-10 rounded-md resize w-[335px] h-[175px] text-neutral-500\"\n            prop:value=text\n        />\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

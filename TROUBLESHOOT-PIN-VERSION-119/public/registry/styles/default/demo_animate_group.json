@@ -1,0 +1,12 @@
+{
+  "name": "demo_animate_group",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_animate_group.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::{\n    icons::others::rotate_ccw::RotateCcw,\n    ui::{\n        animate::{AnimateGroup, AnimateGroupItem, AnimateVariant},\n        button::{Button, ButtonSize, ButtonVariant},\n        headings::{HeadingVariant, H1},\n    },\n};\n\n// TODO DEMO. The trigger does not seem to work... 🤔 Figure out why\n\n#[component]\npub fn DemoAnimateGroup() -> impl IntoView {\n    let (trigger, set_trigger) = create_signal(false);\n\n    let handle_click = move || {\n        set_trigger.update(|value| *value = !*value);\n    };\n\n    view! {\n        <AnimateGroup class=\"flex relative flex-col gap-8 items-center w-full max-w-4xl h-80\">\n            <Button\n                class=\"absolute top-0 right-0 z-10\"\n                on:click=move |_| handle_click()\n                size=ButtonSize::Icon\n            >\n                <RotateCcw class=\"size-4\" />\n            </Button>\n\n            <AnimateGroupItem\n                variant=AnimateVariant::FadeUp\n                delay_ms=250\n                key=trigger.get().to_string()\n            >\n                <H1 variant=HeadingVariant::Modern class=\"mt-6 text-center text-transparent\">\n                    \"The only UI website\"\n                </H1>\n            </AnimateGroupItem>\n            <AnimateGroupItem\n                variant=AnimateVariant::FadeUp\n                class=\"mx-auto max-w-lg\"\n                delay_ms=450\n                key=trigger.get().to_string()\n            >\n                <p class=\"text-base font-normal text-center text-neutral-300\">\n                    \"Unstyled highly composable components that you can copy/paste in your own\n                    codebase. Built with Tailwind CSS and a bit of Framer Motion. Customize them as\n                    you want.\"\n                </p>\n            </AnimateGroupItem>\n\n            <AnimateGroupItem\n                variant=AnimateVariant::FadeUp\n                class=\"space-x-4\"\n                delay_ms=600\n                key=trigger.get().to_string()\n            >\n                <Button>\"Components\"</Button>\n                <Button variant=ButtonVariant::Outline>\"Get started\"</Button>\n            </AnimateGroupItem>\n        </AnimateGroup>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

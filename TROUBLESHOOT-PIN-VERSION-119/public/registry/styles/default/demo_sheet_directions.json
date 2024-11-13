@@ -1,0 +1,12 @@
+{
+  "name": "demo_sheet_directions",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_sheet_directions.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::sheet::{\n    SheetCancel, SheetContent, SheetDescription, SheetDirection, SheetTitle, SheetTrigger,\n    SheetVariant,\n};\n\n#[component]\npub fn DemoSheetDirections() -> impl IntoView {\n    view! {\n        <div class=\"flex flex-col gap-4 items-center\">\n            <DemoSheet direction=SheetDirection::Top label=\"TOP\" />\n            <div class=\"flex gap-4\">\n                <DemoSheet direction=SheetDirection::Left label=\"LEFT\" />\n                <DemoSheet direction=SheetDirection::Right label=\"RIGHT\" />\n            </div>\n            <DemoSheet direction=SheetDirection::Bottom label=\"BOTTOM\" />\n        </div>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn DemoSheet(direction: SheetDirection, label: &'static str) -> impl IntoView {\n    let (is_open, set_is_open) = create_signal(false);\n\n    let toggle_sheet = move |_| {\n        set_is_open.update(|open| *open = !*open);\n    };\n\n    view! {\n        <div>\n            <SheetTrigger on:click=toggle_sheet>{label}</SheetTrigger>\n\n            <SheetContent is_open=is_open direction=direction>\n\n                <SheetTitle>{\"Sheet Title\"}</SheetTitle>\n                <SheetDescription>{\"This is the content inside the sheet.\"}</SheetDescription>\n\n                <SheetCancel on:click=toggle_sheet variant=SheetVariant::Destructive>\n                    {\"Cancel\"}\n                </SheetCancel>\n            </SheetContent>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "p_primitive_custom",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "p_primitive_custom.rs",
+      "content": "use leptos::{\n    html::{AnyElement, ElementDescriptor},\n    *,\n};\n\nuse crate::registry::primitives::Attributes;\n\n#[component]\npub fn PrimitiveCustom<El: ElementDescriptor + 'static>(\n    element: fn() -> HtmlElement<El>,\n    #[prop(optional)] node_ref: NodeRef<AnyElement>,\n    #[prop(attrs)] attrs: Attributes,\n    #[prop(optional, into)] as_child: MaybeProp<bool>,\n    children: ChildrenFn,\n    #[prop(into, optional)] class: MaybeSignal<String>,\n) -> impl IntoView {\n    let children = StoredValue::new(children);\n    let attrs = StoredValue::new(attrs);\n\n    view! {\n        <Show\n            when=move || as_child.get().unwrap_or_default()\n            fallback=move || {\n                let class_value = class.get();\n                element()\n                    .attrs(attrs.get_value())\n                    .attr(\"class\", class_value.clone())\n                    .child(children.with_value(|children| children()).into_view())\n                    .into_any()\n                    .node_ref(node_ref)\n                    .into_view()\n            }\n        >\n            {map_items_to_children(\n                children.with_value(|children| children()).as_children(),\n                attrs.get_value(),\n                node_ref,\n            )}\n        </Show>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\nfn map_items_to_children(\n    children: &[View],\n    attrs: Attributes,\n    node_ref: NodeRef<AnyElement>,\n) -> View {\n    if children.is_empty() {\n        None::<bool>.into_view()\n    } else {\n        children\n            .iter()\n            .map(|child| match child {\n                View::Element(el) => el\n                    .clone()\n                    .into_html_element()\n                    .node_ref(node_ref)\n                    .attrs(attrs.clone())\n                    .into_view(),\n                View::Component(comp) => {\n                    map_items_to_children(&comp.children, attrs.clone(), node_ref)\n                }\n                _ => child.into_view(),\n            })\n            .collect_view()\n    }\n}\n"
+    }
+  ],
+  "type": "components:primitives/",
+  "type_short": "components:primitives"
+}

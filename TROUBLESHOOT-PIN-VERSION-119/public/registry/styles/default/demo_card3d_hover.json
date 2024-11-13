@@ -1,0 +1,12 @@
+{
+  "name": "demo_card3d_hover",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_card3d_hover.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::card3d_hover::{\n    Card3DHover, Card3DHoverImage, Card3DHoverImageOnHover, Card3DHoverImageTitle,\n};\n\n#[component]\npub fn DemoCard3dHover() -> impl IntoView {\n    view! {\n        <div class=\"flex justify-center items-center w-full max-w-5xl bg-gray-900 h-[600px]\">\n            <CardDarkRider />\n            <CardForceMage />\n        </div>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn CardDarkRider() -> impl IntoView {\n    view! {\n        <Card3DHover>\n            <Card3DHoverImage src=\"/images/3d-card/dark-rider-cover.png\" />\n            <Card3DHoverImageOnHover src=\"/images/3d-card/dark-rider-character.png\" />\n\n            // * NB: This one is not strictly necessary, but nice to have 😄\n            <Card3DHoverImageTitle src=\"/images/3d-card/dark-rider-title.png\" />\n        </Card3DHover>\n    }\n}\n\n#[component]\npub fn CardForceMage() -> impl IntoView {\n    view! {\n        <Card3DHover>\n            <Card3DHoverImage src=\"/images/3d-card/force-mage-cover.png\" />\n            <Card3DHoverImageOnHover src=\"/images/3d-card/force-mage-character.png\" />\n\n            // * NB: This one is not strictly necessary, but nice to have 😄\n            <Card3DHoverImageTitle src=\"/images/3d-card/force-mage-title.png\" />\n        </Card3DHover>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

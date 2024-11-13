@@ -1,0 +1,12 @@
+{
+  "name": "demo_button_variants",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_button_variants.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::button::{Button, ButtonVariant};\n\n#[component]\npub fn DemoButtonVariants() -> impl IntoView {\n    view! {\n        <div class=\"flex gap-4\">\n            <Button>Default</Button>\n\n            <Button variant=ButtonVariant::Secondary>Secondary</Button>\n            <Button variant=ButtonVariant::Outline>Outline</Button>\n            <Button variant=ButtonVariant::Ghost>Ghost</Button>\n            <Button variant=ButtonVariant::Destructive>Destructive</Button>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

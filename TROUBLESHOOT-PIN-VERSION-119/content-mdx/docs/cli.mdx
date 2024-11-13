@@ -1,0 +1,44 @@
+---
+name: CLI
+imgDark: ""
+description: ""
+tags: []
+isNew: false
+isDocs: true
+---
+
+
+## init
+
+The `init` command is used to initialize configuration and dependencies for a new project.
+
+It installs dependencies, adds the `clx` utils, configures `tailwind.config.js`, and CSS variables for the project.
+
+```bash
+npx ever-ui-clx@0.2.1 init
+```
+
+You will be asked a few questions to configure `components.json`:
+
+```txt showLineNumbers
+Would you like to use TypeScript (recommended)? no/yes
+Which style would you like to use? › Default
+Which color would you like to use as base color? › Slate
+Where is your global CSS file? › › app/globals.css
+Do you want to use CSS variables for colors? › no / yes
+Where is your tailwind.config.js located? › tailwind.config.js
+Configure the import alias for components: › @/components
+Configure the import alias for utils: › @/lib/utils
+Are you using React Server Components? › no / yes
+```
+
+## add
+
+Use the `add` command to add components and dependencies to your project.
+
+```bash
+npx ever-ui-clx@0.2.1 add demo-[component]
+npx ever-ui-clx@0.2.1 add demo-[demo-component]
+```
+
+🚧 Still Under construction 🚧

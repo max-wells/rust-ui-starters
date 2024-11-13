@@ -1,0 +1,2118 @@
+[
+  {
+    "files": [
+      "ui/alert_dialog.rs"
+    ],
+    "name": "alert_dialog",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/sticky_cursor_links.rs"
+    ],
+    "name": "sticky_cursor_links",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/_shared.rs"
+    ],
+    "name": "_shared",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/badge.rs"
+    ],
+    "name": "badge",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/containers.rs"
+    ],
+    "name": "containers",
+    "registry_dependencies": [
+      "_shared"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/gradient.rs"
+    ],
+    "name": "gradient",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/skeleton.rs"
+    ],
+    "name": "skeleton",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/radar.rs"
+    ],
+    "name": "radar",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/orbiting_circles.rs"
+    ],
+    "name": "orbiting_circles",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/meteor_effect.rs"
+    ],
+    "name": "meteor_effect",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/card_wobble.rs"
+    ],
+    "name": "card_wobble",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/beam_border.rs"
+    ],
+    "name": "beam_border",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/command.rs"
+    ],
+    "name": "command",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/dialog.rs"
+    ],
+    "name": "dialog",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/marquee.rs"
+    ],
+    "name": "marquee",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/carousel_parallax.rs"
+    ],
+    "name": "carousel_parallax",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/separator.rs"
+    ],
+    "name": "separator",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/animate.rs"
+    ],
+    "name": "animate",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/headings.rs"
+    ],
+    "name": "headings",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/breadcrumb.rs"
+    ],
+    "name": "breadcrumb",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/dropdown_menu.rs"
+    ],
+    "name": "dropdown_menu",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/spotlight.rs"
+    ],
+    "name": "spotlight",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/announcement.rs"
+    ],
+    "name": "announcement",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/mod.rs"
+    ],
+    "name": "mod",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/alert.rs"
+    ],
+    "name": "alert",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/status.rs"
+    ],
+    "name": "status",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/checkbox.rs"
+    ],
+    "name": "checkbox",
+    "registry_dependencies": [
+      "_shared"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/expandable.rs"
+    ],
+    "name": "expandable",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/faq.rs"
+    ],
+    "name": "faq",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/text_area.rs"
+    ],
+    "name": "text_area",
+    "registry_dependencies": [
+      "_shared"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/table.rs"
+    ],
+    "name": "table",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/cards_glowing.rs"
+    ],
+    "name": "cards_glowing",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/label.rs"
+    ],
+    "name": "label",
+    "registry_dependencies": [
+      "_shared"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/input.rs"
+    ],
+    "name": "input",
+    "registry_dependencies": [
+      "_shared"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/card3d_hover.rs"
+    ],
+    "name": "card3d_hover",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/blockquote.rs"
+    ],
+    "name": "blockquote",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/avatar_simple.rs"
+    ],
+    "name": "avatar_simple",
+    "registry_dependencies": [
+      "_shared"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/slider.rs"
+    ],
+    "name": "slider",
+    "registry_dependencies": [
+      "_shared"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/card.rs"
+    ],
+    "name": "card",
+    "registry_dependencies": [
+      "_shared"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/bento_grid.rs"
+    ],
+    "name": "bento_grid",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/sheet.rs"
+    ],
+    "name": "sheet",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/form.rs"
+    ],
+    "name": "form",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "ui/button.rs"
+    ],
+    "name": "button",
+    "registry_dependencies": [],
+    "type": "components:ui"
+  },
+  {
+    "files": [
+      "hooks/use_lock_body_scroll.rs"
+    ],
+    "name": "use_lock_body_scroll",
+    "registry_dependencies": [],
+    "type": "components:hooks"
+  },
+  {
+    "files": [
+      "demos/demo_navigation_menu.rs"
+    ],
+    "name": "demo_navigation_menu",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_button_reactive.rs"
+    ],
+    "name": "demo_button_reactive",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_orbiting_circles.rs"
+    ],
+    "name": "demo_orbiting_circles",
+    "registry_dependencies": [
+      "orbiting_circles"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_button_sizes.rs"
+    ],
+    "name": "demo_button_sizes",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_command.rs"
+    ],
+    "name": "demo_command",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_badge.rs"
+    ],
+    "name": "demo_badge",
+    "registry_dependencies": [
+      "badge"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_dropzone.rs"
+    ],
+    "name": "demo_dropzone",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_blurry_blob.rs"
+    ],
+    "name": "demo_blurry_blob",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_meteor_effect.rs"
+    ],
+    "name": "demo_meteor_effect",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_floating_button_menu.rs"
+    ],
+    "name": "demo_floating_button_menu",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_button.rs"
+    ],
+    "name": "demo_button",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_radar.rs"
+    ],
+    "name": "demo_radar",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_marquee.rs"
+    ],
+    "name": "demo_marquee",
+    "registry_dependencies": [
+      "marquee"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_command_dialog.rs"
+    ],
+    "name": "demo_command_dialog",
+    "registry_dependencies": [
+      "command",
+      "dialog",
+      "separator"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_headings.rs"
+    ],
+    "name": "demo_headings",
+    "registry_dependencies": [
+      "headings"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_badge_variants.rs"
+    ],
+    "name": "demo_badge_variants",
+    "registry_dependencies": [
+      "badge"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_skeleton_image.rs"
+    ],
+    "name": "demo_skeleton_image",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_navigation_menu_complex.rs"
+    ],
+    "name": "demo_navigation_menu_complex",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_multi_select.rs"
+    ],
+    "name": "demo_multi_select",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_animate.rs"
+    ],
+    "name": "demo_animate",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_bento_grid4.rs"
+    ],
+    "name": "demo_bento_grid4",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_headings_variants.rs"
+    ],
+    "name": "demo_headings_variants",
+    "registry_dependencies": [
+      "headings"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_tooltip.rs"
+    ],
+    "name": "demo_tooltip",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_status.rs"
+    ],
+    "name": "demo_status",
+    "registry_dependencies": [
+      "status"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_button_variants.rs"
+    ],
+    "name": "demo_button_variants",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_slider_hover.rs"
+    ],
+    "name": "demo_slider_hover",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_parallax_simple.rs"
+    ],
+    "name": "demo_parallax_simple",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_loaders.rs"
+    ],
+    "name": "demo_loaders",
+    "registry_dependencies": [
+      "card"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_spotlight.rs"
+    ],
+    "name": "demo_spotlight",
+    "registry_dependencies": [
+      "spotlight"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_dropdown_menu.rs"
+    ],
+    "name": "demo_dropdown_menu",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_alert_dialog.rs"
+    ],
+    "name": "demo_alert_dialog",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_separator.rs"
+    ],
+    "name": "demo_separator",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_breadcrumb.rs"
+    ],
+    "name": "demo_breadcrumb",
+    "registry_dependencies": [
+      "breadcrumb"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_skeleton.rs"
+    ],
+    "name": "demo_skeleton",
+    "registry_dependencies": [
+      "skeleton"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_select.rs"
+    ],
+    "name": "demo_select",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_bento_grid5.rs"
+    ],
+    "name": "demo_bento_grid5",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_cards_direction_aware.rs"
+    ],
+    "name": "demo_cards_direction_aware",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_gradient.rs"
+    ],
+    "name": "demo_gradient",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_carousel_parallax.rs"
+    ],
+    "name": "demo_carousel_parallax",
+    "registry_dependencies": [
+      "carousel_parallax",
+      "headings"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_button_override.rs"
+    ],
+    "name": "demo_button_override",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_sheet_directions.rs"
+    ],
+    "name": "demo_sheet_directions",
+    "registry_dependencies": [
+      "sheet"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_background_retro.rs"
+    ],
+    "name": "demo_background_retro",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_alert.rs"
+    ],
+    "name": "demo_alert",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_bento_grid6.rs"
+    ],
+    "name": "demo_bento_grid6",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_card.rs"
+    ],
+    "name": "demo_card",
+    "registry_dependencies": [
+      "card"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_expandable.rs"
+    ],
+    "name": "demo_expandable",
+    "registry_dependencies": [
+      "expandable"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_card_tilting.rs"
+    ],
+    "name": "demo_card_tilting",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_headings_animate.rs"
+    ],
+    "name": "demo_headings_animate",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_tailwind_scroll_only.rs"
+    ],
+    "name": "demo_tailwind_scroll_only",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_table.rs"
+    ],
+    "name": "demo_table",
+    "registry_dependencies": [
+      "table"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_status_variants.rs"
+    ],
+    "name": "demo_status_variants",
+    "registry_dependencies": [
+      "status"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_text_area.rs"
+    ],
+    "name": "demo_text_area",
+    "registry_dependencies": [
+      "text_area"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_card3d_hover.rs"
+    ],
+    "name": "demo_card3d_hover",
+    "registry_dependencies": [
+      "card3d_hover"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_headings_motion.rs"
+    ],
+    "name": "demo_headings_motion",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_charts_many.rs"
+    ],
+    "name": "demo_charts_many",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_beam_border.rs"
+    ],
+    "name": "demo_beam_border",
+    "registry_dependencies": [
+      "beam_border"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_text_slide.rs"
+    ],
+    "name": "demo_text_slide",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_input.rs"
+    ],
+    "name": "demo_input",
+    "registry_dependencies": [
+      "input"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_checkbox.rs"
+    ],
+    "name": "demo_checkbox",
+    "registry_dependencies": [
+      "checkbox"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_label.rs"
+    ],
+    "name": "demo_label",
+    "registry_dependencies": [
+      "checkbox",
+      "label"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_hamburger_menus.rs"
+    ],
+    "name": "demo_hamburger_menus",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_popover_modal.rs"
+    ],
+    "name": "demo_popover_modal",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_faq.rs"
+    ],
+    "name": "demo_faq",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_toast.rs"
+    ],
+    "name": "demo_toast",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_blockquote.rs"
+    ],
+    "name": "demo_blockquote",
+    "registry_dependencies": [
+      "blockquote"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_dialog_form.rs"
+    ],
+    "name": "demo_dialog_form",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_parallax_zoom_words.rs"
+    ],
+    "name": "demo_parallax_zoom_words",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_dropdown.rs"
+    ],
+    "name": "demo_dropdown",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_announcement.rs"
+    ],
+    "name": "demo_announcement",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_avatar_simple.rs"
+    ],
+    "name": "demo_avatar_simple",
+    "registry_dependencies": [
+      "avatar_simple"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_animate_group.rs"
+    ],
+    "name": "demo_animate_group",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_chart_bar.rs"
+    ],
+    "name": "demo_chart_bar",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_sheet.rs"
+    ],
+    "name": "demo_sheet",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_toast_variants.rs"
+    ],
+    "name": "demo_toast_variants",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_badge_custom.rs"
+    ],
+    "name": "demo_badge_custom",
+    "registry_dependencies": [
+      "badge"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_not.rs"
+    ],
+    "name": "demo_use_not",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_web_notification.rs"
+    ],
+    "name": "demo_use_web_notification",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_cookie.rs"
+    ],
+    "name": "demo_use_cookie",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_user_media.rs"
+    ],
+    "name": "demo_use_user_media",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_hover.rs"
+    ],
+    "name": "demo_use_hover",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_intl_number_format.rs"
+    ],
+    "name": "demo_use_intl_number_format",
+    "registry_dependencies": [
+      "slider"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_element_bounding.rs"
+    ],
+    "name": "demo_use_element_bounding",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_throttle.rs"
+    ],
+    "name": "demo_use_throttle",
+    "registry_dependencies": [
+      "input"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_watch_debounced.rs"
+    ],
+    "name": "demo_use_watch_debounced",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_clipboard.rs"
+    ],
+    "name": "demo_use_clipboard",
+    "registry_dependencies": [
+      "button",
+      "input"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_timestamp.rs"
+    ],
+    "name": "demo_use_timestamp",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_floating_flip.rs"
+    ],
+    "name": "demo_use_floating_flip",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_debounce.rs"
+    ],
+    "name": "demo_use_debounce",
+    "registry_dependencies": [
+      "input"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_raf_fn.rs"
+    ],
+    "name": "demo_use_raf_fn",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_watch_throttled.rs"
+    ],
+    "name": "demo_use_watch_throttled",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_timeout_fn.rs"
+    ],
+    "name": "demo_use_timeout_fn",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_resize_observer.rs"
+    ],
+    "name": "demo_use_resize_observer",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_locale.rs"
+    ],
+    "name": "demo_use_locale",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_color_mode.rs"
+    ],
+    "name": "demo_use_color_mode",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_click_outside.rs"
+    ],
+    "name": "demo_use_click_outside",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_or.rs"
+    ],
+    "name": "demo_use_or",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_infinite_scroll.rs"
+    ],
+    "name": "demo_use_infinite_scroll",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_round.rs"
+    ],
+    "name": "demo_use_round",
+    "registry_dependencies": [
+      "slider"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_broadcast_channel.rs"
+    ],
+    "name": "demo_use_broadcast_channel",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_sorted.rs"
+    ],
+    "name": "demo_use_sorted",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_lock_body_scroll.rs"
+    ],
+    "name": "demo_use_lock_body_scroll",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_display_media.rs"
+    ],
+    "name": "demo_use_display_media",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_mouse_in_element.rs"
+    ],
+    "name": "demo_use_mouse_in_element",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_geolocation.rs"
+    ],
+    "name": "demo_use_geolocation",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_drop_zone.rs"
+    ],
+    "name": "demo_use_drop_zone",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_web_lock.rs"
+    ],
+    "name": "demo_use_web_lock",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_mouse.rs"
+    ],
+    "name": "demo_use_mouse",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_and.rs"
+    ],
+    "name": "demo_use_and",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_debounce_fn.rs"
+    ],
+    "name": "demo_use_debounce_fn",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_breakpoints.rs"
+    ],
+    "name": "demo_use_breakpoints",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_toggle.rs"
+    ],
+    "name": "demo_use_toggle",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_element_size.rs"
+    ],
+    "name": "demo_use_element_size",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_media_query.rs"
+    ],
+    "name": "demo_use_media_query",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_idle.rs"
+    ],
+    "name": "demo_use_idle",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_mutation_observer.rs"
+    ],
+    "name": "demo_use_mutation_observer",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_throttle_fn.rs"
+    ],
+    "name": "demo_use_throttle_fn",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_permission.rs"
+    ],
+    "name": "demo_use_permission",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_window_size.rs"
+    ],
+    "name": "demo_use_window_size",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_interval_fn.rs"
+    ],
+    "name": "demo_use_interval_fn",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_floating_tooltip.rs"
+    ],
+    "name": "demo_use_floating_tooltip",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_device_pixel_ratio.rs"
+    ],
+    "name": "demo_use_device_pixel_ratio",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_event_listener.rs"
+    ],
+    "name": "demo_use_event_listener",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_window_scroll.rs"
+    ],
+    "name": "demo_use_window_scroll",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_floor.rs"
+    ],
+    "name": "demo_use_floor",
+    "registry_dependencies": [
+      "slider"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_key_press.rs"
+    ],
+    "name": "demo_use_key_press",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_interval.rs"
+    ],
+    "name": "demo_use_interval",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_storage.rs"
+    ],
+    "name": "demo_use_storage",
+    "registry_dependencies": [
+      "button",
+      "input"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_autosize.rs"
+    ],
+    "name": "demo_use_autosize",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_floating_placement.rs"
+    ],
+    "name": "demo_use_floating_placement",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_watch_pausable.rs"
+    ],
+    "name": "demo_use_watch_pausable",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_floating_shift.rs"
+    ],
+    "name": "demo_use_floating_shift",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_interval_local_storage.rs"
+    ],
+    "name": "demo_use_interval_local_storage",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_prefers_reduced_motion.rs"
+    ],
+    "name": "demo_use_prefers_reduced_motion",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_sync_signal.rs"
+    ],
+    "name": "demo_use_sync_signal",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_locales.rs"
+    ],
+    "name": "demo_use_locales",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_window_focus.rs"
+    ],
+    "name": "demo_use_window_focus",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_floating_size.rs"
+    ],
+    "name": "demo_use_floating_size",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_intersection_observer.rs"
+    ],
+    "name": "demo_use_intersection_observer",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_abs.rs"
+    ],
+    "name": "demo_use_abs",
+    "registry_dependencies": [
+      "slider"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_ceil.rs"
+    ],
+    "name": "demo_use_ceil",
+    "registry_dependencies": [
+      "slider"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_css_var.rs"
+    ],
+    "name": "demo_use_css_var",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_use_cycle_list.rs"
+    ],
+    "name": "demo_use_cycle_list",
+    "registry_dependencies": [
+      "button"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_aspect_ratio.rs"
+    ],
+    "name": "demo_aspect_ratio",
+    "registry_dependencies": [
+      "p_aspect_ratio"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_primitive_label.rs"
+    ],
+    "name": "demo_primitive_label",
+    "registry_dependencies": [
+      "p_label"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_tabs.rs"
+    ],
+    "name": "demo_tabs",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_slider.rs"
+    ],
+    "name": "demo_slider",
+    "registry_dependencies": [
+      "p_slider"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_scroll_area.rs"
+    ],
+    "name": "demo_scroll_area",
+    "registry_dependencies": [
+      "p_scroll_area",
+      "Orientation"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_primitive_checkbox.rs"
+    ],
+    "name": "demo_primitive_checkbox",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_collapsible.rs"
+    ],
+    "name": "demo_collapsible",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_toolbar.rs"
+    ],
+    "name": "demo_toolbar",
+    "registry_dependencies": [
+      "p_toggle_group",
+      "p_toolbar"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_toggle.rs"
+    ],
+    "name": "demo_toggle",
+    "registry_dependencies": [
+      "p_toggle"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_avatar.rs"
+    ],
+    "name": "demo_avatar",
+    "registry_dependencies": [
+      "p_avatar"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_switch.rs"
+    ],
+    "name": "demo_switch",
+    "registry_dependencies": [
+      "p_switch"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_accordion.rs"
+    ],
+    "name": "demo_accordion",
+    "registry_dependencies": [
+      "p_accordion"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_radio_group.rs"
+    ],
+    "name": "demo_radio_group",
+    "registry_dependencies": [
+      "p_radio_group"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_toggle_group.rs"
+    ],
+    "name": "demo_toggle_group",
+    "registry_dependencies": [
+      "p_toggle_group"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_tabs_custom.rs"
+    ],
+    "name": "demo_tabs_custom",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_toggle_custom.rs"
+    ],
+    "name": "demo_toggle_custom",
+    "registry_dependencies": [
+      "p_toggle_custom"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_progress.rs"
+    ],
+    "name": "demo_progress",
+    "registry_dependencies": [
+      "p_progress"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_tabs_shadow.rs"
+    ],
+    "name": "demo_tabs_shadow",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_select_price_table.rs"
+    ],
+    "name": "demo_select_price_table",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_masonry.rs"
+    ],
+    "name": "demo_masonry",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_steps_indicator.rs"
+    ],
+    "name": "demo_steps_indicator",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_carousel_snap_scroll.rs"
+    ],
+    "name": "demo_carousel_snap_scroll",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_sticky_cursor_links.rs"
+    ],
+    "name": "demo_sticky_cursor_links",
+    "registry_dependencies": [
+      "sticky_cursor_links"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_css_pill_ocean.rs"
+    ],
+    "name": "demo_css_pill_ocean",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_wheel_headings.rs"
+    ],
+    "name": "demo_wheel_headings",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_css_pill_mountain.rs"
+    ],
+    "name": "demo_css_pill_mountain",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_cards_follow_shadow.rs"
+    ],
+    "name": "demo_cards_follow_shadow",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_css_pill_lighthouse.rs"
+    ],
+    "name": "demo_css_pill_lighthouse",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_cards_stacking.rs"
+    ],
+    "name": "demo_cards_stacking",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_carousel3d_rotating.rs"
+    ],
+    "name": "demo_carousel3d_rotating",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_triggered_highlight.rs"
+    ],
+    "name": "demo_triggered_highlight",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_card3d_flip_rotation.rs"
+    ],
+    "name": "demo_card3d_flip_rotation",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_gallery_clickable_transitions.rs"
+    ],
+    "name": "demo_gallery_clickable_transitions",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_cards_repushing.rs"
+    ],
+    "name": "demo_cards_repushing",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_card_focus.rs"
+    ],
+    "name": "demo_card_focus",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_universe_rotating.rs"
+    ],
+    "name": "demo_universe_rotating",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_cards_slider.rs"
+    ],
+    "name": "demo_cards_slider",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_rain_letters.rs"
+    ],
+    "name": "demo_rain_letters",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_gallery_zoom.rs"
+    ],
+    "name": "demo_gallery_zoom",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_always_great_grid.rs"
+    ],
+    "name": "demo_always_great_grid",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_cards_glowing.rs"
+    ],
+    "name": "demo_cards_glowing",
+    "registry_dependencies": [
+      "cards_glowing"
+    ],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_cta_animation_on_hover.rs"
+    ],
+    "name": "demo_cta_animation_on_hover",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_card_wobble.rs"
+    ],
+    "name": "demo_card_wobble",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_cursor_multi_color.rs"
+    ],
+    "name": "demo_cursor_multi_color",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_docker.rs"
+    ],
+    "name": "demo_docker",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_particles_vercel.rs"
+    ],
+    "name": "demo_particles_vercel",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_radar_mini.rs"
+    ],
+    "name": "demo_radar_mini",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_scroll_light.rs"
+    ],
+    "name": "demo_scroll_light",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_hamburger_menu.rs"
+    ],
+    "name": "demo_hamburger_menu",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_parallax1.rs"
+    ],
+    "name": "demo_parallax1",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_chart_bar_json.rs"
+    ],
+    "name": "demo_chart_bar_json",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_chart_candlesticks.rs"
+    ],
+    "name": "demo_chart_candlesticks",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_chart_line.rs"
+    ],
+    "name": "demo_chart_line",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_chart_bar_horizontal.rs"
+    ],
+    "name": "demo_chart_bar_horizontal",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_chart_pie.rs"
+    ],
+    "name": "demo_chart_pie",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_chart_table.rs"
+    ],
+    "name": "demo_chart_table",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_chart_radar.rs"
+    ],
+    "name": "demo_chart_radar",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  },
+  {
+    "files": [
+      "demos/demo_chart_scatter.rs"
+    ],
+    "name": "demo_chart_scatter",
+    "registry_dependencies": [],
+    "type": "components:demos"
+  }
+]

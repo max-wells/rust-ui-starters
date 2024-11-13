@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_web_lock",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_web_lock.rs",
+      "content": ""
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

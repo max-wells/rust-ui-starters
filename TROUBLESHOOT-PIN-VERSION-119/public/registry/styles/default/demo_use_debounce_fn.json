@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_debounce_fn",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_debounce_fn.rs",
+      "content": "use leptos::*;\nuse leptos_use::{use_debounce_fn_with_options, DebounceOptions};\n\nuse crate::registry::ui::button::Button;\n\n#[component]\npub fn DemoUseDebounceFn() -> impl IntoView {\n    let (click_count, set_click_count) = create_signal(0);\n    let (debounced_count, set_debounced_count) = create_signal(0);\n\n    let debounced_fn = use_debounce_fn_with_options(\n        move || set_debounced_count.set(debounced_count.get_untracked() + 1),\n        1000.0,\n        DebounceOptions::default().max_wait(Some(5000.0)),\n    );\n\n    view! {\n        <Button on:click=move |_| {\n            set_click_count.set(click_count.get_untracked() + 1);\n            debounced_fn();\n        }>\"Smash me!\"</Button>\n        <p>\"Delay is set to 1000ms and max_wait is set to 5000ms for this demo.\"</p>\n        <p>\"Button clicked: \" {click_count}</p>\n        <p>\"Event handler called: \" {debounced_count}</p>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

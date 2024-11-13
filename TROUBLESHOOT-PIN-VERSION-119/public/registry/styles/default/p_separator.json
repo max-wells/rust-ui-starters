@@ -1,0 +1,12 @@
+{
+  "name": "p_separator",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "p_separator.rs",
+      "content": "use leptos::{html::AnyElement, *};\n\nuse crate::registry::primitives::{p_primitive::Primitive, Attributes, Orientation};\n\n#[component]\npub fn PrimitiveSeparatorRoot(\n    #[prop(optional, into)] orientation: MaybeSignal<Orientation>,\n    #[prop(optional, into)] decorative: MaybeSignal<bool>,\n\n    #[prop(optional)] node_ref: NodeRef<AnyElement>,\n    #[prop(attrs)] attrs: Attributes,\n    #[prop(optional)] children: Option<ChildrenFn>,\n\n    #[prop(optional, into)] as_child: MaybeProp<bool>,\n) -> impl IntoView {\n    let children = StoredValue::new(children);\n\n    view! {\n        <Primitive\n            {..attrs}\n            attr:role=move || if decorative.get() { \"none\" } else { \"separator\" }\n            attr:aria-orientation=move || {\n                (!decorative.get()).then_some(orientation.get().to_string())\n            }\n            attr:data-orientation=move || orientation.get().to_string()\n            element=html::div\n            node_ref=node_ref\n            as_child=as_child\n        >\n            {children.with_value(|children| children.as_ref().map(|children| children()))}\n        </Primitive>\n    }\n}\n"
+    }
+  ],
+  "type": "components:primitives/",
+  "type_short": "components:primitives"
+}

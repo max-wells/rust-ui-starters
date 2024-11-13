@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_locales",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_locales.rs",
+      "content": "use leptos::*;\nuse leptos_use::use_locales;\n\n#[component]\npub fn DemoUseLocales() -> impl IntoView {\n    let locales = use_locales();\n\n    view! { <pre>{move || format!(\"Locales:\\n    {}\", locales().join(\"\\n    \"))}</pre> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "demo_particles_vercel",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_particles_vercel.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\n#[component]\npub fn DemoParticlesVercel() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"particles-vercel\" href=\"/components/particles-vercel.css\" />\n        <script src=\"/components/particles-vercel.js\" />\n\n        <div class=\"border border-sky-500\">\n            <canvas></canvas>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

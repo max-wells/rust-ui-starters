@@ -1,0 +1,12 @@
+{
+  "name": "demo_scroll_light",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_scroll_light.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\n#[component]\npub fn DemoScrollLight() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"scroll-light\" href=\"/components/scroll-light.css\" />\n\n        <div class=\"scrollLightMainDiv\">\n            <div class=\"scrollbar\"></div>\n            <div class=\"container\">\n                <p>\n                    In the enchanted world of frontend development, pixels and code guide your design journey. Entranced by the dance of colors, shapes unfold on the digital canvas. Every line of code is a spell, weaving functionality and aesthetics into an immersive digital tale.\n                </p>\n                <p>\n                    In the enchanted world of frontend development, pixels and code guide your design journey. Entranced by the dance of colors, shapes unfold on the digital canvas. Every line of code is a spell, weaving functionality and aesthetics into an immersive digital tale.\n                </p>\n                <p>\n                    In the enchanted world of frontend development, pixels and code guide your design journey. Entranced by the dance of colors, shapes unfold on the digital canvas. Every line of code is a spell, weaving functionality and aesthetics into an immersive digital tale.\n                </p>\n                <p>\n                    In the enchanted world of frontend development, pixels and code guide your design journey. Entranced by the dance of colors, shapes unfold on the digital canvas. Every line of code is a spell, weaving functionality and aesthetics into an immersive digital tale.\n                </p>\n            </div>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

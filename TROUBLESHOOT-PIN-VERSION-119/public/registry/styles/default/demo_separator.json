@@ -1,0 +1,12 @@
+{
+  "name": "demo_separator",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_separator.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::{\n    headings::H3,\n    separator::{Separator, SeparatorOrientation},\n};\n\n#[component]\npub fn DemoSeparator() -> impl IntoView {\n    view! {\n        <div class=\"flex flex-col gap-4\">\n            <H3>\"Rust UI\"</H3>\n            <p>\"An open-source UI component library 🦀.\"</p>\n\n            <Separator />\n\n            <div class=\"flex gap-4 items-center h-5\">\n                <p>\"Blog\"</p>\n                <Separator orientation=SeparatorOrientation::Vertical />\n                <p>\"Docs\"</p>\n                <Separator orientation=SeparatorOrientation::Vertical />\n                <p>\"Source\"</p>\n            </div>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

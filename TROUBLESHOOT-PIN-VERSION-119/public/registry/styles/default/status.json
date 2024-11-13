@@ -1,0 +1,12 @@
+{
+  "name": "status",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "status.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n#[component]\npub fn Status(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    #[prop(into, optional)] variant: StatusIndactorVariant,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| tw_merge!(\"relative\", class()));\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n            <StatusIndactor variant=variant class=\"animate-ping\" />\n            <StatusIndactor variant=variant />\n        </div>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[derive(TwClass, Clone, Copy)]\n#[tw(class = \"absolute top-0 right-0 -mt-1 -mr-1 rounded-full size-4\")]\npub struct StatusIndactorClass {\n    pub variant: StatusIndactorVariant,\n}\n\n#[derive(TwVariant)]\npub enum StatusIndactorVariant {\n    #[tw(default, class = \"bg-neutral-300\")]\n    Default,\n    #[tw(class = \"bg-green-300 \")]\n    Active,\n    #[tw(class = \"bg-orange-300 \")]\n    Inactive,\n    #[tw(class = \"bg-sky-300 \")]\n    Normal,\n}\n\n#[component]\npub fn StatusIndactor(\n    #[prop(into, optional)] variant: MaybeSignal<StatusIndactorVariant>,\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        let status_indicator = StatusIndactorClass {\n            variant: variant.get(),\n        };\n        status_indicator.with_class(class.get())\n    });\n\n    view! { <div {..attributes} class=class /> }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

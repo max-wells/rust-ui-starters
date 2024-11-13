@@ -1,0 +1,12 @@
+{
+  "name": "p_label",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "p_label.rs",
+      "content": "use leptos::{html::AnyElement, *};\nuse web_sys::MouseEvent;\n\nuse crate::registry::primitives::{p_primitive::Primitive, Attributes};\n\n#[component]\npub fn PrimitiveLabelRoot(\n    #[prop(optional, into)] for_html: MaybeProp<String>,\n\n    #[prop(default=(|_|{}).into(), into)] on_mouse_down: Callback<MouseEvent>,\n\n    #[prop(optional)] node_ref: NodeRef<AnyElement>,\n    #[prop(attrs)] attrs: Attributes,\n    children: ChildrenFn,\n\n    #[prop(optional, into)] as_child: MaybeProp<bool>,\n) -> impl IntoView {\n    view! {\n        <Primitive\n            {..attrs}\n            attr:for=for_html\n            element=html::label\n            on:mousedown=move |ev: MouseEvent| {\n                leptos::Callable::call(&on_mouse_down, ev.clone());\n                if ev.default_prevented() && ev.detail() > 1 {\n                    ev.prevent_default();\n                }\n            }\n            node_ref=node_ref\n            as_child=as_child\n        >\n            {children()}\n        </Primitive>\n    }\n}\n"
+    }
+  ],
+  "type": "components:primitives/",
+  "type_short": "components:primitives"
+}

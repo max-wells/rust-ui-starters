@@ -1,0 +1,12 @@
+{
+  "name": "demo_docker",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_docker.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\nuse crate::registry::icons::others::file_question::FileQuestion;\n\n#[component]\npub fn DemoDocker() -> impl IntoView {\n    let button_titles = vec![\n        \"Settings\",\n        \"Browser\",\n        \"Mail\",\n        \"Map\",\n        \"Messages\",\n        \"Music Player\",\n        \"Apps\",\n        \"Documents\",\n    ];\n\n    view! {\n        <Stylesheet id=\"docker\" href=\"/components/docker.css\" />\n        // <script src=\"/xx.js\"></script>\n\n        <div class=\"h-[600px]\">\n\n            <h1>Dock magnification using <code>:has()</code></h1>\n            <nav class=\"flex fixed gap-1 justify-center items-end dockerNav\">\n                {button_titles\n                    .into_iter()\n                    .map(|title| {\n                        view! {\n                            <button\n                                type=\"button\"\n                                class=\"relative border-none transition-all duration-300 ease-in-out cursor-pointer outline-none bg-[rgba(0,0,0,0.75)] text-[rgba(215,255,255,1)] w-[var(--btn-width,var(--btn-size))] h-[var(--btn-height,var(--btn-size))] aspect-ratio-1 rounded-[calc(var(--btn-size)*.25)]\"\n                                data-title=title\n                            >\n                                <FileQuestion class=\"size-14\" />\n                            </button>\n                        }\n                    })\n                    .collect::<Vec<_>>()}\n            </nav>\n\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_extensions",
+  "type_short": "components:demos"
+}

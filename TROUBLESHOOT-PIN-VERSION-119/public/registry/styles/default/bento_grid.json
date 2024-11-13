@@ -1,0 +1,12 @@
+{
+  "name": "bento_grid",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "bento_grid.rs",
+      "content": "use leptos::*;\nuse tailwind_fuse::*;\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn BentoGrid(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| tw_merge!(\"grid gap-2 md:grid-cols-4\", class()));\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n\n#[component]\npub fn BentoGrid6(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class =\n        create_memo(move |_| tw_merge!(\"grid gap-2 sm:grid-cols-2 md:grid-cols-4\", class()));\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn BentoRow(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| tw_merge!(\"p-1 min-h-32 rounded-lg\", class()));\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n\n#[component]\npub fn BentoCell(\n    #[prop(into, optional)] class: MaybeSignal<String>,\n    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,\n    children: Children,\n) -> impl IntoView {\n    let class = create_memo(move |_| {\n        tw_merge!(\n            \"text-xl rounded-lg size-full center bg-zinc-200 dark:bg-zinc-700\",\n            class()\n        )\n    });\n\n    view! {\n        <div {..attributes} class=class>\n            {children()}\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:ui/",
+  "type_short": "components:ui"
+}

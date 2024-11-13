@@ -1,0 +1,12 @@
+{
+  "name": "demo_multi_select",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_multi_select.rs",
+      "content": "use leptos::*;\nuse leptos_meta::Stylesheet;\n\n// TODO --> Switch from JS to Rust 🦀 💪\n\n#[component]\npub fn DemoMultiSelect() -> impl IntoView {\n    view! {\n        <Stylesheet id=\"multiselect\" href=\"/components/multi-select.css\" />\n        <script src=\"/components/multi-select.js\" />\n        // * 💁 For the moment, both CSS and JS files are located in public folder.\n        // * Waiting to implement this fully in Rust 🦀\n\n        <div class=\"mx-auto w-full max-w-2xl\">\n            <form action=\"\" method=\"get\">\n                <div>\n                    <label for=\"countries\">\"Countries\"</label>\n                    <select name=\"countries\" id=\"countries\" multiple>\n                        <option value=\"1\">\"Afghanistan\"</option>\n                        <option value=\"2\">\"Australia\"</option>\n                        <option value=\"3\">\"Germany\"</option>\n                        <option value=\"4\">\"Canada\"</option>\n                        <option value=\"5\">\"Russia\"</option>\n                        <option value=\"6\">\"United Kingdom\"</option>\n                        <option value=\"7\">\"France\"</option>\n                        <option value=\"8\">\"Brazil\"</option>\n                        <option value=\"9\">\"Italy\"</option>\n                        <option value=\"10\">\"Zambia\"</option>\n                    </select>\n                </div>\n            </form>\n        </div>\n\n        <script>\"new MultiSelectTag('countries');\"</script>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

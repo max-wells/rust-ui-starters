@@ -1,0 +1,12 @@
+{
+  "name": "demo_status_variants",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_status_variants.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::status::{Status, StatusIndactorVariant};\n\n#[component]\npub fn DemoStatusVariants() -> impl IntoView {\n    view! {\n        <div class=\"flex gap-4\">\n            <Status variant=StatusIndactorVariant::Normal>\n                <DemoContainer />\n            </Status>\n            <Status variant=StatusIndactorVariant::Active>\n                <DemoContainer />\n            </Status>\n            <Status variant=StatusIndactorVariant::Inactive>\n                <DemoContainer />\n            </Status>\n        </div>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\nfn DemoContainer() -> impl IntoView {\n    view! { <div class=\"rounded-md size-16 bg-neutral-500\" /> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

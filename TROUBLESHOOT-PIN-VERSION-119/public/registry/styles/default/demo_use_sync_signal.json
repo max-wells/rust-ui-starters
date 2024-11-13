@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_sync_signal",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_sync_signal.rs",
+      "content": "use leptos::*;\nuse leptos_use::sync_signal;\n\n// TODO 🪝 Input\n\n#[component]\npub fn DemoUseSyncSignal() -> impl IntoView {\n    let (a, set_a) = create_signal(String::new());\n    let (b, set_b) = create_signal(String::new());\n\n    let _ = sync_signal((a, set_a), (b, set_b));\n\n    view! {\n        <input\n            prop:value=a\n            on:input=move |e| set_a(event_target_value(&e))\n            placeholder=\"A\"\n            type=\"text\"\n        />\n        <input\n            prop:value=b\n            on:input=move |e| set_b(event_target_value(&e))\n            placeholder=\"B\"\n            type=\"text\"\n        />\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

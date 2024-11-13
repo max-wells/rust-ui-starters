@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_mouse",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_mouse.rs",
+      "content": "use leptos::html::Div;\nuse leptos::*;\nuse leptos_use::docs::Note;\nuse leptos_use::{\n    use_mouse, use_mouse_with_options, UseMouseCoordType, UseMouseEventExtractor, UseMouseOptions,\n};\nuse web_sys::{MouseEvent, Touch};\n\n#[derive(Clone)]\nstruct Extractor;\n\nimpl UseMouseEventExtractor for Extractor {\n    fn extract_mouse_coords(&self, event: &MouseEvent) -> Option<(f64, f64)> {\n        Some((event.offset_x() as f64, event.offset_y() as f64))\n    }\n\n    // this is not necessary as it's the same as the default implementation of the trait.\n    fn extract_touch_coords(&self, _touch: &Touch) -> Option<(f64, f64)> {\n        // ignore touch events\n        None\n    }\n}\n\n#[component]\npub fn DemoUseMouse() -> impl IntoView {\n    let el = create_node_ref::<Div>();\n\n    let mouse_default = use_mouse();\n\n    let mouse_with_extractor = use_mouse_with_options(\n        UseMouseOptions::default()\n            .target(el)\n            .coord_type(UseMouseCoordType::Custom(Extractor)),\n    );\n\n    view! {\n        <div node_ref=el>\n            <p class=\"font-semibold\">\"Basic Usage\"</p>\n            <pre lang=\"yaml\">\n                {move || {\n                    format!(\n                        r#\"    x: {}\n    y: {}\n    source_type: {:?}\n\"#,\n                        mouse_default.x.get(),\n                        mouse_default.y.get(),\n                        mouse_default.source_type.get(),\n                    )\n                }}\n\n            </pre>\n            <p class=\"font-semibold\">\"Extractor Usage\"</p>\n            <Note>\"Only works when the mouse is over the demo element\"</Note>\n            <pre lang=\"yaml\">\n                {move || {\n                    format!(\n                        r#\"    x: {}\n    y: {}\n    source_type: {:?}\n\"#,\n                        mouse_with_extractor.x.get(),\n                        mouse_with_extractor.y.get(),\n                        mouse_with_extractor.source_type.get(),\n                    )\n                }}\n\n            </pre>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

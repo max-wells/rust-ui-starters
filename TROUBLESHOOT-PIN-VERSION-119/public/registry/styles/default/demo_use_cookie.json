@@ -1,0 +1,12 @@
+{
+  "name": "demo_use_cookie",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_use_cookie.rs",
+      "content": "use codee::string::FromToStringCodec;\nuse leptos::*;\nuse leptos_use::{use_cookie_with_options, UseCookieOptions};\n\n/// Renders the home page of your application.\n#[component]\npub fn DemoUseCookie() -> impl IntoView {\n    let (test_cookie, _) = use_cookie_with_options::<String, FromToStringCodec>(\n        \"test-cookie\",\n        UseCookieOptions::<String, _, _>::default()\n            .max_age(3000)\n            .default_value(Some(\"Bogus string\".to_owned())),\n    );\n\n    view! { <p>Test cookie: {move || test_cookie().unwrap_or(\"<Expired>\".to_string())}</p> }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_hooks",
+  "type_short": "components:demos"
+}

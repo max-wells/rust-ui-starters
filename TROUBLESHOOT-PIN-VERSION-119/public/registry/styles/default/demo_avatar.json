@@ -1,0 +1,12 @@
+{
+  "name": "demo_avatar",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_avatar.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::primitives::p_avatar::{\n    PrimitiveAvatarFallback, PrimitiveAvatarImage, PrimitiveAvatarRoot,\n};\n\n#[component]\npub fn DemoAvatar() -> impl IntoView {\n    view! {\n        <div class=\"flex gap-5\">\n            <PrimitiveAvatarRoot attr:class=CLASS_AVATAR_ROOT>\n                <PrimitiveAvatarImage\n                    attr:class=CLASS_AVATAR_IMAGE\n                    attr:src=\"https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80\"\n                    attr:alt=\"Colm Tuite\"\n                />\n                <PrimitiveAvatarFallback attr:class=CLASS_AVATAR_FALLBACK delay_ms=DELAY_MS>\n                    CT\n                </PrimitiveAvatarFallback>\n            </PrimitiveAvatarRoot>\n\n            <PrimitiveAvatarRoot attr:class=CLASS_AVATAR_ROOT>\n                <PrimitiveAvatarFallback attr:class=CLASS_AVATAR_FALLBACK delay_ms=DELAY_MS>\n                    PD\n                </PrimitiveAvatarFallback>\n            </PrimitiveAvatarRoot>\n        </div>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                      ✨ CONSTANTS ✨                       */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\nconst CLASS_AVATAR_ROOT: &str = \"inline-flex size-10 select-none items-center justify-center overflow-hidden rounded-full align-middle\";\n\nconst CLASS_AVATAR_IMAGE: &str = \"size-full rounded-[inherit] object-cover\";\n\nconst CLASS_AVATAR_FALLBACK: &str =\n    \"leading-1 flex size-full items-center justify-center bg-muted text-[15px] font-medium\";\n\nconst DELAY_MS: f64 = 600.0;\n"
+    }
+  ],
+  "type": "components:demos/demo_primitives",
+  "type_short": "components:demos"
+}

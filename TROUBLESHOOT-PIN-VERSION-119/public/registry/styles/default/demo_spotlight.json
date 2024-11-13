@@ -1,0 +1,12 @@
+{
+  "name": "demo_spotlight",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_spotlight.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::spotlight::{Spotlight, SpotlightContainer};\n\n#[component]\npub fn DemoSpotlight() -> impl IntoView {\n    view! {\n        <SpotlightContainer class=\"rounded-md h-[40rem] bg-black/80\">\n            <Spotlight class=\"left-0 -top-40 md:-top-20 md:left-60\" />\n\n            <DemoContent />\n        </SpotlightContainer>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\nfn DemoContent() -> impl IntoView {\n    view! {\n        <div class=\"relative z-10 p-4 pt-20 mx-auto w-full max-w-7xl text-center md:pt-0\">\n            <p class=\"mb-4 text-4xl font-bold bg-opacity-50 md:text-7xl\">Spotlight effect</p>\n            <p class=\"mx-auto max-w-lg font-normal text-neutral-300\">\n                {\"Aliquip excepteur elit aliquip labore labore elit magna velit laboris exercitation deserunt. Laboris dolor duis sunt incididunt nostrud est eu sit ex non. Elit veniam occaecat do est.\"}\n            </p>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

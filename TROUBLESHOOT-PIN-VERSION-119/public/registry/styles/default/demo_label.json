@@ -1,0 +1,12 @@
+{
+  "name": "demo_label",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_label.rs",
+      "content": "use crate::registry::ui::checkbox::Checkbox;\nuse crate::registry::ui::label::Label;\nuse leptos::*;\n\n#[component]\npub fn DemoLabel() -> impl IntoView {\n    view! {\n        <div class=\"space-y-4\">\n            <h2 class=\"text-2xl font-bold\">Label Demo</h2>\n            <div class=\"flex items-center space-x-2\">\n                <Checkbox id=\"terms\" checked=false />\n                <Label r#for=\"terms\">Accept terms and conditions</Label>\n            </div>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

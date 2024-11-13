@@ -1,0 +1,12 @@
+{
+  "name": "demo_headings_animate",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_headings_animate.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::{\n    animate::{Animate, AnimateVariant},\n    headings::H1,\n};\n\n#[component]\npub fn DemoHeadingsAnimate() -> impl IntoView {\n    view! {\n        <Animate\n            variant=AnimateVariant::FadeUp\n            style=\"animation-delay: 0.25s; animation-fill-mode: forwards;\"\n        >\n            <H1>\"This is a Heading using Animate\"</H1>\n        </Animate>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

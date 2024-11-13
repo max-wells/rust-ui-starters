@@ -1,0 +1,12 @@
+{
+  "name": "demo_meteor_effect",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_meteor_effect.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::ui::{\n    button::Button,\n    gradient::{Gradient, GradientVariant},\n    meteor_effect::{MeteorCard, MeteorEffect, Meteors},\n};\n\n#[component]\npub fn DemoMeteorEffect() -> impl IntoView {\n    view! {\n        <MeteorEffect>\n            <Gradient variant=GradientVariant::BlueTeal />\n\n            <MeteorCard>\n                <DemoContent />\n                <Meteors number=20 />\n            </MeteorCard>\n        </MeteorEffect>\n    }\n}\n\n/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n/*                     ✨ FUNCTIONS ✨                        */\n/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n#[component]\npub fn DemoContent() -> impl IntoView {\n    view! {\n        <div>\n            <p class=\"relative z-20 mb-4 text-xl font-bold text-white\">Meteor effect</p>\n            <p class=\"relative z-20 mb-4 text-base font-normal text-slate-500\">\n                {\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore esse eu aliqua elit aliqua dolor consectetur officia labore pariatur in eiusmod cupidatat nulla et. Reprehenderit ex aliqua nisi est mollit minim ut.\"}\n            </p>\n            <Button>Explore</Button>\n        </div>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_core",
+  "type_short": "components:demos"
+}

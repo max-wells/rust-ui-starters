@@ -1,0 +1,59 @@
+@import "https://unpkg.com/open-props/open-props.min.css";
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .galleryGridImage, .galleryList {
+    animation: 10s scale-up both ease-in-out infinite alternate;
+  }
+}
+
+
+.galleryList {
+	--big-tile-size: 50vmin;
+	--scale: 0.4;
+	--rotation: 270deg;
+	--tile-size: calc(var(--big-tile-size) / 3);
+	list-style-type: none;
+	gap: 1vmin;
+	grid-template: repeat(9, var(--tile-size)) / repeat(9, var(--tile-size));
+	transform: translate(-50%, -50%) scale(var(--scale));
+}
+
+@keyframes scale-up {
+	0% {
+		transform: translate(-50%, -50%) scale(var(--scale)) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(1) rotate(var(--rotation));	
+	}
+}
+
+
+.galleryGridImage {
+	--rotation: -270deg;
+	--scale: 1;
+	aspect-ratio: 1;
+}
+
+.galleryItem {
+	padding: 0;
+	position: relative;
+	/* background: hsl(0 0% 75% / 0.2); */
+	max-inline-size: 100%;
+}
+
+.galleryItem {
+	grid-column: var(--x1, auto) / var(--x2, auto);
+	grid-row: var(--y1, auto) / var(--y2, auto);
+}
+
+.galleryItem {
+	border-radius: var(--radius-3);
+	overflow: hidden;
+}

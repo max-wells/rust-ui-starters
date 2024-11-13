@@ -1,0 +1,12 @@
+{
+  "name": "demo_collapsible",
+  "cargo_dependencies": [],
+  "files": [
+    {
+      "name": "demo_collapsible.rs",
+      "content": "use leptos::*;\n\nuse crate::registry::{\n    icons::chevrons::chevron_up_down::ChevronUpDown,\n    primitives::p_collapsible::{\n        PrimitiveCollapsibleContent, PrimitiveCollapsibleRoot, PrimitiveCollapsibleTrigger,\n    },\n    ui::button::{Button, ButtonSize, ButtonVariant},\n};\n\n#[component]\npub fn DemoCollapsible() -> impl IntoView {\n    let (open, set_open) = create_signal(false);\n\n    view! {\n        <PrimitiveCollapsibleRoot\n            attr:class=\"w-[300px]\"\n            open=open\n            on_open_change=move |open: bool| set_open.set(open)\n        >\n            <div class=\"flex justify-between items-center px-2\">\n                <span class=\"text-sm font-semibold\">\"@peduarte starred 3 repositories\"</span>\n                <PrimitiveCollapsibleTrigger as_child=true>\n                    <Button variant=ButtonVariant::Ghost size=ButtonSize::Sm>\n                        <ChevronUpDown class=\"size-4\" />\n                    </Button>\n                </PrimitiveCollapsibleTrigger>\n            </div>\n\n            <div class=\"py-3 px-4 text-sm rounded-md border\">\n                <span>\"leptix/primitives\"</span>\n            </div>\n\n            <PrimitiveCollapsibleContent>\n                <div class=\"py-3 px-4 text-sm rounded-md border\">\n                    <span>\"@radix-ui/colors\"</span>\n                </div>\n                <div class=\"py-3 px-4 text-sm rounded-md border\">\n                    <span>\"@stitches/react\"</span>\n                </div>\n            </PrimitiveCollapsibleContent>\n        </PrimitiveCollapsibleRoot>\n    }\n}\n"
+    }
+  ],
+  "type": "components:demos/demo_primitives",
+  "type_short": "components:demos"
+}
