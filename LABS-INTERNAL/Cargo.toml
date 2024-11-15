@@ -8,16 +8,16 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 # Wasm specific
-wasm-bindgen = "=0.2.93"
+wasm-bindgen = "=0.2.95"
 wasm-bindgen-futures = "0.4.30"
 web-sys = { version = "0.3.70", features = ["CustomEventInit", "EventInit"] }
 codee = { version = "0.2.0", features = ["json_serde", "msgpack_serde", "base64", "prost"] }
 
 # Leptos
-leptos = { version = "0.6.13", features = ["nightly"] }
-leptos_axum = { version = "0.6.13", optional = true }
-leptos_meta = { version = "0.6.13", features = ["nightly"] }
-leptos_router = { version = "0.6.13", features = ["nightly"] }
+leptos = { version = "0.6.15", features = ["nightly"] }
+leptos_axum = { version = "0.6.15", optional = true }
+leptos_meta = { version = "0.6.15", features = ["nightly"] }
+leptos_router = { version = "0.6.15", features = ["nightly"] }
 
 # Logs & Errors handling
 console_error_panic_hook = "0.1"
