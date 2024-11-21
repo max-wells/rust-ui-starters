@@ -1,5 +1,5 @@
 use leptos::*;
-use tailwind_fuse::*;
+use rustui_merge::*;
 
 #[component]
 pub fn SvgIcon(

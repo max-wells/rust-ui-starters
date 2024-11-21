@@ -1,7 +1,7 @@
 use ev::MouseEvent;
 use html::Div;
 use leptos::*;
-use tailwind_fuse::*;
+use rustui_merge::*;
 
 use crate::components::ui::button::{Button, ButtonVariant};
 

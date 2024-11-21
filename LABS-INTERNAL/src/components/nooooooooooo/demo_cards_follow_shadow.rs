@@ -1,6 +1,6 @@
 use leptos::*;
 use leptos_meta::Stylesheet;
-use tailwind_fuse::*;
+use rustui_merge::*;
 
 use crate::components::icons::check::Check;
 

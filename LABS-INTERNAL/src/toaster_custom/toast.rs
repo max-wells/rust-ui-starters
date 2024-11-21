@@ -1,7 +1,7 @@
 use std::time::Duration;
 
 use leptos::*;
-use tailwind_fuse::*;
+use rustui_merge::*;
 
 use crate::{
     components::icons::x::X,

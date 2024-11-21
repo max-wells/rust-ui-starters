@@ -1,5 +1,5 @@
 use leptos::*;
-use tailwind_fuse::*;
+use rustui_merge::*;
 
 // TODO 💪 Loading state (demo_use_timeout_fn.rs and demo_button.rs)
 

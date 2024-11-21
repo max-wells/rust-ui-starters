@@ -10,7 +10,10 @@ pub fn HomePage() -> impl IntoView {
 
     view! {
         <div class="flex flex-col justify-center items-center mx-auto w-full max-w-3xl border mt-[100px] h-[600px] border-neutral-400">
-            <Button on:click=on_click>"Click Me: " {count}</Button>
+            <Button on:click=on_click class="bg-sky-500">
+                "Click Me: "
+                {count}
+            </Button>
         </div>
     }
 }
