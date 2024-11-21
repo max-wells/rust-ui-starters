@@ -48,7 +48,7 @@ html_parser = "0.7.0"
 js-sys = "0.3"
 
 # LIBS
-tailwind_fuse = { version = "0.3.0", features = ["variant", "debug"]}
+rustui_merge = { version = "0.1.2", features = ["variant", "debug"]}
 leptos-use = { version = "0.13.5", features = ["storage", "docs", "math"]}
 
 
