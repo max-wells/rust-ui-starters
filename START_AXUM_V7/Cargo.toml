@@ -27,8 +27,100 @@ thiserror = "1"
 tracing = { version = "0.1", optional = true }
 http = "1"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+wasm-bindgen-futures = "0.4.30"
+web-sys = { version = "0.3.70", features = ["CustomEventInit", "EventInit"] }
+codee = { version = "0.2.0", features = ["json_serde", "msgpack_serde", "base64", "prost"] }
+
+
+# Logs & Errors handling
+console_log = "1"
+log = "0.4"
+cfg-if = "1"
+simple_logger = "4"
+anyhow = "1.0.89"
+
+# Axum, Tokio, Tower, Serde
+axum-extra = { version = "0.9.4", features = ["cookie"] }
+tower-default-headers = { git = "https://github.com/banool/tower-default-headers-rs" }
+serde = { version = "1.0.210", features = ["derive"] }
+serde_json = "1.0.128"
+
+# HTTP
+html_parser = "0.7.0"
+
+# LIBS
+rustui_merge = { version = "0.1.3", features = ["variant", "debug"]}
+leptos-use = { version = "0.13.5", features = ["storage", "docs", "math"]}
+floating-ui-leptos = "0.1.1"
+leptos_animated_for = "0.4.8"
+
+# TODO Used for the toast container.
+js-sys = "0.3"
+
+# Asynchronous State Management
+leptos_query = { version = "0.5.3", features = ["local_storage", "indexed_db", "ssr"] }
+leptos_query_devtools = "0.1.3"
+reqwest = { version = "0.12.7", features = ["json"] }
+
+# Validation
+validator = "0.14"
+validator_derive = "0.14"
+regex = "1.11.0"
+
+######## ------------- ##########
+######## ------------- ##########
+######## ------------- ##########
+
+# ADDED AFTER
+comrak = "0.18.0"
+frontmatter = "0.4.0"
+unic-langid = { version = "0.9", features = ["macros"] }
+derive_more = "0.99.17"
+nanoid = "0.4.0"
+strum = { version = "0.26.2", features = ["derive"] }
+strum_macros = "0.26.2"
+itertools = "0.12.1"
+convert_case = "0.6.0"
+# Added for ThemeToggle
+time = "0.3"
+rand = "0.8.5"
+charts-rs = "0.3.19"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [features]
-hydrate = ["leptos/hydrate"]
+hydrate = ["leptos/hydrate", "leptos_query/hydrate", "leptos_query_devtools/csr"]
 ssr = [
     "dep:axum",
     "dep:tokio",
@@ -39,6 +131,9 @@ ssr = [
     "leptos_meta/ssr",
     "leptos_router/ssr",
     "dep:tracing",
+    "leptos-use/ssr",
+    "leptos_query/ssr",
+    "leptos-use/axum",
 ]
 
 # Defines a size-optimized profile for the WASM bundle in release mode
