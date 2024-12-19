@@ -39,9 +39,9 @@ pub fn Home() -> impl IntoView {
                     />
                 </picture>
 
-                <h1>"Welcome to Leptos"</h1>
+                <h1 class="text-red-500">"Welcome to Leptos"</h1>
 
-                <div class="buttons">
+                <div class="flex gap-2">
                     <Button />
                     <Button increment=5 />
                 </div>
