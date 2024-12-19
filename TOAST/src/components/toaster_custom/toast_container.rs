@@ -1,8 +1,8 @@
 use js_sys::Date;
 use leptos::{leptos_dom::helpers::TimeoutHandle, *};
+use rustui_merge::*;
 use std::cmp::max;
 use std::time::Duration;
-use tailwind_fuse::*;
 use wasm_bindgen::JsCast;
 use web_sys::{HtmlElement, PointerEvent};
 

@@ -1,6 +1,6 @@
 use leptos::*;
+use rustui_merge::*;
 use std::time::Duration;
-use tailwind_fuse::*;
 
 use crate::{
     components::icons::x::X,

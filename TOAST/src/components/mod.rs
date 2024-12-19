@@ -9,3 +9,4 @@ pub mod theme_toggle;
 
 // DEMOS
 pub mod demo_toast;
+pub mod demo_toast_variants;
