@@ -3,11 +3,13 @@ use std::time::Duration;
 
 use crate::{
     api::api_xxxs::{get_all_xxxs, get_xxx_by_id},
-    models::model_xxxs::{
-        TagAllXxxs,
-        MyXxx,
-        XxxId,
-        ResponseXxx,
+    features::xxxs::models::{
+        xxxs_models::{
+            TagAllXxxs,
+            MyXxx,
+            XxxId,
+            ResponseXxx,
+        },
     },
 };
 

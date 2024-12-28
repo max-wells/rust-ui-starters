@@ -5,9 +5,8 @@ pub mod error_template;
 pub mod fileserv;
 // Added after
 pub mod api;
-pub mod models;
-pub mod routes;
-
+pub mod features;
+pub mod routing;
 pub mod utils;
 
 cfg_if! { if #[cfg(feature = "hydrate")] {

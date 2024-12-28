@@ -7,15 +7,12 @@ use validator::{Validate, ValidationErrors};
 use crate::api::api_xxxs::add_xxx;
 use crate::components::toaster_custom::{toast::ToastVariant, types::Toasts};
 use crate::components::ui::{button::Button, headings::H2, input::Input};
-use crate::models::model_xxxs::{ TagAllXxxs, NewXxx};
-use crate::models::form_validator_example::FormValidatorExample;
-use crate::utils::hooks::queries::queries_xxxs::useAllXxxs;
+use crate::features::xxxs::models::{xxxs_models::{TagAllXxxs, NewXxx}, xxxs_models_form::XxxsFormValidator};
 use crate::utils::toast_utils::{handle_error_toast, show_toast};
-
-
+use crate::features::xxxs::hooks::xxxs_queries::useAllXxxs;
 
 #[component]
-pub fn FormXxxValidate() -> impl IntoView {
+pub fn XxxsFormValidate() -> impl IntoView {
     let all_server_xxxs_query = Rc::new(useAllXxxs());
     let toast_context = expect_context::<Toasts>();
     
@@ -38,7 +35,7 @@ pub fn FormXxxValidate() -> impl IntoView {
     };
 
     let validate_form = move || { // Add this block
-        let form_validator_example = FormValidatorExample {
+        let form_validator_example = XxxsFormValidator {
             title: title.get().clone(),
             author: author.get().clone(),
         };

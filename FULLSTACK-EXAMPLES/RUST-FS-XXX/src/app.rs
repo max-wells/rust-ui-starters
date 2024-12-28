@@ -7,8 +7,8 @@ use leptos_router::{Route, Router, Routes};
 use crate::components::navbar::Navbar;
 use crate::components::tailwind_indicator::TailwindIndicator;
 use crate::error_template::{AppError, ErrorTemplate};
-use crate::routes::page_home::HomePage;
-use crate::routes::page_xxxs::PageXxxs;
+use crate::routing::page_home::HomePage;
+use crate::routing::page_xxxs::PageXxxs;
 
 #[component]
 pub fn App() -> impl IntoView {

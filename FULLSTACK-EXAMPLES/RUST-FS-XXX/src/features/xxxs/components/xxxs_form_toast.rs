@@ -9,14 +9,13 @@ use crate::components::toaster_custom::types::Toasts;
 use crate::components::ui::button::Button;
 use crate::components::ui::headings::H2;
 use crate::components::ui::input::Input;
-use crate::models::model_xxxs::{ TagAllXxxs, NewXxx};
-use crate::utils::hooks::queries::queries_xxxs::useAllXxxs;
+use crate::features::xxxs::models::{xxxs_models::{NewXxx, TagAllXxxs}};
 use crate::utils::toast_utils::{handle_error_toast, show_toast};
-
+use crate::features::xxxs::hooks::xxxs_queries::useAllXxxs;
 
 
 #[component]
-pub fn FormXxxToast() -> impl IntoView {
+pub fn XxxsFormToast() -> impl IntoView {
     let all_xxxs_query = Rc::new(useAllXxxs());
     let toast_context = expect_context::<Toasts>();
     

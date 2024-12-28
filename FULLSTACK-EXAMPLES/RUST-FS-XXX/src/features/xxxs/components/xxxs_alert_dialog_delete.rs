@@ -8,11 +8,11 @@ use crate::{
             AlertDialogSubmit, AlertDialogTitle, AlertDialogTrigger, AlertDialogVariant,
         },
     },
-    models::model_xxxs::XxxId,
+    features::xxxs::models::xxxs_models::XxxId,
 };
 
 #[component]
-pub fn AlertDialogDeleteBook(
+pub fn XxxsAlertDialogDelete(
     server_xxx_id: XxxId,
     handle_delete: impl Fn(XxxId) + 'static,
     set_selected_xxx_id: impl Fn(Option<XxxId>) + 'static,

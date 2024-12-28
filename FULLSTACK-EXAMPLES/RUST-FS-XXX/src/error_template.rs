@@ -6,7 +6,7 @@ use thiserror::Error;
 #[cfg(feature = "ssr")]
 use leptos_axum::ResponseOptions;
 
-use crate::routes::not_found_page::NotFoundPage;
+use crate::routing::page_not_found::PageNotFound;
 
 #[derive(Clone, Debug, Error)]
 pub enum AppError {
@@ -60,7 +60,7 @@ pub fn ErrorTemplate(
             {if errors.iter().any(|e| matches!(e, AppError::NotFound)) {
                 view! {
                     <>
-                        <NotFoundPage />
+                        <PageNotFound />
                     </>
                 }
             } else {
