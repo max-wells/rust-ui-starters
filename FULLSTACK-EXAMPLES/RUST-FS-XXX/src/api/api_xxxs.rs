@@ -2,7 +2,7 @@ use leptos::*;
 use reqwest::Client;
 use web_sys::console;
 
-use crate::models::model_xxxs::{MyXxx, XxxId, NewXxx};
+use crate::features::xxxs::models::xxxs_models::{MyXxx, XxxId, NewXxx};
 
 const BASE_URL_BOOKS: &str = "http://localhost:8000/xxxs";
 

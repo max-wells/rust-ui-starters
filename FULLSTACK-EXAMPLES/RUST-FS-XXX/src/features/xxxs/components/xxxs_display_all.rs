@@ -3,14 +3,12 @@ use leptos_query::*;
 
 use crate::{
     api::api_xxxs::delete_xxx, components::{
-        alert_dialogs::alert_dialog_delete_xxx::AlertDialogDeleteBook, icons::trash2::Trash2, toaster_custom::{toast::ToastVariant, types::Toasts}, ui::button::{Button, ButtonSize, ButtonVariant}
-    },
-    models::model_xxxs::{TagAllXxxs, XxxId, MyXxx},
-    utils::{hooks::queries::queries_xxxs::useAllXxxs, toast_utils::show_toast},
+        icons::trash2::Trash2, toaster_custom::{toast::ToastVariant, types::Toasts}, ui::button::{Button, ButtonSize, ButtonVariant}
+    }, features::xxxs::{components::xxxs_alert_dialog_delete::XxxsAlertDialogDelete, models::{xxxs_models::{MyXxx, TagAllXxxs, XxxId}}, hooks::xxxs_queries::useAllXxxs}, utils::toast_utils::show_toast
 };
 
 #[component]
-pub fn AllXxxs() -> impl IntoView {
+pub fn XxxsDisplayAll() -> impl IntoView {
     let QueryResult {
         data,
         state,
@@ -92,9 +90,9 @@ pub fn AllXxxs() -> impl IntoView {
                                     <li>
                                         <span>"ID : "</span>
                                         <span>{xxx.id.0}</span>
-                                        <span>"Title : "</span>
+                                        <span>"Field One : "</span>
                                         <span>{xxx.field_one}</span>
-                                        <span>"Author : "</span>
+                                        <span>"Field Two : "</span>
                                         <span>{xxx.field_two}</span>
 
                                         <div class="flex gap-2">
@@ -103,7 +101,7 @@ pub fn AllXxxs() -> impl IntoView {
                                                 handle_delete=handle_delete_xxx
                                             />
 
-                                            <AlertDialogDeleteBook
+                                            <XxxsAlertDialogDelete
                                                 server_xxx_id=xxx.id
                                                 handle_delete=handle_delete_xxx
                                                 set_selected_xxx_id=set_selected_xxx_id
