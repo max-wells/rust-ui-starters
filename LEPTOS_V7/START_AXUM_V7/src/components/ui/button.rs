@@ -1,23 +1,23 @@
-use leptos::{attr::Attribute, prelude::*};
+use leptos::prelude::*;
 use rustui_merge::*;
 
 // TODO 💪 Loading state (demo_use_timeout_fn.rs and demo_button.rs)
 
 #[component]
 pub fn Button(
-    #[prop(into, optional)] variant: MaybeSignal<ButtonVariant>,
-    #[prop(into, optional)] size: MaybeSignal<ButtonSize>,
-    #[prop(into, optional)] class: MaybeSignal<String>,
-    #[prop(into, optional)] id: MaybeSignal<String>,
-    #[prop(into, optional)] formmethod: MaybeSignal<String>,
-    #[prop(into, optional)] value: MaybeSignal<String>,
-    #[prop(into, optional)] role: MaybeSignal<String>,
-    #[prop(into, optional)] disabled: MaybeSignal<bool>,
-    #[prop(into, optional)] r#type: MaybeSignal<String>,
+    #[prop(into, optional)] variant: Signal<ButtonVariant>,
+    #[prop(into, optional)] size: Signal<ButtonSize>,
+    #[prop(into, optional)] class: Signal<String>,
+    #[prop(into, optional)] id: Signal<String>,
+    #[prop(into, optional)] formmethod: Signal<String>,
+    #[prop(into, optional)] value: Signal<String>,
+    #[prop(into, optional)] role: Signal<String>,
+    #[prop(into, optional)] disabled: Signal<bool>,
+    #[prop(into, optional)] r#type: Signal<String>,
     // #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,
     children: Children,
 ) -> impl IntoView {
-    let class = create_memo(move |_| {
+    let class = Memo::new(move |_| {
         let variant = variant.get();
         let size = size.get();
         let button = ButtonClass { variant, size };
