@@ -59,6 +59,8 @@ reqwest = { version = "0.12.7", features = ["json"] }
 validator = "0.14"
 validator_derive = "0.14"
 regex = "1.11.0"
+sqlx = { version = "0.8.3", features = ["runtime-tokio-native-tls", "postgres"] }
+dotenv = "0.15.0"
 
 
 

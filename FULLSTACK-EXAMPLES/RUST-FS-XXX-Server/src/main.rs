@@ -7,11 +7,23 @@ async fn main() {
     use leptos::*;
     use leptos_axum::{generate_route_list, LeptosRoutes};
     use tower_default_headers::DefaultHeadersLayer;
+    use sqlx::PgPool;
+    use dotenv::dotenv;
     // Using my own crate:
     use start_axum::app::*;
     use start_axum::fileserv::file_and_error_handler;
 
     simple_logger::init_with_level(log::Level::Info).expect("couldn't initialize logging");
+
+    // Load .env file
+    dotenv().ok();
+    
+    // Set up database connection
+    let database_url = std::env::var("DATABASE_URL")
+        .expect("DATABASE_URL must be set");
+    let pool = PgPool::connect(&database_url)
+        .await
+        .expect("Failed to connect to Postgres");
 
     // Setting get_configuration(None) means we'll be using cargo-leptos's env values
     // For deployment these variables are:
@@ -21,7 +33,10 @@ async fn main() {
     let conf = get_configuration(None).await.unwrap();
     let leptos_options = conf.leptos_options;
     let addr = leptos_options.site_addr;
-    let routes = generate_route_list(|| view! { <App /> });
+    let routes = generate_route_list(move || {
+        provide_context(pool.clone());
+        view! { <App /> }
+    });
 
     let mut default_headers = HeaderMap::new();
     let color_header = HeaderValue::from_static("Sec-CH-Prefers-Color-Scheme");
