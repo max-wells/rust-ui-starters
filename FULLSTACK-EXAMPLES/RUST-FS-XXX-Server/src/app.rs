@@ -9,6 +9,7 @@ use crate::components::tailwind_indicator::TailwindIndicator;
 use crate::error_template::{AppError, ErrorTemplate};
 use crate::routing::page_home::HomePage;
 use crate::routing::page_xxxs::PageXxxs;
+use crate::routing::page_xxxs_server::PageXxxsServer;
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -35,10 +36,11 @@ pub fn App() -> impl IntoView {
             }>
                 <Navbar />
                 <TailwindIndicator />
-                <main class="flex relative flex-col mx-auto w-full min-h-screen">
+                <main class="relative flex flex-col w-full min-h-screen mx-auto">
                     <Routes>
                         <Route path="" view=HomePage />
                         <Route path="/xxxs" view=PageXxxs />
+                        <Route path="/xxxs-server" view=PageXxxsServer />
                     </Routes>
                 </main>
             </Router>
