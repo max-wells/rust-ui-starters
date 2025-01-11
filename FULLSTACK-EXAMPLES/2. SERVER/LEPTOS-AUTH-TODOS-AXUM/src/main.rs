@@ -13,11 +13,12 @@ use leptos::{config::get_configuration, logging::log, prelude::provide_context};
 use leptos_axum::{generate_route_list, handle_server_fns_with_context, LeptosRoutes};
 use session_auth_axum::{
     app::{shell, App},
-    auth::{ssr::AuthSession, User},
+    features::auth::auth::{ssr::AuthSession, User},
     state::AppState,
 };
 use sqlx::{sqlite::SqlitePoolOptions, SqlitePool};
 
+#[axum::debug_handler]
 async fn server_fn_handler(
     State(app_state): State<AppState>,
     auth_session: AuthSession,
@@ -36,6 +37,7 @@ async fn server_fn_handler(
     .await
 }
 
+#[axum::debug_handler]
 async fn leptos_routes_handler(
     auth_session: AuthSession,
     state: State<AppState>,

@@ -1,7 +1,7 @@
 #[cfg(feature = "ssr")]
 pub mod ssr {
     use crate::{
-        auth::{ssr::AuthSession, User},
+        features::auth::auth::{ssr::AuthSession, User},
         features::todos::todos_models::Todo,
     };
     use leptos::prelude::*;

@@ -2,10 +2,13 @@ use leptos::prelude::*;
 use leptos_meta::*;
 use leptos_router::{components::*, *};
 
-use crate::features::auth::login::Login;
-use crate::features::auth::logout::Logout;
-use crate::features::auth::signup::Signup;
-use crate::{auth::*, features::todos::todos_component::TodosComponent};
+use crate::features::auth::auth::get_user;
+use crate::features::auth::auth::{Login, Logout, Signup};
+use crate::features::auth::{
+    login::Login as LoginComponent, logout::Logout as LogoutComponent,
+    signup::Signup as SignupComponent,
+};
+use crate::features::todos::todos_component::TodosComponent;
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
     view! {
@@ -95,8 +98,8 @@ pub fn App() -> impl IntoView {
             <main>
                 <FlatRoutes fallback=|| "Not found.">
                     <Route path=path!("") view=TodosComponent/>
-                    <Route path=path!("signup") view=move || view! { <Signup action=signup/> }/>
-                    <Route path=path!("login") view=move || view! { <Login action=login/> }/>
+                    <Route path=path!("signup") view=move || view! { <SignupComponent action=signup/> }/>
+                    <Route path=path!("login") view=move || view! { <LoginComponent action=login/> }/>
                     <ProtectedRoute
                         path=path!("settings")
                         condition=move || user.get().map(|r| r.ok().flatten().is_some())
@@ -104,7 +107,7 @@ pub fn App() -> impl IntoView {
                         view=move || {
                             view! {
                                 <h1>"Settings"</h1>
-                                <Logout action=logout/>
+                                <LogoutComponent action=logout/>
                             }
                         }
                     />

@@ -1,5 +1,4 @@
 pub mod app;
-pub mod auth;
 pub mod error_template;
 pub mod errors;
 pub mod features;

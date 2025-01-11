@@ -1,7 +1,7 @@
 use leptos::html::*;
 use leptos::prelude::*;
 
-use crate::auth::Login;
+use crate::features::auth::auth::Login;
 
 #[component]
 pub fn Login(action: ServerAction<Login>) -> impl IntoView {
