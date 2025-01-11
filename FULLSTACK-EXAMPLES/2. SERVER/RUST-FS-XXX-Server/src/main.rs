@@ -1,7 +1,7 @@
 #[cfg(feature = "ssr")]
 #[tokio::main]
 async fn main() {
-    use axum::{routing::post, Router};
+    use axum::{routing::get, Router, Json};
     use http::{HeaderMap, HeaderName, HeaderValue};
     use leptos::logging::log;
     use leptos::*;
@@ -9,6 +9,9 @@ async fn main() {
     use tower_default_headers::DefaultHeadersLayer;
     use sqlx::PgPool;
     use dotenv::dotenv;
+    use serde::Serialize;
+    use std::net::SocketAddr;
+
     // Using my own crate:
     use start_axum::app::*;
     use start_axum::fileserv::file_and_error_handler;
@@ -25,11 +28,27 @@ async fn main() {
         .await
         .expect("Failed to connect to Postgres");
 
+    // Define a struct to represent a row in the `xxxs` table
+    #[derive(Serialize)]
+    struct Xxx {
+        id: i32,
+        field_one: String,
+        field_two: String,
+    }
+
+    // Define a handler to query the `xxxs` table
+    async fn get_xxxs(pool: PgPool) -> Result<Json<Vec<Xxx>>, axum::Error> {
+        let rows = sqlx::query_as!(Xxx, "SELECT id, field_one, field_two FROM xxxs")
+            .fetch_all(&pool)
+            .await
+            .map_err(|e| {
+                log::error!("Failed to fetch xxxs: {:?}", e);
+                axum::Error::from(e)
+            })?;
+        Ok(Json(rows))
+    }
+
     // Setting get_configuration(None) means we'll be using cargo-leptos's env values
-    // For deployment these variables are:
-    // <https://github.com/leptos-rs/start-axum#executing-a-server-on-a-remote-machine-without-the-toolchain>
-    // Alternately a file can be specified such as Some("Cargo.toml")
-    // The file would need to be included with the executable when moved to deployment
     let conf = get_configuration(None).await.unwrap();
     let leptos_options = conf.leptos_options;
     let addr = leptos_options.site_addr;
@@ -46,6 +65,7 @@ async fn main() {
 
     // build our application with a route
     let app = Router::new()
+        .route("/api/xxxs", get(get_xxxs))
         .route("/api/*fn_name", post(leptos_axum::handle_server_fns))
         .leptos_routes(&leptos_options, routes, || view! { <App /> })
         .fallback(file_and_error_handler)
