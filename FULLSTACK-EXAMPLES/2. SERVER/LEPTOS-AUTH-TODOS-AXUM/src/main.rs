@@ -12,8 +12,8 @@ use axum_session_sqlx::SessionSqlitePool;
 use leptos::{config::get_configuration, logging::log, prelude::provide_context};
 use leptos_axum::{generate_route_list, handle_server_fns_with_context, LeptosRoutes};
 use session_auth_axum::{
+    app::{shell, App},
     auth::{ssr::AuthSession, User},
-    features::todos::todos_refactor::{shell, TodoApp},
     state::AppState,
 };
 use sqlx::{sqlite::SqlitePoolOptions, SqlitePool};
@@ -92,7 +92,7 @@ async fn main() {
     let conf = get_configuration(None).unwrap();
     let leptos_options = conf.leptos_options;
     let addr = leptos_options.site_addr;
-    let routes = generate_route_list(TodoApp);
+    let routes = generate_route_list(App);
 
     let app_state = AppState {
         leptos_options,
