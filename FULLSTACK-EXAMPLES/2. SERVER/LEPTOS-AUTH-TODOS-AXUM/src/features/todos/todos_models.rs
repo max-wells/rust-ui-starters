@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use crate::features::auth::auth::User;
+use crate::features::auth::auth_models::User;
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Todo {

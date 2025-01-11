@@ -1,36 +1,19 @@
 use leptos::prelude::*;
-use serde::{Deserialize, Serialize};
-use std::collections::HashSet;
 
 #[cfg(feature = "ssr")]
 use crate::utils_ssr::ssr::{auth, pool};
 
-#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
-pub struct User {
-    pub id: i64,
-    pub username: String,
-    pub permissions: HashSet<String>,
-}
+use crate::features::auth::auth_models::User;
 
 // Explicitly is not Serialize/Deserialize!
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct UserPasshash(String);
 
-impl Default for User {
-    fn default() -> Self {
-        let permissions = HashSet::new();
-
-        Self {
-            id: -1,
-            username: "Guest".into(),
-            permissions,
-        }
-    }
-}
-
 #[cfg(feature = "ssr")]
 pub mod ssr {
-    pub use super::{User, UserPasshash};
+    use crate::features::auth::auth_models::User;
+
+    pub use super::UserPasshash;
     pub use axum_session_auth::{Authentication, HasPermission};
     use axum_session_sqlx::SessionSqlitePool;
     pub use sqlx::SqlitePool;
@@ -242,8 +225,6 @@ pub async fn signup(
 
 #[server(Logout, "/api")]
 pub async fn logout() -> Result<(), ServerFnError> {
-    use self::ssr::*;
-
     let auth = auth()?;
 
     auth.logout_user();

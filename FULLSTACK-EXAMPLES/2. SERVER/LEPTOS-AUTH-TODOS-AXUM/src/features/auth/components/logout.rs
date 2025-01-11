@@ -1,7 +1,7 @@
 use leptos::html::*;
 use leptos::prelude::*;
 
-use crate::features::auth::auth::Logout;
+use crate::features::auth::auth_services::Logout;
 
 #[component]
 pub fn Logout(action: ServerAction<Logout>) -> impl IntoView {

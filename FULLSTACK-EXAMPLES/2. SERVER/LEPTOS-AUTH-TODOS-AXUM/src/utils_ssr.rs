@@ -1,8 +1,8 @@
 #[cfg(feature = "ssr")]
 pub mod ssr {
-    use crate::{
-        features::auth::auth::{ssr::AuthSession, User},
-        features::todos::todos_models::Todo,
+    use crate::features::{
+        auth::{auth_models::User, auth_services::ssr::AuthSession},
+        todos::todos_models::Todo,
     };
     use leptos::prelude::*;
     use sqlx::SqlitePool;
