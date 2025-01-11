@@ -2,6 +2,9 @@ use leptos::prelude::*;
 use leptos_meta::*;
 use leptos_router::{components::*, *};
 
+use crate::features::auth::login::Login;
+use crate::features::auth::logout::Logout;
+use crate::features::auth::signup::Signup;
 use crate::{auth::*, features::todos::todos_component::TodosComponent};
 
 #[cfg(feature = "ssr")]
@@ -156,94 +159,5 @@ pub fn TodoApp() -> impl IntoView {
                 </FlatRoutes>
             </main>
         </Router>
-    }
-}
-
-#[component]
-pub fn Login(action: ServerAction<Login>) -> impl IntoView {
-    view! {
-        <ActionForm action=action>
-            <h1>"Log In"</h1>
-            <label>
-                "User ID:"
-                <input
-                    type="text"
-                    placeholder="User ID"
-                    maxlength="32"
-                    name="username"
-                    class="auth-input"
-                />
-            </label>
-            <br/>
-            <label>
-                "Password:"
-                <input type="password" placeholder="Password" name="password" class="auth-input"/>
-            </label>
-            <br/>
-            <label>
-                <input type="checkbox" name="remember" class="auth-input"/>
-                "Remember me?"
-            </label>
-            <br/>
-            <button type="submit" class="button">
-                "Log In"
-            </button>
-        </ActionForm>
-    }
-}
-
-#[component]
-pub fn Signup(action: ServerAction<Signup>) -> impl IntoView {
-    view! {
-        <ActionForm action=action>
-            <h1>"Sign Up"</h1>
-            <label>
-                "User ID:"
-                <input
-                    type="text"
-                    placeholder="User ID"
-                    maxlength="32"
-                    name="username"
-                    class="auth-input"
-                />
-            </label>
-            <br/>
-            <label>
-                "Password:"
-                <input type="password" placeholder="Password" name="password" class="auth-input"/>
-            </label>
-            <br/>
-            <label>
-                "Confirm Password:"
-                <input
-                    type="password"
-                    placeholder="Password again"
-                    name="password_confirmation"
-                    class="auth-input"
-                />
-            </label>
-            <br/>
-            <label>
-                "Remember me?" <input type="checkbox" name="remember" class="auth-input"/>
-            </label>
-
-            <br/>
-            <button type="submit" class="button">
-                "Sign Up"
-            </button>
-        </ActionForm>
-    }
-}
-
-#[component]
-pub fn Logout(action: ServerAction<Logout>) -> impl IntoView {
-    view! {
-        <div id="loginbox">
-            <ActionForm action=action>
-                <button type="submit" class="button">
-                    "Log Out"
-                </button>
-            </ActionForm>
-        </div>
     }
 }
