@@ -2,6 +2,9 @@ use leptos::prelude::*;
 use serde::{Deserialize, Serialize};
 use std::collections::HashSet;
 
+#[cfg(feature = "ssr")]
+use crate::utils_ssr::ssr::{auth, pool};
+
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct User {
     pub id: i64,
@@ -32,28 +35,18 @@ pub mod ssr {
     use axum_session_sqlx::SessionSqlitePool;
     pub use sqlx::SqlitePool;
     pub use std::collections::HashSet;
-    pub type AuthSession = axum_session_auth::AuthSession<
-        User,
-        i64,
-        SessionSqlitePool,
-        SqlitePool,
-    >;
-    pub use crate::todo::ssr::{auth, pool};
+    pub type AuthSession = axum_session_auth::AuthSession<User, i64, SessionSqlitePool, SqlitePool>;
+
     pub use async_trait::async_trait;
     pub use bcrypt::{hash, verify, DEFAULT_COST};
 
     impl User {
-        pub async fn get_with_passhash(
-            id: i64,
-            pool: &SqlitePool,
-        ) -> Option<(Self, UserPasshash)> {
-            let sqluser = sqlx::query_as::<_, SqlUser>(
-                "SELECT * FROM users WHERE id = ?",
-            )
-            .bind(id)
-            .fetch_one(pool)
-            .await
-            .ok()?;
+        pub async fn get_with_passhash(id: i64, pool: &SqlitePool) -> Option<(Self, UserPasshash)> {
+            let sqluser = sqlx::query_as::<_, SqlUser>("SELECT * FROM users WHERE id = ?")
+                .bind(id)
+                .fetch_one(pool)
+                .await
+                .ok()?;
 
             //lets just get all the tokens the user can use, we will only use the full permissions if modifying them.
             let sql_user_perms = sqlx::query_as::<_, SqlPermissionTokens>(
@@ -77,13 +70,11 @@ pub mod ssr {
             name: String,
             pool: &SqlitePool,
         ) -> Option<(Self, UserPasshash)> {
-            let sqluser = sqlx::query_as::<_, SqlUser>(
-                "SELECT * FROM users WHERE username = ?",
-            )
-            .bind(name)
-            .fetch_one(pool)
-            .await
-            .ok()?;
+            let sqluser = sqlx::query_as::<_, SqlUser>("SELECT * FROM users WHERE username = ?")
+                .bind(name)
+                .fetch_one(pool)
+                .await
+                .ok()?;
 
             //lets just get all the tokens the user can use, we will only use the full permissions if modifying them.
             let sql_user_perms = sqlx::query_as::<_, SqlPermissionTokens>(
@@ -97,10 +88,7 @@ pub mod ssr {
             Some(sqluser.into_user(Some(sql_user_perms)))
         }
 
-        pub async fn get_from_username(
-            name: String,
-            pool: &SqlitePool,
-        ) -> Option<Self> {
+        pub async fn get_from_username(name: String, pool: &SqlitePool) -> Option<Self> {
             User::get_from_username_with_passhash(name, pool)
                 .await
                 .map(|(user, _)| user)
@@ -114,10 +102,7 @@ pub mod ssr {
 
     #[async_trait]
     impl Authentication<User, i64, SqlitePool> for User {
-        async fn load_user(
-            userid: i64,
-            pool: Option<&SqlitePool>,
-        ) -> Result<User, anyhow::Error> {
+        async fn load_user(userid: i64, pool: Option<&SqlitePool>) -> Result<User, anyhow::Error> {
             let pool = pool.unwrap();
 
             User::get(userid, pool)
@@ -183,8 +168,6 @@ pub async fn foo() -> Result<String, ServerFnError> {
 
 #[server]
 pub async fn get_user() -> Result<Option<User>, ServerFnError> {
-    use crate::todo::ssr::auth;
-
     let auth = auth()?;
 
     Ok(auth.current_user)
@@ -245,12 +228,9 @@ pub async fn signup(
         .execute(&pool)
         .await?;
 
-    let user =
-        User::get_from_username(username, &pool)
-            .await
-            .ok_or_else(|| {
-                ServerFnError::new("Signup failed: User does not exist.")
-            })?;
+    let user = User::get_from_username(username, &pool)
+        .await
+        .ok_or_else(|| ServerFnError::new("Signup failed: User does not exist."))?;
 
     auth.login_user(user.id);
     auth.remember_user(remember.is_some());
