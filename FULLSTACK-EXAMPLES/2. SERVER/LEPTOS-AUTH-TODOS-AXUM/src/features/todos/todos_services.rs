@@ -4,7 +4,7 @@ use prelude::ServerFnError;
 
 #[server(GetTodos, "/api")]
 pub async fn get_todos() -> Result<Vec<Todo>, ServerFnError> {
-    use crate::features::todos::todos::ssr::{pool, SqlTodo};
+    use crate::utils_ssr::ssr::{pool, SqlTodo};
     use futures::future::join_all;
 
     let pool = pool()?;
@@ -21,7 +21,7 @@ pub async fn get_todos() -> Result<Vec<Todo>, ServerFnError> {
 
 #[server(AddTodo, "/api")]
 pub async fn add_todo(title: String) -> Result<(), ServerFnError> {
-    use crate::features::todos::todos::ssr::*;
+    use crate::utils_ssr::ssr::*;
 
     let user = get_user().await?;
     let pool = pool()?;
@@ -46,7 +46,7 @@ pub async fn add_todo(title: String) -> Result<(), ServerFnError> {
 
 #[server]
 pub async fn delete_todo(id: u16) -> Result<(), ServerFnError> {
-    use crate::features::todos::todos::ssr::*;
+    use crate::utils_ssr::ssr::*;
 
     let pool = pool()?;
 

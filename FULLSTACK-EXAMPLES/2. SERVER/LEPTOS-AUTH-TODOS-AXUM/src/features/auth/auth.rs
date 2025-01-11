@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashSet;
 
 #[cfg(feature = "ssr")]
-use crate::features::todos::todos::ssr::{auth, pool};
+use crate::utils_ssr::ssr::{auth, pool};
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct User {

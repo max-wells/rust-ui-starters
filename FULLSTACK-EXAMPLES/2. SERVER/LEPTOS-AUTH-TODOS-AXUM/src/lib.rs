@@ -4,6 +4,7 @@ pub mod errors;
 pub mod features;
 #[cfg(feature = "ssr")]
 pub mod state;
+pub mod utils_ssr;
 
 #[cfg(feature = "hydrate")]
 #[wasm_bindgen::prelude::wasm_bindgen]

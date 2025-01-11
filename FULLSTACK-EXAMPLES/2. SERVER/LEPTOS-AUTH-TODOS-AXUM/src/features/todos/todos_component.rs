@@ -1,10 +1,7 @@
 use leptos::prelude::*;
 
 use crate::error_template::ErrorTemplate;
-
-use crate::features::todos::todos_services::{
-    add_todo, delete_todo, get_todos, AddTodo, DeleteTodo,
-};
+use crate::features::todos::todos_services::{get_todos, AddTodo, DeleteTodo};
 
 #[component]
 pub fn TodosComponent() -> impl IntoView {
@@ -24,6 +21,7 @@ pub fn TodosComponent() -> impl IntoView {
                 <label>"Add a Todo" <input type="text" name="title"/></label>
                 <input type="submit" value="Add"/>
             </MultiActionForm>
+
             <Transition fallback=move || view! { <p>"Loading..."</p> }>
                 <ErrorBoundary fallback=|errors| {
                     view! { <ErrorTemplate errors=errors/> }
