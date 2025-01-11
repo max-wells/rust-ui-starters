@@ -1,9 +1,8 @@
-use crate::{auth::*, error_template::ErrorTemplate};
 use leptos::prelude::*;
 use leptos_meta::*;
 use leptos_router::{components::*, *};
 
-use crate::features::todos::todos_models::Todo;
+use crate::{auth::*, features::todos::todos_component::TodosComponent};
 
 #[cfg(feature = "ssr")]
 pub mod ssr {
@@ -46,61 +45,9 @@ pub mod ssr {
     }
 }
 
-#[server(GetTodos, "/api")]
-pub async fn get_todos() -> Result<Vec<Todo>, ServerFnError> {
-    use self::ssr::{pool, SqlTodo};
-    use futures::future::join_all;
-
-    let pool = pool()?;
-
-    Ok(join_all(
-        sqlx::query_as::<_, SqlTodo>("SELECT * FROM todos")
-            .fetch_all(&pool)
-            .await?
-            .iter()
-            .map(|todo: &SqlTodo| todo.clone().into_todo(&pool)),
-    )
-    .await)
-}
-
-#[server(AddTodo, "/api")]
-pub async fn add_todo(title: String) -> Result<(), ServerFnError> {
-    use self::ssr::*;
-
-    let user = get_user().await?;
-    let pool = pool()?;
-
-    let id = match user {
-        Some(user) => user.id,
-        None => -1,
-    };
-
-    // fake API delay
-    std::thread::sleep(std::time::Duration::from_millis(1250));
-
-    Ok(
-        sqlx::query("INSERT INTO todos (title, user_id, completed) VALUES (?, ?, false)")
-            .bind(title)
-            .bind(id)
-            .execute(&pool)
-            .await
-            .map(|_| ())?,
-    )
-}
-
-// The struct name and path prefix arguments are optional.
-#[server]
-pub async fn delete_todo(id: u16) -> Result<(), ServerFnError> {
-    use self::ssr::*;
-
-    let pool = pool()?;
-
-    Ok(sqlx::query("DELETE FROM todos WHERE id = $1")
-        .bind(id)
-        .execute(&pool)
-        .await
-        .map(|_| ())?)
-}
+/*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+/*                     ✨ FUNCTIONS ✨                        */
+/*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
     view! {
@@ -191,7 +138,7 @@ pub fn TodoApp() -> impl IntoView {
             <main>
                 <FlatRoutes fallback=|| "Not found.">
                     // Route
-                    <Route path=path!("") view=Todos/>
+                    <Route path=path!("") view=TodosComponent/>
                     <Route path=path!("signup") view=move || view! { <Signup action=signup/> }/>
                     <Route path=path!("login") view=move || view! { <Login action=login/> }/>
                     <ProtectedRoute
@@ -209,89 +156,6 @@ pub fn TodoApp() -> impl IntoView {
                 </FlatRoutes>
             </main>
         </Router>
-    }
-}
-
-#[component]
-pub fn Todos() -> impl IntoView {
-    let add_todo = ServerMultiAction::<AddTodo>::new();
-    let delete_todo = ServerAction::<DeleteTodo>::new();
-    let submissions = add_todo.submissions();
-
-    // list of todos is loaded from the server in reaction to changes
-    let todos = Resource::new(
-        move || (add_todo.version().get(), delete_todo.version().get()),
-        move |_| get_todos(),
-    );
-
-    view! {
-        <div>
-            <MultiActionForm action=add_todo>
-                <label>"Add a Todo" <input type="text" name="title"/></label>
-                <input type="submit" value="Add"/>
-            </MultiActionForm>
-            <Transition fallback=move || view! { <p>"Loading..."</p> }>
-                <ErrorBoundary fallback=|errors| {
-                    view! { <ErrorTemplate errors=errors/> }
-                }>
-                    {move || {
-                        let existing_todos = {
-                            move || {
-                                todos
-                                    .get()
-                                    .map(move |todos| match todos {
-                                        Err(e) => {
-                                            view! {
-                                                <pre class="error">"Server Error: " {e.to_string()}</pre>
-                                            }
-                                                .into_any()
-                                        }
-                                        Ok(todos) => {
-                                            if todos.is_empty() {
-                                                view! { <p>"No tasks were found."</p> }.into_any()
-                                            } else {
-                                                todos
-                                                    .into_iter()
-                                                    .map(move |todo| {
-                                                        view! {
-                                                            <li>
-                                                                {todo.title} ": Created at " {todo.created_at} " by "
-                                                                {todo.user.unwrap_or_default().username}
-                                                                <ActionForm action=delete_todo>
-                                                                    <input type="hidden" name="id" value=todo.id/>
-                                                                    <input type="submit" value="X"/>
-                                                                </ActionForm>
-                                                            </li>
-                                                        }
-                                                    })
-                                                    .collect_view()
-                                                    .into_any()
-                                            }
-                                        }
-                                    })
-                                    .unwrap_or(().into_any())
-                            }
-                        };
-                        let pending_todos = move || {
-                            submissions
-                                .get()
-                                .into_iter()
-                                .filter(|submission| submission.pending().get())
-                                .map(|submission| {
-                                    view! {
-                                        <li class="pending">
-                                            {move || submission.input().get().map(|data| data.title)}
-                                        </li>
-                                    }
-                                })
-                                .collect_view()
-                        };
-                        view! { <ul>{existing_todos} {pending_todos}</ul> }
-                    }}
-
-                </ErrorBoundary>
-            </Transition>
-        </div>
     }
 }
 
