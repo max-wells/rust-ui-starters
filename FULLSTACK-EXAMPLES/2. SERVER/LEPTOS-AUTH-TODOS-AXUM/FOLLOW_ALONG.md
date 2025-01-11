@@ -1,0 +1,7 @@
+
+
+```bash
+cargo leptos watch
+```
+
+
