@@ -1,5 +1,6 @@
 use leptos::prelude::*;
 
+use crate::components::demos::demo_button::DemoButton;
 use crate::error_template::ErrorTemplate;
 use crate::features::todos::todos_services::{get_todos, AddTodo, DeleteTodo};
 
@@ -17,6 +18,9 @@ pub fn TodosComponent() -> impl IntoView {
 
     view! {
         <div>
+        <DemoButton/>
+
+
             <MultiActionForm action=add_todo>
                 <label>"Add a Todo" <input type="text" name="title"/></label>
                 <input type="submit" value="Add"/>
