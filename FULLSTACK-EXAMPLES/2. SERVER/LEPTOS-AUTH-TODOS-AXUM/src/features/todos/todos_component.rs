@@ -1,6 +1,6 @@
 use leptos::prelude::*;
 
-use crate::components::demos::demo_button::DemoButton;
+use crate::components::ui::button::{Button, ButtonVariant};
 use crate::error_template::ErrorTemplate;
 use crate::features::todos::todos_services::{get_todos, AddTodo, DeleteTodo};
 
@@ -18,17 +18,15 @@ pub fn TodosComponent() -> impl IntoView {
 
     view! {
         <div>
-        <DemoButton/>
-
-
             <MultiActionForm action=add_todo>
-                <label>"Add a Todo" <input type="text" name="title"/></label>
-                <input type="submit" value="Add"/>
+                <label>"Add a Todo"</label>
+                <input type="text" name="title" />
+                <Button r#type="submit">"Add"</Button>
             </MultiActionForm>
 
             <Transition fallback=move || view! { <p>"Loading..."</p> }>
                 <ErrorBoundary fallback=|errors| {
-                    view! { <ErrorTemplate errors=errors/> }
+                    view! { <ErrorTemplate errors=errors /> }
                 }>
                     {move || {
                         let existing_todos = {
@@ -54,8 +52,10 @@ pub fn TodosComponent() -> impl IntoView {
                                                                 {todo.title} ": Created at " {todo.created_at} " by "
                                                                 {todo.user.unwrap_or_default().username}
                                                                 <ActionForm action=delete_todo>
-                                                                    <input type="hidden" name="id" value=todo.id/>
-                                                                    <input type="submit" value="X"/>
+                                                                    <input type="hidden" name="id" value=todo.id />
+                                                                    <Button r#type="submit" variant=ButtonVariant::Destructive>
+                                                                        "X"
+                                                                    </Button>
                                                                 </ActionForm>
                                                             </li>
                                                         }

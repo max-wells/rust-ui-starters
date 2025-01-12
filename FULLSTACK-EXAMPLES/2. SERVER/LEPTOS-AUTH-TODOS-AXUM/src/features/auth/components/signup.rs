@@ -1,6 +1,7 @@
 use leptos::html::*;
 use leptos::prelude::*;
 
+use crate::components::ui::button::Button;
 use crate::features::auth::auth_services::Signup;
 
 #[component]
@@ -38,9 +39,9 @@ pub fn Signup(action: ServerAction<Signup>) -> impl IntoView {
                 "Remember me?" <input type="checkbox" name="remember" class="auth-input"/>
             </label>
             <br/>
-            <button type="submit" class="button">
+            <Button r#type="submit">
                 "Sign Up"
-            </button>
+            </Button>
         </ActionForm>
     }
 }
