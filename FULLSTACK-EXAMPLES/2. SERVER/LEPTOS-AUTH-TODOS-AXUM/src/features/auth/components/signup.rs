@@ -1,6 +1,8 @@
 use leptos::html::*;
 use leptos::prelude::*;
 
+use crate::components::ui::button::Button;
+use crate::components::ui::input::Input;
 use crate::features::auth::auth_services::Signup;
 
 #[component]
@@ -9,38 +11,25 @@ pub fn Signup(action: ServerAction<Signup>) -> impl IntoView {
         <ActionForm action=action>
             <h1>"Sign Up"</h1>
             <label>
-                "User ID:"
-                <input
-                    type="text"
-                    placeholder="User ID"
-                    maxlength="32"
-                    name="username"
-                    class="auth-input"
-                />
+                "User ID:" <Input r#type="text" placeholder="User ID" name="username" />/>
             </label>
-            <br/>
+            <br />
             <label>
-                "Password:"
-                <input type="password" placeholder="Password" name="password" class="auth-input"/>
+                "Password:" <Input r#type="password" placeholder="Password" name="password" />
             </label>
-            <br/>
+            <br />
             <label>
                 "Confirm Password:"
-                <input
-                    type="password"
+                <Input
+                    r#type="password"
                     placeholder="Password again"
                     name="password_confirmation"
-                    class="auth-input"
-                />
+                />/>
             </label>
-            <br/>
-            <label>
-                "Remember me?" <input type="checkbox" name="remember" class="auth-input"/>
-            </label>
-            <br/>
-            <button type="submit" class="button">
-                "Sign Up"
-            </button>
+            <br />
+            <label>"Remember me?" <Input r#type="checkbox" name="remember" /></label>
+            <br />
+            <Button r#type="submit">"Sign Up"</Button>
         </ActionForm>
     }
 }

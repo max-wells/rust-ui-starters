@@ -23,7 +23,7 @@ pub async fn get_todos() -> Result<Vec<Todo>, ServerFnError> {
 
 #[server(AddTodo, "/api")]
 pub async fn add_todo(title: String) -> Result<(), ServerFnError> {
-    use crate::utils_ssr::ssr::*;
+    use crate::utils_ssr::ssr::pool; // TODO  remove this import and put it above
 
     let user = get_user().await?;
     let pool = pool()?;
@@ -48,7 +48,7 @@ pub async fn add_todo(title: String) -> Result<(), ServerFnError> {
 
 #[server]
 pub async fn delete_todo(id: u16) -> Result<(), ServerFnError> {
-    use crate::utils_ssr::ssr::*;
+    use crate::utils_ssr::ssr::pool; // TODO  remove this import and put it above
 
     let pool = pool()?;
 

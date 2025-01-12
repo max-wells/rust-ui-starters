@@ -2,6 +2,7 @@ use leptos::prelude::*;
 use leptos_meta::*;
 use leptos_router::{components::*, *};
 
+use crate::components::ui::button::{Button, ButtonVariant};
 use crate::features::auth::auth_services::get_user;
 use crate::features::auth::auth_services::{Login, Logout, Signup};
 use crate::features::auth::components::{login::Login, logout::Logout, signup::Signup};
@@ -12,16 +13,16 @@ pub fn shell(options: LeptosOptions) -> impl IntoView {
         <!DOCTYPE html>
         <html lang="en">
             <head>
-                <meta charset="utf-8"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <AutoReload options=options.clone() />
-                <HydrationScripts options/>
-                <link rel="stylesheet" id="leptos" href="/pkg/session_auth_axum.css"/>
-                <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
-                <MetaTags/>
+                <HydrationScripts options />
+                <link rel="stylesheet" id="leptos" href="/pkg/session_auth_axum.css" />
+                <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+                <MetaTags />
             </head>
             <body>
-                <App/>
+                <App />
             </body>
         </html>
     }
@@ -47,7 +48,7 @@ pub fn App() -> impl IntoView {
 
     view! {
         <Router>
-            <header>
+            <header class="container">
                 <A href="/">
                     <h1>"My Tasks"</h1>
                 </A>
@@ -59,28 +60,33 @@ pub fn App() -> impl IntoView {
                             .map(|user| match user {
                                 Err(e) => {
                                     view! {
-                                        <A href="/signup">"Signup"</A>
-                                        ", "
-                                        <A href="/login">"Login"</A>
-                                        ", "
+                                        <Button variant=ButtonVariant::Secondary>
+                                            <A href="/signup">"Signup"</A>
+                                        </Button>
+                                        <Button variant=ButtonVariant::Secondary>
+                                            <A href="/login">"Login"</A>
+                                        </Button>
                                         <span>{format!("Login error: {}", e)}</span>
                                     }
                                         .into_any()
                                 }
                                 Ok(None) => {
                                     view! {
-                                        <A href="/signup">"Signup"</A>
-                                        ", "
-                                        <A href="/login">"Login"</A>
-                                        ", "
+                                        <Button variant=ButtonVariant::Secondary>
+                                            <A href="/signup">"Signup"</A>
+                                        </Button>
+                                        <Button variant=ButtonVariant::Secondary>
+                                            <A href="/login">"Login"</A>
+                                        </Button>
                                         <span>"Logged out."</span>
                                     }
                                         .into_any()
                                 }
                                 Ok(Some(user)) => {
                                     view! {
-                                        <A href="/settings">"Settings"</A>
-                                        ", "
+                                        <Button variant=ButtonVariant::Secondary>
+                                            <A href="/settings">"Settings"</A>
+                                        </Button>
                                         <span>
                                             {format!("Logged in as: {} ({})", user.username, user.id)}
                                         </span>
@@ -91,12 +97,12 @@ pub fn App() -> impl IntoView {
                     }}
                 </Transition>
             </header>
-            <hr/>
-            <main>
+            <hr />
+            <main class="container">
                 <FlatRoutes fallback=|| "Not found.">
-                    <Route path=path!("") view=TodosComponent/>
-                    <Route path=path!("signup") view=move || view! { <Signup action=signup/> }/>
-                    <Route path=path!("login") view=move || view! { <Login action=login/> }/>
+                    <Route path=path!("") view=TodosComponent />
+                    <Route path=path!("signup") view=move || view! { <Signup action=signup /> } />
+                    <Route path=path!("login") view=move || view! { <Login action=login /> } />
                     <ProtectedRoute
                         path=path!("settings")
                         condition=move || user.get().map(|r| r.ok().flatten().is_some())
@@ -104,7 +110,7 @@ pub fn App() -> impl IntoView {
                         view=move || {
                             view! {
                                 <h1>"Settings"</h1>
-                                <Logout action=logout/>
+                                <Logout action=logout />
                             }
                         }
                     />
