@@ -1,6 +1,7 @@
 use leptos::prelude::*;
 
 use crate::components::ui::button::{Button, ButtonVariant};
+use crate::components::ui::input::Input;
 use crate::error_template::ErrorTemplate;
 use crate::features::todos::todos_services::{get_todos, AddTodo, DeleteTodo};
 
@@ -17,11 +18,13 @@ pub fn TodosComponent() -> impl IntoView {
     );
 
     view! {
-        <div>
+        <div class="mt-4">
             <MultiActionForm action=add_todo>
-                <label>"Add a Todo"</label>
-                <input type="text" name="title" />
-                <Button r#type="submit">"Add"</Button>
+                <div class="flex max-w-md gap-4 p-4 border rounded-md bg-accent">
+                    <label>"Add a Todo"</label>
+                    <Input r#type="text" name="title" />
+                    <Button r#type="submit">"Add"</Button>
+                </div>
             </MultiActionForm>
 
             <Transition fallback=move || view! { <p>"Loading..."</p> }>
