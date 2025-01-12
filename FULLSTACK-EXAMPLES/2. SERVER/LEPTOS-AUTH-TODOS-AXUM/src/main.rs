@@ -13,7 +13,7 @@ use leptos::{config::get_configuration, logging::log, prelude::provide_context};
 use leptos_axum::{generate_route_list, handle_server_fns_with_context, LeptosRoutes};
 use session_auth_axum::{
     app::{shell, App},
-    features::auth::auth::{ssr::AuthSession, User},
+    features::auth::{auth_models::User, auth_services::ssr::AuthSession},
     state::AppState,
 };
 use sqlx::{sqlite::SqlitePoolOptions, SqlitePool};

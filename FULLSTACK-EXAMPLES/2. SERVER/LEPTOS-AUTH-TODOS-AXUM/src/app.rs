@@ -2,8 +2,8 @@ use leptos::prelude::*;
 use leptos_meta::*;
 use leptos_router::{components::*, *};
 
-use crate::features::auth::auth::get_user;
-use crate::features::auth::auth::{Login, Logout, Signup};
+use crate::features::auth::auth_services::get_user;
+use crate::features::auth::auth_services::{Login, Logout, Signup};
 use crate::features::auth::components::{login::Login, logout::Logout, signup::Signup};
 use crate::features::todos::todos_component::TodosComponent;
 

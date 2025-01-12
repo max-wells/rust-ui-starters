@@ -1,7 +1,7 @@
 use leptos::html::*;
 use leptos::prelude::*;
 
-use crate::features::auth::auth::Signup;
+use crate::features::auth::auth_services::Signup;
 
 #[component]
 pub fn Signup(action: ServerAction<Signup>) -> impl IntoView {

@@ -1,11 +1,13 @@
-use crate::features::{auth::auth::get_user, todos::todos_models::Todo};
+use futures::future::join_all;
 use leptos::*;
 use prelude::ServerFnError;
 
+use crate::features::{auth::auth_services::get_user, todos::todos_models::Todo};
+// use crate::utils_ssr::ssr::{pool, SqlTodo}; // TODO  be able to have the import here
+
 #[server(GetTodos, "/api")]
 pub async fn get_todos() -> Result<Vec<Todo>, ServerFnError> {
-    use crate::utils_ssr::ssr::{pool, SqlTodo};
-    use futures::future::join_all;
+    use crate::utils_ssr::ssr::{pool, SqlTodo}; // TODO  remove this import and put it above
 
     let pool = pool()?;
 
